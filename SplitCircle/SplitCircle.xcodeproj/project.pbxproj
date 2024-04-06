@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229103D2BC1905B000FE888 /* SplitCircleApp.swift */; };
+		222910402BC1905B000FE888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229103F2BC1905B000FE888 /* ContentView.swift */; };
+		222910422BC1905B000FE888 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910412BC1905B000FE888 /* Item.swift */; };
+		222910442BC1905C000FE888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222910432BC1905C000FE888 /* Assets.xcassets */; };
+		222910472BC1905C000FE888 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222910462BC1905C000FE888 /* Preview Assets.xcassets */; };
+		222910532BC1905C000FE888 /* SplitCircleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910522BC1905C000FE888 /* SplitCircleTests.swift */; };
+		2229105D2BC1905C000FE888 /* SplitCircleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229105C2BC1905C000FE888 /* SplitCircleUITests.swift */; };
+		2229105F2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229105E2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2229104F2BC1905C000FE888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 222910322BC1905B000FE888 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 222910392BC1905B000FE888;
+			remoteInfo = SplitCircle;
+		};
+		222910592BC1905C000FE888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 222910322BC1905B000FE888 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 222910392BC1905B000FE888;
+			remoteInfo = SplitCircle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2229103A2BC1905B000FE888 /* SplitCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2229103D2BC1905B000FE888 /* SplitCircleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleApp.swift; sourceTree = "<group>"; };
+		2229103F2BC1905B000FE888 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		222910412BC1905B000FE888 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		222910432BC1905C000FE888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		222910462BC1905C000FE888 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		222910482BC1905C000FE888 /* SplitCircle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplitCircle.entitlements; sourceTree = "<group>"; };
+		222910492BC1905C000FE888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2229104E2BC1905C000FE888 /* SplitCircleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitCircleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		222910522BC1905C000FE888 /* SplitCircleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleTests.swift; sourceTree = "<group>"; };
+		222910582BC1905C000FE888 /* SplitCircleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitCircleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2229105C2BC1905C000FE888 /* SplitCircleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleUITests.swift; sourceTree = "<group>"; };
+		2229105E2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		222910372BC1905B000FE888 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2229104B2BC1905C000FE888 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222910552BC1905C000FE888 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		222910312BC1905B000FE888 = {
+			isa = PBXGroup;
+			children = (
+				2229103C2BC1905B000FE888 /* SplitCircle */,
+				222910512BC1905C000FE888 /* SplitCircleTests */,
+				2229105B2BC1905C000FE888 /* SplitCircleUITests */,
+				2229103B2BC1905B000FE888 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2229103B2BC1905B000FE888 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2229103A2BC1905B000FE888 /* SplitCircle.app */,
+				2229104E2BC1905C000FE888 /* SplitCircleTests.xctest */,
+				222910582BC1905C000FE888 /* SplitCircleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2229103C2BC1905B000FE888 /* SplitCircle */ = {
+			isa = PBXGroup;
+			children = (
+				2229103D2BC1905B000FE888 /* SplitCircleApp.swift */,
+				2229103F2BC1905B000FE888 /* ContentView.swift */,
+				222910412BC1905B000FE888 /* Item.swift */,
+				222910432BC1905C000FE888 /* Assets.xcassets */,
+				222910482BC1905C000FE888 /* SplitCircle.entitlements */,
+				222910492BC1905C000FE888 /* Info.plist */,
+				222910452BC1905C000FE888 /* Preview Content */,
+			);
+			path = SplitCircle;
+			sourceTree = "<group>";
+		};
+		222910452BC1905C000FE888 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				222910462BC1905C000FE888 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		222910512BC1905C000FE888 /* SplitCircleTests */ = {
+			isa = PBXGroup;
+			children = (
+				222910522BC1905C000FE888 /* SplitCircleTests.swift */,
+			);
+			path = SplitCircleTests;
+			sourceTree = "<group>";
+		};
+		2229105B2BC1905C000FE888 /* SplitCircleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2229105C2BC1905C000FE888 /* SplitCircleUITests.swift */,
+				2229105E2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift */,
+			);
+			path = SplitCircleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		222910392BC1905B000FE888 /* SplitCircle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222910622BC1905C000FE888 /* Build configuration list for PBXNativeTarget "SplitCircle" */;
+			buildPhases = (
+				222910362BC1905B000FE888 /* Sources */,
+				222910372BC1905B000FE888 /* Frameworks */,
+				222910382BC1905B000FE888 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SplitCircle;
+			productName = SplitCircle;
+			productReference = 2229103A2BC1905B000FE888 /* SplitCircle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2229104D2BC1905C000FE888 /* SplitCircleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222910652BC1905C000FE888 /* Build configuration list for PBXNativeTarget "SplitCircleTests" */;
+			buildPhases = (
+				2229104A2BC1905C000FE888 /* Sources */,
+				2229104B2BC1905C000FE888 /* Frameworks */,
+				2229104C2BC1905C000FE888 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				222910502BC1905C000FE888 /* PBXTargetDependency */,
+			);
+			name = SplitCircleTests;
+			productName = SplitCircleTests;
+			productReference = 2229104E2BC1905C000FE888 /* SplitCircleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		222910572BC1905C000FE888 /* SplitCircleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222910682BC1905C000FE888 /* Build configuration list for PBXNativeTarget "SplitCircleUITests" */;
+			buildPhases = (
+				222910542BC1905C000FE888 /* Sources */,
+				222910552BC1905C000FE888 /* Frameworks */,
+				222910562BC1905C000FE888 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2229105A2BC1905C000FE888 /* PBXTargetDependency */,
+			);
+			name = SplitCircleUITests;
+			productName = SplitCircleUITests;
+			productReference = 222910582BC1905C000FE888 /* SplitCircleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		222910322BC1905B000FE888 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					222910392BC1905B000FE888 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					2229104D2BC1905C000FE888 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 222910392BC1905B000FE888;
+					};
+					222910572BC1905C000FE888 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 222910392BC1905B000FE888;
+					};
+				};
+			};
+			buildConfigurationList = 222910352BC1905B000FE888 /* Build configuration list for PBXProject "SplitCircle" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 222910312BC1905B000FE888;
+			productRefGroup = 2229103B2BC1905B000FE888 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				222910392BC1905B000FE888 /* SplitCircle */,
+				2229104D2BC1905C000FE888 /* SplitCircleTests */,
+				222910572BC1905C000FE888 /* SplitCircleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		222910382BC1905B000FE888 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222910472BC1905C000FE888 /* Preview Assets.xcassets in Resources */,
+				222910442BC1905C000FE888 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2229104C2BC1905C000FE888 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222910562BC1905C000FE888 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		222910362BC1905B000FE888 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222910402BC1905B000FE888 /* ContentView.swift in Sources */,
+				222910422BC1905B000FE888 /* Item.swift in Sources */,
+				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2229104A2BC1905C000FE888 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222910532BC1905C000FE888 /* SplitCircleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222910542BC1905C000FE888 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2229105D2BC1905C000FE888 /* SplitCircleUITests.swift in Sources */,
+				2229105F2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		222910502BC1905C000FE888 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 222910392BC1905B000FE888 /* SplitCircle */;
+			targetProxy = 2229104F2BC1905C000FE888 /* PBXContainerItemProxy */;
+		};
+		2229105A2BC1905C000FE888 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 222910392BC1905B000FE888 /* SplitCircle */;
+			targetProxy = 222910592BC1905C000FE888 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		222910602BC1905C000FE888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		222910612BC1905C000FE888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		222910632BC1905C000FE888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SplitCircle/SplitCircle.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SplitCircle/Preview Content\"";
+				DEVELOPMENT_TEAM = M8XH5S3MW8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SplitCircle/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		222910642BC1905C000FE888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SplitCircle/SplitCircle.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SplitCircle/Preview Content\"";
+				DEVELOPMENT_TEAM = M8XH5S3MW8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SplitCircle/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		222910662BC1905C000FE888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M8XH5S3MW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SplitCircle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SplitCircle";
+			};
+			name = Debug;
+		};
+		222910672BC1905C000FE888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M8XH5S3MW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SplitCircle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SplitCircle";
+			};
+			name = Release;
+		};
+		222910692BC1905C000FE888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M8XH5S3MW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SplitCircle;
+			};
+			name = Debug;
+		};
+		2229106A2BC1905C000FE888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M8XH5S3MW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SplitCircle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		222910352BC1905B000FE888 /* Build configuration list for PBXProject "SplitCircle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222910602BC1905C000FE888 /* Debug */,
+				222910612BC1905C000FE888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222910622BC1905C000FE888 /* Build configuration list for PBXNativeTarget "SplitCircle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222910632BC1905C000FE888 /* Debug */,
+				222910642BC1905C000FE888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222910652BC1905C000FE888 /* Build configuration list for PBXNativeTarget "SplitCircleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222910662BC1905C000FE888 /* Debug */,
+				222910672BC1905C000FE888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222910682BC1905C000FE888 /* Build configuration list for PBXNativeTarget "SplitCircleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222910692BC1905C000FE888 /* Debug */,
+				2229106A2BC1905C000FE888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 222910322BC1905B000FE888 /* Project object */;
+}
