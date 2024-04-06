@@ -20,6 +20,7 @@
 		222910712BC1925D000FE888 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910702BC1925D000FE888 /* Group.swift */; };
 		222910732BC192A4000FE888 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910722BC192A4000FE888 /* User.swift */; };
 		222910762BC1995C000FE888 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910752BC1995C000FE888 /* HomeView.swift */; };
+		222910782BC1CADF000FE888 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910772BC1CADF000FE888 /* ActivityCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		222910702BC1925D000FE888 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		222910722BC192A4000FE888 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		222910752BC1995C000FE888 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		222910772BC1CADF000FE888 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				2229103F2BC1905B000FE888 /* ContentView.swift */,
 				222910752BC1995C000FE888 /* HomeView.swift */,
+				222910772BC1CADF000FE888 /* ActivityCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				222910712BC1925D000FE888 /* Group.swift in Sources */,
 				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
 				222910762BC1995C000FE888 /* HomeView.swift in Sources */,
+				222910782BC1CADF000FE888 /* ActivityCardView.swift in Sources */,
 				2229106F2BC19198000FE888 /* Payee.swift in Sources */,
 				222910732BC192A4000FE888 /* User.swift in Sources */,
 			);
