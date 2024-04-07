@@ -13,9 +13,9 @@ final class User {
     @Attribute(.unique) var id: String
     var email: String
     var name: String
-    var loginDate: Date
+    var loginDate: Date?
     
-    init(id: String, email: String, name: String, loginDate: Date) {
+    init(id: String, email: String, name: String, loginDate: Date? = nil) {
         self.id = id
         self.email = email
         self.name = name

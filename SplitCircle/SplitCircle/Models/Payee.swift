@@ -15,9 +15,9 @@ final class Payee {
     var amount: Double
     
     
-    init(id: String, name: String, share: Double) {
+    init(id: String, name: String, amount: Double) {
         self.id = id
         self.name = name
-        self.amount = share
+        self.amount = amount
     }
 }

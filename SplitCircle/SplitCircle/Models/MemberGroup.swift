@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Group {
+final class MemberGroup {
     @Attribute(.unique) var id: String
     var name: String
     var members: [User]
