@@ -1,5 +1,5 @@
 //
-//  Group.swift
+//  MemberGroup.swift
 //  SplitCircle
 //
 //  Created by XIANGYU KONG on 4/6/24.
@@ -14,7 +14,7 @@ final class MemberGroup {
     var name: String
     var members: [User]
     var type: String?
-    
+
     init(id: String, members: [User], name: String, type: String? = nil) {
         self.id = id
         self.name = name

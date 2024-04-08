@@ -5,8 +5,8 @@
 //  Created by XIANGYU KONG on 4/6/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
@@ -39,7 +39,7 @@ struct ContentView: View {
             Text("Select an item")
         }
     }
-    
+
     private func addUser() {
         withAnimation {
             let newUser = User(id: UUID().uuidString, email: "test@g.com", name: "xiangyu")

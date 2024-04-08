@@ -13,8 +13,7 @@ final class Payee {
     @Attribute(.unique) var id: String
     var name: String
     var amount: Double
-    
-    
+
     init(id: String, name: String, amount: Double) {
         self.id = id
         self.name = name

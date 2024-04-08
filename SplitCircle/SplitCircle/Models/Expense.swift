@@ -18,7 +18,7 @@ final class Expense {
     var payees: [Payee]
     var category: String
     var notes: String?
-    
+
     init(id: String, title: String, amount: Double, expenseDate: Date, payer: String, payees: [Payee], category: String, notes: String) {
         self.id = id
         self.title = title
@@ -30,4 +30,3 @@ final class Expense {
         self.notes = notes
     }
 }
-

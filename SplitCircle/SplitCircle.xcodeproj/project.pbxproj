@@ -19,9 +19,11 @@
 		222910712BC1925D000FE888 /* MemberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910702BC1925D000FE888 /* MemberGroup.swift */; };
 		222910732BC192A4000FE888 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910722BC192A4000FE888 /* User.swift */; };
 		222910762BC1995C000FE888 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910752BC1995C000FE888 /* HomeView.swift */; };
-		222910782BC1CADF000FE888 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910772BC1CADF000FE888 /* ActivityCardView.swift */; };
+		222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910772BC1CADF000FE888 /* ActivityRow.swift */; };
 		2229107B2BC1D7EF000FE888 /* Preview+ModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229107A2BC1D7EF000FE888 /* Preview+ModelContainer.swift */; };
 		222910802BC1D9B6000FE888 /* SampleData+Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229107F2BC1D9B6000FE888 /* SampleData+Expense.swift */; };
+		222910842BC361B4000FE888 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910832BC361B4000FE888 /* ModelContainerPreview.swift */; };
+		2229108A2BC38BCD000FE888 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910892BC38BCD000FE888 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +61,11 @@
 		222910702BC1925D000FE888 /* MemberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGroup.swift; sourceTree = "<group>"; };
 		222910722BC192A4000FE888 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		222910752BC1995C000FE888 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		222910772BC1CADF000FE888 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
+		222910772BC1CADF000FE888 /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
 		2229107A2BC1D7EF000FE888 /* Preview+ModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+ModelContainer.swift"; sourceTree = "<group>"; };
 		2229107F2BC1D9B6000FE888 /* SampleData+Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleData+Expense.swift"; sourceTree = "<group>"; };
+		222910832BC361B4000FE888 /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
+		222910892BC38BCD000FE888 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 				2229106E2BC19198000FE888 /* Payee.swift */,
 				222910702BC1925D000FE888 /* MemberGroup.swift */,
 				222910722BC192A4000FE888 /* User.swift */,
+				222910892BC38BCD000FE888 /* MockData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,7 +171,7 @@
 			children = (
 				2229103F2BC1905B000FE888 /* ContentView.swift */,
 				222910752BC1995C000FE888 /* HomeView.swift */,
-				222910772BC1CADF000FE888 /* ActivityCardView.swift */,
+				222910772BC1CADF000FE888 /* ActivityRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				2229107A2BC1D7EF000FE888 /* Preview+ModelContainer.swift */,
+				222910832BC361B4000FE888 /* ModelContainerPreview.swift */,
 			);
 			path = PreviewHelper;
 			sourceTree = "<group>";
@@ -318,13 +324,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2229106D2BC1910A000FE888 /* Expense.swift in Sources */,
+				2229108A2BC38BCD000FE888 /* MockData.swift in Sources */,
 				222910802BC1D9B6000FE888 /* SampleData+Expense.swift in Sources */,
 				222910402BC1905B000FE888 /* ContentView.swift in Sources */,
 				222910712BC1925D000FE888 /* MemberGroup.swift in Sources */,
 				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
 				222910762BC1995C000FE888 /* HomeView.swift in Sources */,
 				2229107B2BC1D7EF000FE888 /* Preview+ModelContainer.swift in Sources */,
-				222910782BC1CADF000FE888 /* ActivityCardView.swift in Sources */,
+				222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */,
+				222910842BC361B4000FE888 /* ModelContainerPreview.swift in Sources */,
 				2229106F2BC19198000FE888 /* Payee.swift in Sources */,
 				222910732BC192A4000FE888 /* User.swift in Sources */,
 			);
