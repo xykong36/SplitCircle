@@ -15,6 +15,7 @@ struct HomeView: View {
             // Balance Card
 
             // Group Section
+            GroupRow(groups: simpleMemberGroups)
 
             // Activities Section
             NavigationBarTitleView()
