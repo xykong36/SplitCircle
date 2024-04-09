@@ -32,7 +32,7 @@ struct GroupRow: View {
                                 .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                                 .frame(width: 40, height: 120)
                         )
-                }.padding(.horizontal, 10)
+                }.padding(.horizontal, 8)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .bottom, spacing: 5) {
