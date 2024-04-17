@@ -5,19 +5,21 @@
 //  Created by XIANGYU KONG on 4/6/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct SplitCircleApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Expense.self, User.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+//            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return container
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
@@ -25,7 +27,7 @@ struct SplitCircleApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
         .modelContainer(sharedModelContainer)
     }
