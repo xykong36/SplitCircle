@@ -50,11 +50,6 @@ struct BillCardView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     Spacer()
-                    Image(systemName: "calculator")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 48)
-                        .foregroundColor(.white)
                 }
             }
             .padding()
@@ -119,33 +114,3 @@ struct ActivitiesView: View {
     HomeView()
 }
 
-// private struct ActivitySection: View {
-//
-//    var body: some View {
-//        VStack(alignment: .leading) {
-//            Text("Activities")
-//                .font(.headline)
-//                .padding(.leading)
-//
-//            ScrollView(.vertical, showsIndicators: false) {
-//                VStack(spacing: 10) {
-//                    ForEach(expenseViewModel.expenses.sorted { $0.timestamp > $1.timestamp }.prefix(3)) { expense in
-//                        NavigationLink(destination: ExpenseDetailView(entry: expense)) {
-//                            ActivityCardView(expense: expense)
-//                        }
-//                        .buttonStyle(PlainButtonStyle())
-//                    }
-//
-//                    // "Show All" Button
-//                    NavigationLink(destination: ActivityView(expenseViewModel: expenseViewModel)) {
-//                        Text("Show All")
-//                            .foregroundColor(.blue)
-//                    }
-//                    .padding(.top, 5)
-//                }
-//                .padding(.horizontal)
-//            }
-//            .frame(maxHeight: 400) // Set a max height for the scroll view
-//        }
-//    }
-// }
