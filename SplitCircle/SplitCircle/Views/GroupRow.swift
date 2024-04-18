@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupRow: View {
-    var groups: [SimpleMemberGroup]
+    var groups: [MemberGroup]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -38,7 +38,7 @@ struct GroupRow: View {
                     HStack(alignment: .bottom, spacing: 5) {
                         ForEach(groups) { group in
                             NavigationLink {
-                                GroupDetail(group: group)
+                                GroupDetailView(group: group)
                             } label: {
                                 GroupItem(group: group)
                             }
@@ -54,7 +54,7 @@ struct GroupRow: View {
 
 
 private struct GroupItem: View {
-    var group: SimpleMemberGroup
+    var group: MemberGroup
 
     var body: some View {
         ZStack {

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct GroupDetail: View {
-    var group: SimpleMemberGroup
+struct GroupDetailView: View {
+    var group: MemberGroup
     
     var body: some View {
         Text(group.name)
@@ -17,5 +17,5 @@ struct GroupDetail: View {
 }
 
 #Preview {
-    GroupDetail(group: simpleMemberGroups[0])
+    GroupDetailView(group: simpleMemberGroups[0])
 }

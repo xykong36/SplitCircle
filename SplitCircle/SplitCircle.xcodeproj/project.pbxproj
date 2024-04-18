@@ -20,7 +20,12 @@
 		222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910772BC1CADF000FE888 /* ActivityRow.swift */; };
 		2229108A2BC38BCD000FE888 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910892BC38BCD000FE888 /* MockData.swift */; };
 		2229108C2BC4E1A0000FE888 /* GroupRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229108B2BC4E1A0000FE888 /* GroupRow.swift */; };
-		2229108E2BC4E266000FE888 /* GroupDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229108D2BC4E266000FE888 /* GroupDetail.swift */; };
+		2229108E2BC4E266000FE888 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229108D2BC4E266000FE888 /* GroupDetailView.swift */; };
+		22E83ECB2BD0AA2D00D49000 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */; };
+		22E83ECD2BD0AAE200D49000 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECC2BD0AAE200D49000 /* Activity.swift */; };
+		22E83ECF2BD0AB0800D49000 /* BillCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECE2BD0AB0800D49000 /* BillCardView.swift */; };
+		22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */; };
+		22E83ED32BD0AB8E00D49000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED22BD0AB8E00D49000 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +64,12 @@
 		222910772BC1CADF000FE888 /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
 		222910892BC38BCD000FE888 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		2229108B2BC4E1A0000FE888 /* GroupRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRow.swift; sourceTree = "<group>"; };
-		2229108D2BC4E266000FE888 /* GroupDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetail.swift; sourceTree = "<group>"; };
+		2229108D2BC4E266000FE888 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
+		22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
+		22E83ECC2BD0AAE200D49000 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		22E83ECE2BD0AB0800D49000 /* BillCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCardView.swift; sourceTree = "<group>"; };
+		22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGroup.swift; sourceTree = "<group>"; };
+		22E83ED22BD0AB8E00D49000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +162,9 @@
 				2229106C2BC1910A000FE888 /* Expense.swift */,
 				2229106E2BC19198000FE888 /* Payee.swift */,
 				222910892BC38BCD000FE888 /* MockData.swift */,
+				22E83ECC2BD0AAE200D49000 /* Activity.swift */,
+				22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */,
+				22E83ED22BD0AB8E00D49000 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,7 +176,9 @@
 				222910752BC1995C000FE888 /* HomeView.swift */,
 				222910772BC1CADF000FE888 /* ActivityRow.swift */,
 				2229108B2BC4E1A0000FE888 /* GroupRow.swift */,
-				2229108D2BC4E266000FE888 /* GroupDetail.swift */,
+				2229108D2BC4E266000FE888 /* GroupDetailView.swift */,
+				22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */,
+				22E83ECE2BD0AB0800D49000 /* BillCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,13 +315,18 @@
 			files = (
 				2229106D2BC1910A000FE888 /* Expense.swift in Sources */,
 				2229108A2BC38BCD000FE888 /* MockData.swift in Sources */,
-				2229108E2BC4E266000FE888 /* GroupDetail.swift in Sources */,
+				2229108E2BC4E266000FE888 /* GroupDetailView.swift in Sources */,
 				222910402BC1905B000FE888 /* ContentView.swift in Sources */,
 				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
 				222910762BC1995C000FE888 /* HomeView.swift in Sources */,
+				22E83ED32BD0AB8E00D49000 /* User.swift in Sources */,
 				222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */,
+				22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */,
 				2229106F2BC19198000FE888 /* Payee.swift in Sources */,
 				2229108C2BC4E1A0000FE888 /* GroupRow.swift in Sources */,
+				22E83ECF2BD0AB0800D49000 /* BillCardView.swift in Sources */,
+				22E83ECD2BD0AAE200D49000 /* Activity.swift in Sources */,
+				22E83ECB2BD0AA2D00D49000 /* ActivitiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
