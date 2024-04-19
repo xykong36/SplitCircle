@@ -10,7 +10,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello Content View")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+
+            AddExpenseView()
+                .tabItem {
+                    Label("", image: "Others")
+                }
+            
+            SettingView()
+                .tabItem {
+                    Label("Setting", systemImage: "gearshape.fill")
+                }
+
+        }
+    }
+}
+
+private struct TabImageView: View {
+    let imageName: String
+
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 5, height: 5)
+
     }
 }
 

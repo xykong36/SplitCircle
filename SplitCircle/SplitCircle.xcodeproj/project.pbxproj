@@ -26,6 +26,9 @@
 		22E83ECF2BD0AB0800D49000 /* BillCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECE2BD0AB0800D49000 /* BillCardView.swift */; };
 		22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */; };
 		22E83ED32BD0AB8E00D49000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED22BD0AB8E00D49000 /* User.swift */; };
+		D1BAFDED2BD0B6B800524D3A /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */; };
+		D1BAFDEF2BD0B83200524D3A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEE2BD0B83200524D3A /* SettingView.swift */; };
+		D1BAFDF12BD3386B00524D3A /* MyDebtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDF02BD3386B00524D3A /* MyDebtsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		22E83ECE2BD0AB0800D49000 /* BillCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCardView.swift; sourceTree = "<group>"; };
 		22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGroup.swift; sourceTree = "<group>"; };
 		22E83ED22BD0AB8E00D49000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		D1BAFDEE2BD0B83200524D3A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		D1BAFDF02BD3386B00524D3A /* MyDebtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDebtsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,9 @@
 				2229108D2BC4E266000FE888 /* GroupDetailView.swift */,
 				22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */,
 				22E83ECE2BD0AB0800D49000 /* BillCardView.swift */,
+				D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */,
+				D1BAFDEE2BD0B83200524D3A /* SettingView.swift */,
+				D1BAFDF02BD3386B00524D3A /* MyDebtsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,13 +327,16 @@
 				2229108E2BC4E266000FE888 /* GroupDetailView.swift in Sources */,
 				222910402BC1905B000FE888 /* ContentView.swift in Sources */,
 				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
+				D1BAFDEF2BD0B83200524D3A /* SettingView.swift in Sources */,
 				222910762BC1995C000FE888 /* HomeView.swift in Sources */,
 				22E83ED32BD0AB8E00D49000 /* User.swift in Sources */,
+				D1BAFDF12BD3386B00524D3A /* MyDebtsView.swift in Sources */,
 				222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */,
 				22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */,
 				2229106F2BC19198000FE888 /* Payee.swift in Sources */,
 				2229108C2BC4E1A0000FE888 /* GroupRow.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* BillCardView.swift in Sources */,
+				D1BAFDED2BD0B6B800524D3A /* AddExpenseView.swift in Sources */,
 				22E83ECD2BD0AAE200D49000 /* Activity.swift in Sources */,
 				22E83ECB2BD0AA2D00D49000 /* ActivitiesView.swift in Sources */,
 			);
