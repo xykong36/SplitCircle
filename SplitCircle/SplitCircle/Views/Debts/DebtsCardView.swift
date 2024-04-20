@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BillCardView: View {
+struct DebtsCardView: View {
     var body: some View {
         ZStack {
             // Background
@@ -44,5 +44,5 @@ struct BillCardView: View {
 
 
 #Preview {
-    BillCardView()
+    DebtsCardView()
 }
