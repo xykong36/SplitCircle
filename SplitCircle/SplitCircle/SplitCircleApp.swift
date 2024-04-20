@@ -14,5 +14,6 @@ struct SplitCircleApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Activity.self)
     }
 }

@@ -67,5 +67,5 @@ private struct ImageIconView: View {
 }
 
 #Preview {
-    ActivityRow(activity: activities[0])
+    ActivityRow(activity: MockData.activities[0])
 }
