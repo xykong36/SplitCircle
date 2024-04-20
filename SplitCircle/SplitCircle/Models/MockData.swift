@@ -7,12 +7,13 @@
 
 import Foundation
 
-
-var activities: [Activity] = [
-    Activity(title: "Expense name", date: Date(), groupName: "Group name", amount: 11165.12),
-    Activity(title: "English Coursenameeeeeeeeeeeeee", date: Date(), groupName: "Group namededsdadsdsadasdfefraefee", amount: 13.65),
-    Activity(title: "BBQ Expense", date: Date(), groupName: "CLT Travel 2024", amount: 15.28),
-]
+struct MockData {
+    static var activities: [Activity] = [
+        Activity(title: "Expense name", date: Date(), groupName: "Group name", amount: 11165.10),
+        Activity(title: "English Coursenameeeeeeeeeeeeee", date: Date(), groupName: "Group namededsdadsdsadasdfefraefee", amount: 1322.65),
+        Activity(title: "BBQ Expense", date: Date(), groupName: "CLT Travel 2024", amount: 15.28),
+    ]
+}
 
 var simpleUser1 = User(id: "1", email: "test1@a.com", name: "Alice")
 var simpleUser2 = User(id: "2", email: "test2@a.com", name: "Bob")

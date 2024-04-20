@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 // Custom navigation bar title view with integrated "View all" button
 struct ActivitiesTitleView: View {
@@ -22,7 +23,13 @@ struct ActivitiesTitleView: View {
 
 // Main view that includes the NavigationStack and List
 struct ActivitiesView: View {
+    @Query private var activities: [Activity]
+    @Environment(\.modelContext) private var modelContext
     var body: some View {
+        Button("Add Activity") {
+            let newActivity = Activity(title: "Activity from Model context", date: Date(), groupName: "Group name", amount: 8885.10)
+            modelContext.insert(newActivity)
+        }
         List(activities, id: \.title) { activity in
             NavigationLink {
                 ActivityDetailView()

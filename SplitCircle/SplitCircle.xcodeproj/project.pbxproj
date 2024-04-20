@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221A549B2BD0B8310049A907 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A549A2BD0B8310049A907 /* PreviewSampleData.swift */; };
 		2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229103D2BC1905B000FE888 /* SplitCircleApp.swift */; };
 		222910402BC1905B000FE888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229103F2BC1905B000FE888 /* ContentView.swift */; };
 		222910442BC1905C000FE888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222910432BC1905C000FE888 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221A549A2BD0B8310049A907 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		2229103A2BC1905B000FE888 /* SplitCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2229103D2BC1905B000FE888 /* SplitCircleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleApp.swift; sourceTree = "<group>"; };
 		2229103F2BC1905B000FE888 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221A549C2BD0B91E0049A907 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				221A549A2BD0B8310049A907 /* PreviewSampleData.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		222910312BC1905B000FE888 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 				2229103D2BC1905B000FE888 /* SplitCircleApp.swift */,
 				222910742BC1994C000FE888 /* Views */,
 				2229106B2BC190F9000FE888 /* Models */,
+				221A549C2BD0B91E0049A907 /* Support */,
 				222910432BC1905C000FE888 /* Assets.xcassets */,
 				222910482BC1905C000FE888 /* SplitCircle.entitlements */,
 				222910492BC1905C000FE888 /* Info.plist */,
@@ -324,6 +335,7 @@
 				22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */,
 				2229106F2BC19198000FE888 /* Payee.swift in Sources */,
 				2229108C2BC4E1A0000FE888 /* GroupRow.swift in Sources */,
+				221A549B2BD0B8310049A907 /* PreviewSampleData.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* BillCardView.swift in Sources */,
 				22E83ECD2BD0AAE200D49000 /* Activity.swift in Sources */,
 				22E83ECB2BD0AA2D00D49000 /* ActivitiesView.swift in Sources */,

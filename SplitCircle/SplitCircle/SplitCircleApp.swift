@@ -14,5 +14,6 @@ struct SplitCircleApp: App {
         WindowGroup {
             HomeView()
         }
+        .modelContainer(for: Activity.self)
     }
 }

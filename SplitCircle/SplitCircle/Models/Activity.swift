@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import SwiftData
 
-// Define a simple struct for an activity
-struct Activity {
+@Model
+final class Activity {
     var title: String
     var date: Date
     var groupName: String
     var amount: Double
+    
+    init(title: String, date: Date, groupName: String, amount: Double) {
+        self.title = title
+        self.date = date
+        self.groupName = groupName
+        self.amount = amount
+    }
 }
+
+extension Activity: Identifiable { }
