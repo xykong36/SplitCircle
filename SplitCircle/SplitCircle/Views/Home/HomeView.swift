@@ -12,7 +12,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             NavigationLink(destination: MyDebtsView()) {
-                BillCardView().padding(.vertical, 10)
+                DebtsCardView().padding(.vertical, 10)
             }
             // Balance Card
 
