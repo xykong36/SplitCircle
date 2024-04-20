@@ -27,7 +27,7 @@ struct ActivityRow: View {
             .fill(Color.white)
             .overlay(
                 HStack(spacing: 3) {
-                    ImageIconView(imageName: "Entertainment")
+                    ImageIconView(imageName: "BillsRound40x40")
                     VStack(alignment: .leading, spacing: 4) {
                         Text(activity.title)
                             .font(.headline)
