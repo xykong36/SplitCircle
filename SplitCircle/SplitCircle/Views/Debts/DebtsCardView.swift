@@ -14,28 +14,38 @@ struct DebtsCardView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.blue)
                 .shadow(radius: 10)
-
-            // Content
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Hi, Nadila Aulia,")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-
-                Text("you have unpaid bill")
-                    .font(.headline)
-                    .fontWeight(.regular)
-                    .foregroundColor(.white)
-
-                HStack {
-                    Text("$156.98")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
+            
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    // Content
+                    Text("Hi, Nadila Aulia,")
+                        .font(.title3)
+                        .fontWeight(.semibold)
                         .foregroundColor(.white)
-                    Spacer()
+                    
+                    Text("you have unpaid bill")
+                        .font(.headline)
+                        .fontWeight(.regular)
+                        .foregroundColor(.white)
+                    
+                    HStack {
+                        Text("$156.98")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
                 }
+                .padding()
+
+                Spacer() // Pushes the image to the right side of the ZStack
+
+                // Right-side image
+                Image("Debts_Card_Image")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150) // Adjust the width as needed
             }
-            .padding()
         }
         .frame(width: 350, height: 150)
         .padding()
