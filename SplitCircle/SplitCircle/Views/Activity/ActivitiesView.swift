@@ -30,6 +30,10 @@ struct ActivitiesView: View {
             let newActivity = Activity(title: "Activity from Model context", date: Date(), groupName: "Group name", amount: 8885.10)
             modelContext.insert(newActivity)
         }
+        Button("Delete Activity") {
+            modelContext.delete(activities[0])
+        }
+
         List(activities, id: \.title) { activity in
             NavigationLink {
                 ActivityDetailView()
