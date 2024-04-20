@@ -12,7 +12,7 @@ import SwiftUI
 struct SplitCircleApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            ContentView()
         }
         .modelContainer(for: Activity.self)
     }

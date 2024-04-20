@@ -11,7 +11,9 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationStack {
-            BillCardView().padding(.vertical, 10)
+            NavigationLink(destination: MyDebtsView()) {
+                DebtsCardView().padding(.vertical, 10)
+            }
             // Balance Card
 
             // Group Section
@@ -21,6 +23,7 @@ struct HomeView: View {
             ActivitiesTitleView()
             ActivitiesView()
         }
+        .navigationTitle("Home")
     }
 }
 
