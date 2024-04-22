@@ -12,15 +12,13 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+                // Balance Card
                 NavigationLink {
                     MyDebtsView()
                 } label: {
                     DebtsCardView().padding(.vertical, 10)
                 }
             }
-        
-            // Balance Card
-
             // Group Section
             GroupRow(groups: simpleMemberGroups)
 
