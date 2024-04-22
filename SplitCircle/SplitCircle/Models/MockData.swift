@@ -21,6 +21,6 @@ var simpleUser3 = User(id: "3", email: "test3@a.com", name: "Charlie")
 
 
 var simpleMemberGroups: [MemberGroup] = [
-    MemberGroup(id: "group1", name: "Group 2", members: [simpleUser1],  type: "Type A"),
+    MemberGroup(id: "group1", name: "Group 2kldjelkadjlea", members: [simpleUser1],  type: "Type A"),
     MemberGroup(id: "group2", name: "Group 2", members: [simpleUser1, simpleUser2],  type: "Type B")
 ]

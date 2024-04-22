@@ -52,30 +52,44 @@ struct GroupRow: View {
     }
 }
 
-
 private struct GroupItem: View {
     var group: MemberGroup
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 15)
-                // use can select
-                .fill(Color.green)
-                .frame(width: 120, height: 120)
+            Image("Green_Group")
+                .resizable() // Ensure the image can be resized
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 120)
+                .cornerRadius(15)
+            
             VStack(alignment: .leading) {
                 Text(group.name)
-                    .font(.headline)
-                HStack {
+                    .font(.title3)
+                    .multilineTextAlignment(.leading)
+                    .bold()
+
+                    .foregroundColor(.white)
+                    .padding([.bottom, .trailing], 20.0)
+                    .frame(alignment: .topLeading)
+                    .frame(width: 100.0, height: 70.0)
+                
+                HStack(alignment: .center){
                     Text("Mar 28")
-                        .font(.caption)
-                    Image(systemName: "person")
-                        .foregroundColor(Color.white)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    Image(systemName: "person.fill")
+                        .foregroundColor(.white)
                     Text("2")
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
     }
 }
+
 
 #Preview {
     GroupRow(groups: simpleMemberGroups)
