@@ -6,11 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
-// Define a simple struct for a MemberGroup
-struct User {
+@Model
+final class User {
     var id: String
     var email: String
     var name: String
     var loginDate: Date?
+    
+    init(id: String, email: String, name: String, loginDate: Date? = nil) {
+        self.id = id
+        self.email = email
+        self.name = name
+        self.loginDate = loginDate
+    }
 }

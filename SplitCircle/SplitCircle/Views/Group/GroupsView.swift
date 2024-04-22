@@ -1,16 +1,25 @@
 //
-//  GroupRow.swift
+//  GroupsView.swift
 //  SplitCircle
 //
-//  Created by XIANGYU KONG on 4/8/24.
+//  Created by XIANGYU KONG on 4/21/24.
 //
 
 import SwiftUI
+import SwiftData
 
-struct GroupRow: View {
-    var groups: [MemberGroup]
-
+struct GroupsView: View {
+    @Query private var groups: [MemberGroup]
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
+        Button("Add Group") {
+            let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [simpleUser1, simpleUser2],  type: "Type B")
+            modelContext.insert(newMemberGroup)
+        }
+        Button("Delete Group") {
+            modelContext.delete(groups[0])
+        }
         VStack(alignment: .leading) {
             Text("Groups")
                 .font(.title)
@@ -68,7 +77,6 @@ private struct GroupItem: View {
                     .font(.title3)
                     .multilineTextAlignment(.leading)
                     .bold()
-
                     .foregroundColor(.white)
                     .padding([.bottom, .trailing], 20.0)
                     .frame(alignment: .topLeading)
@@ -90,7 +98,6 @@ private struct GroupItem: View {
     }
 }
 
-
 #Preview {
-    GroupRow(groups: simpleMemberGroups)
+    GroupsView()
 }
