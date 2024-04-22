@@ -43,9 +43,7 @@ struct AllActivitiesView: View {
     }
 }
 
-
 #Preview("Try HomeView") {
     HomeView()
         .modelContainer(previewContainer)
 }
-

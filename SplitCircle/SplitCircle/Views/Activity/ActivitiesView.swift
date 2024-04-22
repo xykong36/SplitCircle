@@ -5,8 +5,8 @@
 //  Created by XIANGYU KONG on 4/17/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 // Custom navigation bar title view with integrated "View all" button
 struct ActivitiesTitleView: View {

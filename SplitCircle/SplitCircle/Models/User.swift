@@ -14,7 +14,7 @@ final class User {
     var email: String
     var name: String
     var loginDate: Date?
-    
+
     init(id: String, email: String, name: String, loginDate: Date? = nil) {
         self.id = id
         self.email = email

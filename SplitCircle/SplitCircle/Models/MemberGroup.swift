@@ -14,7 +14,7 @@ final class MemberGroup {
     var name: String
     var members: [User]
     var type: String?
-    
+
     init(id: String, name: String, members: [User], type: String? = nil) {
         self.id = id
         self.name = name
@@ -23,4 +23,4 @@ final class MemberGroup {
     }
 }
 
-extension MemberGroup: Identifiable { }
+extension MemberGroup: Identifiable {}

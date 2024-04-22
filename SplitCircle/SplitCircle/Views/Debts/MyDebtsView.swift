@@ -8,25 +8,24 @@
 import SwiftUI
 
 struct MyDebtsView: View {
-    
     // Sample transactions data
     @State private var transactions: [DebtTransaction] = [
         DebtTransaction(name: "Alice", amount: 17.67, isSettled: false),
         DebtTransaction(name: "Bob", amount: -33.00, isSettled: false),
         DebtTransaction(name: "Charlie", amount: -127.50, isSettled: false),
-        DebtTransaction(name: "Diana", amount: 0.00, isSettled: true)
+        DebtTransaction(name: "Diana", amount: 0.00, isSettled: true),
     ]
     @State private var showingSettled: Bool = false
-    
+
     var filteredTransactions: [DebtTransaction] {
         transactions.filter { $0.isSettled == showingSettled }
     }
-    
+
     var totalOwed: Double {
         // Compute the total amount owed
         transactions.filter { !$0.isSettled }.reduce(0) { $0 + $1.amount }
     }
-    
+
     var body: some View {
         VStack {
             // Header with image and total amount owed
@@ -43,7 +42,7 @@ struct MyDebtsView: View {
                     .bold()
             }
             .padding()
-            
+
             // Toggle for Unsettled and Settled
             HStack {
                 Button("Unsettled") {
@@ -97,7 +96,6 @@ struct DebtTransactionRow: View {
                 .foregroundColor(transaction.amount > 0 ? .green : (transaction.amount == 0 ? .black : .red))
         }
     }
-
 }
 
 // A mock model to represent a debt transaction
@@ -106,7 +104,7 @@ struct DebtTransaction: Identifiable {
     var name: String
     var amount: Double
     var isSettled: Bool
-    
+
     var amountText: String {
         let sign = amount > 0 ? "+" : ""
         return "\(sign)\(amount) USD"

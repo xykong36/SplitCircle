@@ -34,7 +34,7 @@ struct SettingView: View {
                     .offset(x: 40, y: 40)
             }
             .padding(.top, 20)
-            
+
             Text("Nadila Aulia") // Replace with your dynamic name
                 .font(.title2)
                 .fontWeight(.medium)
@@ -62,7 +62,7 @@ struct SettingView: View {
 struct ProfileRow: View {
     var iconName: String
     var rowTitle: String
-    
+
     var body: some View {
         HStack {
             Image(systemName: iconName)
@@ -85,7 +85,6 @@ struct ProfileView_Previews: PreviewProvider {
         }
     }
 }
-
 
 #Preview {
     SettingView()

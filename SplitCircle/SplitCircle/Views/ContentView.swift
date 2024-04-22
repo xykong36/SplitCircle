@@ -20,12 +20,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("", image: "Green_Group")
                 }
-            
+
             SettingView()
                 .tabItem {
                     Label("Setting", systemImage: "gearshape.fill")
                 }
-
         }
     }
 }
@@ -38,7 +37,6 @@ private struct TabImageView: View {
             .resizable()
             .scaledToFit()
             .frame(width: 5, height: 5)
-
     }
 }
 

@@ -5,16 +5,16 @@
 //  Created by XIANGYU KONG on 4/21/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct GroupsView: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
-    
+
     var body: some View {
         Button("Add Group") {
-            let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [simpleUser1, simpleUser2],  type: "Type B")
+            let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [User(id: "1", email: "test1@a.com", name: "Alice"), User(id: "2", email: "test2@b.com", name: "Alice2")], type: "Type B")
             modelContext.insert(newMemberGroup)
         }
         Button("Delete Group") {
@@ -26,7 +26,6 @@ struct GroupsView: View {
                 .bold()
                 .padding(.leading, 15)
                 .padding(.top, 5)
-
             HStack {
                 Button(action: {
                     // Your code to handle the button tap
@@ -42,7 +41,6 @@ struct GroupsView: View {
                                 .frame(width: 40, height: 120)
                         )
                 }.padding(.horizontal, 8)
-                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .bottom, spacing: 5) {
                         ForEach(groups) { group in
@@ -56,7 +54,6 @@ struct GroupsView: View {
                 }
                 .frame(height: 120)
             }
-            
         }
     }
 }
@@ -71,7 +68,7 @@ private struct GroupItem: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 150, height: 120)
                 .cornerRadius(15)
-            
+
             VStack(alignment: .leading) {
                 Text(group.name)
                     .font(.title3)
@@ -81,8 +78,8 @@ private struct GroupItem: View {
                     .padding([.bottom, .trailing], 20.0)
                     .frame(alignment: .topLeading)
                     .frame(width: 100.0, height: 70.0)
-                
-                HStack(alignment: .center){
+
+                HStack(alignment: .center) {
                     Text("Mar 28")
                         .font(.subheadline)
                         .fontWeight(.semibold)
