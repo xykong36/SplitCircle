@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Header.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Back_Arrow.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
