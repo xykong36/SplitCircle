@@ -20,7 +20,7 @@ struct HomeView: View {
                 }
             }
             // Group Section
-            GroupRow(groups: simpleMemberGroups)
+            GroupsView()
 
             // Activities Section
             ActivitiesTitleView()
@@ -43,9 +43,7 @@ struct AllActivitiesView: View {
     }
 }
 
-
 #Preview("Try HomeView") {
     HomeView()
         .modelContainer(previewContainer)
 }
-

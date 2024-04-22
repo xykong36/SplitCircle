@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MyDebtsView: View {
-        
     // Sample transactions data
     @State private var transactions: [DebtTransaction] = [
         DebtTransaction(name: "Alice", amount: 17.67, isSettled: false),
@@ -23,31 +22,12 @@ struct MyDebtsView: View {
     var filteredTransactions: [DebtTransaction] {
         transactions.filter { $0.isSettled == showingSettled }
     }
-    
+
     var totalOwed: Double {
         // Compute the total amount owed
         transactions.filter { !$0.isSettled }.reduce(0) { $0 + $1.amount }
     }
-    
-//    init() {
-//        // Customizing navigation bar appearance
-//        let appearance = UINavigationBarAppearance()
-//        appearance.configureWithOpaqueBackground()
-//        let customBlueUIColor = UIColor(red: 35 / 255, green: 96 / 255, blue: 250 / 255, alpha: 1)
-//        appearance.backgroundColor = customBlueUIColor
-//        
-//        // Assigning custom appearance to navigation bar
-//        UINavigationBar.appearance().standardAppearance = appearance
-//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-//    }
-//    var backButton: some View {
-//        Button(action: {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }) {
-//            Image("Back_Arrow")
-//        }
-//    }
-    
+
     var body: some View {
         VStack {
             // Header with image and total amount owed
@@ -64,7 +44,7 @@ struct MyDebtsView: View {
                     .bold()
             }
             .padding()
-            
+
             // Toggle for Unsettled and Settled
             CustomToggleStyle(isSettled: $showingSettled)
                 .padding(.horizontal)
@@ -140,7 +120,6 @@ struct DebtTransactionRow: View {
         .background(Color.white)
         .cornerRadius(10)
     }
-
 }
 
 // A mock model to represent a debt transaction
@@ -149,7 +128,7 @@ struct DebtTransaction: Identifiable {
     var name: String
     var amount: Double
     var isSettled: Bool
-    
+
     var amountText: String {
         let sign = amount > 0 ? "+" : ""
         return "\(sign)\(amount) USD"

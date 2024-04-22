@@ -14,7 +14,7 @@ final class Activity {
     var date: Date
     var groupName: String
     var amount: Double
-    
+
     init(title: String, date: Date, groupName: String, amount: Double) {
         self.title = title
         self.date = date
@@ -23,4 +23,4 @@ final class Activity {
     }
 }
 
-extension Activity: Identifiable { }
+extension Activity: Identifiable {}

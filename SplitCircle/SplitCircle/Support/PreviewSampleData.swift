@@ -11,7 +11,7 @@ import SwiftData
 let previewContainer: ModelContainer = {
     do {
         let container = try ModelContainer(
-            for: Activity.self,
+            for: Activity.self, MemberGroup.self, User.self,
             configurations: ModelConfiguration(isStoredInMemoryOnly: true)
         )
         let modelContext = container.mainContext

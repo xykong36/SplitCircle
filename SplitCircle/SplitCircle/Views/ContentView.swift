@@ -18,14 +18,13 @@ struct ContentView: View {
 
             AddExpenseView()
                 .tabItem {
-                    Label("", image: "Green_Group")
+                    Label("Add", systemImage: "plus.circle.fill")
                 }
-            
+
             SettingView()
                 .tabItem {
                     Label("Setting", systemImage: "gearshape.fill")
                 }
-
         }
     }
 }
@@ -38,7 +37,6 @@ private struct TabImageView: View {
             .resizable()
             .scaledToFit()
             .frame(width: 5, height: 5)
-
     }
 }
 

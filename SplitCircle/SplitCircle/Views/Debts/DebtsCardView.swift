@@ -1,5 +1,5 @@
 //
-//  BillCardView.swift
+//  DebtsCardView.swift
 //  SplitCircle
 //
 //  Created by XIANGYU KONG on 4/17/24.
@@ -16,7 +16,7 @@ struct DebtsCardView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(customBlue)
                 .shadow(radius: 10)
-            
+
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     // Content
@@ -24,12 +24,12 @@ struct DebtsCardView: View {
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                    
+
                     Text("you have unpaid bill")
                         .font(.headline)
                         .fontWeight(.regular)
                         .foregroundColor(.white)
-                    
+
                     HStack {
                         Text("$156.98")
                             .font(.largeTitle)
@@ -53,7 +53,6 @@ struct DebtsCardView: View {
         .padding()
     }
 }
-
 
 #Preview {
     DebtsCardView()

@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import SwiftData
 
-// Define a simple struct for a MemberGroup
-struct MemberGroup: Identifiable {
+@Model
+final class MemberGroup {
     var id: String
     var name: String
     var members: [User]
     var type: String?
+
+    init(id: String, name: String, members: [User], type: String? = nil) {
+        self.id = id
+        self.name = name
+        self.members = members
+        self.type = type
+    }
 }
+
+extension MemberGroup: Identifiable {}

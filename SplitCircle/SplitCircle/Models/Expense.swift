@@ -5,11 +5,11 @@
 //  Created by XIANGYU KONG on 4/6/24.
 //
 
-//import Foundation
-//import SwiftData
+// import Foundation
+// import SwiftData
 //
-//@Model
-//final class Expense {
+// @Model
+// final class Expense {
 //    @Attribute(.unique) var id: String
 //    var title: String
 //    var amount: Double
@@ -29,4 +29,4 @@
 //        self.category = category
 //        self.notes = notes
 //    }
-//}
+// }
