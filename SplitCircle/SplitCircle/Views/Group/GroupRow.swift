@@ -19,13 +19,11 @@ struct GroupRow: View {
                 .padding(.top, 5)
 
             HStack {
-                Button(action: {
-                    // Your code to handle the button tap
-                }) {
+                NavigationLink(destination: AddGroupView()) {
                     Image(systemName: "plus")
-                        .foregroundColor(.blue) // Adjust the plus symbol color as needed
-                        .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)) // Adjust padding to increase vertical size
-                        .background(Color.white.opacity(0.5)) // Adjust the background color and opacity to match the image
+                        .foregroundColor(.blue)
+                        .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
+                        .background(Color.white.opacity(0.5))
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .overlay(
                             RoundedRectangle(cornerRadius: 15)
