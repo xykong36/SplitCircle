@@ -18,7 +18,7 @@ struct ContentView: View {
 
             AddExpenseView()
                 .tabItem {
-                    Label("", image: "Green_Group")
+                    Label("Add", systemImage: "plus.circle.fill")
                 }
 
             SettingView()

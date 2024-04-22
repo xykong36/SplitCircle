@@ -13,10 +13,6 @@ struct GroupsView: View {
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
-        Button("Add Group") {
-            let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [User(id: "1", email: "test1@a.com", name: "Alice"), User(id: "2", email: "test2@b.com", name: "Alice2")], type: "Type B")
-            modelContext.insert(newMemberGroup)
-        }
         Button("Delete Group") {
             modelContext.delete(groups[0])
         }
@@ -28,7 +24,8 @@ struct GroupsView: View {
                 .padding(.top, 5)
             HStack {
                 Button(action: {
-                    // Your code to handle the button tap
+                    let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [User(id: "1", name: "Alice"), User(id: "2", name: "Alice2")], type: "Type B")
+                    modelContext.insert(newMemberGroup)
                 }) {
                     Image(systemName: "plus")
                         .foregroundColor(.blue) // Adjust the plus symbol color as needed

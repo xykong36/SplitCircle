@@ -15,9 +15,8 @@ enum MockData {
     ]
 }
 
-var simpleUser1 = User(id: "1", email: "test1@a.com", name: "Alice")
-var simpleUser2 = User(id: "2", email: "test2@a.com", name: "Bob")
-var simpleUser3 = User(id: "3", email: "test3@a.com", name: "Charlie")
+var simpleUser1 = User(id: "1", name: "Alice")
+var simpleUser2 = User(id: "2", name: "Bob")
 
 var simpleMemberGroups: [MemberGroup] = [
     MemberGroup(id: "group1", name: "Group 2kldjelkadjlea", members: [simpleUser1], type: "Type A"),
