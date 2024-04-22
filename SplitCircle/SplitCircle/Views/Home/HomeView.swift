@@ -20,6 +20,7 @@ struct HomeView: View {
                 }
             }
             // Group Section
+            GroupsTitleView()
             GroupsView()
 
             // Activities Section

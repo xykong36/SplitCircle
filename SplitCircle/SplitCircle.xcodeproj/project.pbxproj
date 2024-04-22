@@ -30,6 +30,7 @@
 		D1BAFDED2BD0B6B800524D3A /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */; };
 		D1BAFDEF2BD0B83200524D3A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEE2BD0B83200524D3A /* SettingView.swift */; };
 		D1BAFDF12BD3386B00524D3A /* MyDebtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDF02BD3386B00524D3A /* MyDebtsView.swift */; };
+		D1F35AB62BD72F6D00E75E74 /* AllGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F35AB52BD72F6D00E75E74 /* AllGroupsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		D1BAFDEE2BD0B83200524D3A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		D1BAFDF02BD3386B00524D3A /* MyDebtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDebtsView.swift; sourceTree = "<group>"; };
+		D1F35AB52BD72F6D00E75E74 /* AllGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			children = (
 				2229108D2BC4E266000FE888 /* GroupDetailView.swift */,
 				22242A202BD5E86400D5E116 /* GroupsView.swift */,
+				D1F35AB52BD72F6D00E75E74 /* AllGroupsView.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				22E83ED32BD0AB8E00D49000 /* User.swift in Sources */,
 				D1BAFDF12BD3386B00524D3A /* MyDebtsView.swift in Sources */,
 				222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */,
+				D1F35AB62BD72F6D00E75E74 /* AllGroupsView.swift in Sources */,
 				22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */,
 				2229106F2BC19198000FE888 /* Payee.swift in Sources */,
 				221A549B2BD0B8310049A907 /* PreviewSampleData.swift in Sources */,

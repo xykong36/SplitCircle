@@ -16,12 +16,7 @@ struct GroupsView: View {
         Button("Delete Group") {
             modelContext.delete(groups[0])
         }
-        VStack(alignment: .leading) {
-            Text("Groups")
-                .font(.title)
-                .bold()
-                .padding(.leading, 15)
-                .padding(.top, 5)
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Button(action: {
                     let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [User(id: "1", name: "Alice"), User(id: "2", name: "Alice2")], type: "Type B")
@@ -37,7 +32,7 @@ struct GroupsView: View {
                                 .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                                 .frame(width: 40, height: 120)
                         )
-                }.padding(.horizontal, 8)
+                }.padding(.leading, 16)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .bottom, spacing: 5) {
                         ForEach(groups) { group in
@@ -52,6 +47,18 @@ struct GroupsView: View {
                 .frame(height: 120)
             }
         }
+    }
+}
+
+struct GroupsTitleView: View {
+    var body: some View {
+        HStack {
+            Text("Groups").font(.title).bold()
+            Spacer()
+            NavigationLink(destination: AllGroupsView()) {
+                Text("View all").foregroundColor(.accentColor)
+            }
+        }.padding(.horizontal)
     }
 }
 
