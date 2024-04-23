@@ -38,9 +38,7 @@ struct DebtsCardView: View {
                         Spacer()
                     }
                 }
-                .padding()
-
-                Spacer() // Pushes the image to the right side of the ZStack
+                .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 0))
 
                 // Right-side image
                 Image("Debts_Card_Image")
@@ -49,7 +47,7 @@ struct DebtsCardView: View {
                     .frame(width: 150) // Adjust the width as needed
             }
         }
-        .frame(width: 350, height: 150)
+        .frame(width: 361, height: 160)
         .padding()
     }
 }

@@ -16,10 +16,11 @@ struct HomeView: View {
                 NavigationLink {
                     MyDebtsView()
                 } label: {
-                    DebtsCardView().padding(.vertical, 10)
+                    DebtsCardView().padding()
                 }
             }
             // Group Section
+            GroupsTitleView()
             GroupsView()
 
             // Activities Section

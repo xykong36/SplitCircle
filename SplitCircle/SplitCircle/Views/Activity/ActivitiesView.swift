@@ -26,12 +26,15 @@ struct ActivitiesView: View {
     @Query private var activities: [Activity]
     @Environment(\.modelContext) private var modelContext
     var body: some View {
-        Button("Add Activity") {
-            let newActivity = Activity(title: "Activity from Model context", date: Date(), groupName: "Group name", amount: 8885.10)
-            modelContext.insert(newActivity)
-        }
-        Button("Delete Activity") {
-            modelContext.delete(activities[0])
+        HStack {
+            Button("Add Activity") {
+                let newActivity = Activity(title: "Activity from Model context", date: Date(), groupName: "Group name", amount: 8885.10)
+                modelContext.insert(newActivity)
+            }
+    
+            Button("Delete Activity") {
+                modelContext.delete(activities[0])
+            }
         }
 
         List(activities, id: \.title) { activity in
@@ -48,5 +51,5 @@ struct ActivitiesView: View {
 }
 
 #Preview {
-    ActivitiesView()
+    ActivitiesTitleView()
 }
