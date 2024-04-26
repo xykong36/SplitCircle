@@ -44,30 +44,6 @@ struct AddExpenseView: View {
 
 }
 
-struct AddExpenseTitleView: View {
-    var body: some View {
-        HStack {
-            NavigationLink {
-                AddAmountView()
-            } label: {
-                AddAmountView()
-            }
-            
-            NavigationLink {
-                WhoPaidView()
-            } label: {
-                WhoPaidView()
-            }
-            
-            NavigationLink {
-                ForWhoView()
-            } label: {
-                ForWhoView()
-            }
-        }
-    }
-}
-
 #Preview {
     AddExpenseView()
 }
