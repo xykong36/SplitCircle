@@ -11,28 +11,28 @@ import SwiftUI
 struct GroupsView: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
+    @State private var showingSheet = false
 
     var body: some View {
-        Button("Delete Group") {
-            modelContext.delete(groups[0])
-        }
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading) {
             HStack {
                 Button(action: {
-                    let newMemberGroup = MemberGroup(id: "group2", name: "Group 2", members: [User(id: "1", name: "Alice"), User(id: "2", name: "Alice2")], type: "Type B")
-                    modelContext.insert(newMemberGroup)
+                    showingSheet = true
                 }) {
                     Image(systemName: "plus")
-                        .foregroundColor(.blue) // Adjust the plus symbol color as needed
-                        .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)) // Adjust padding to increase vertical size
-                        .background(Color.white.opacity(0.5)) // Adjust the background color and opacity to match the image
+                        .foregroundColor(.blue)
+                        .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
+                        .background(Color.white.opacity(0.5))
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .overlay(
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                                 .frame(width: 40, height: 120)
                         )
-                }.padding(.leading, 16)
+                }.padding(.horizontal, 8)
+                    .sheet(isPresented: $showingSheet) {
+                        AddGroupView()
+                    }
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .bottom, spacing: 5) {
                         ForEach(groups) { group in

@@ -19,6 +19,7 @@ struct HomeView: View {
                     DebtsCardView().padding()
                 }
             }
+
             // Group Section
             GroupsTitleView()
             GroupsView()
