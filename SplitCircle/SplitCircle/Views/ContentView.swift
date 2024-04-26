@@ -38,7 +38,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Setting", systemImage: "gearshape.fill")
                 }
-        }.padding(/*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/)
+        }.padding(EdgeInsets())
     }
 }
 
