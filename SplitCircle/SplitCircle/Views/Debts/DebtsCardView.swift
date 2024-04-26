@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DebtsCardView: View {
     let customBlue = Color(red: 35 / 255, green: 96 / 255, blue: 250 / 255)
-    
+
     var body: some View {
         ZStack {
             // Background

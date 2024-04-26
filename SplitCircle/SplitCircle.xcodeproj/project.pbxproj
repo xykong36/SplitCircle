@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		221A549B2BD0B8310049A907 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A549A2BD0B8310049A907 /* PreviewSampleData.swift */; };
 		22242A212BD5E86400D5E116 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22242A202BD5E86400D5E116 /* GroupsView.swift */; };
+		22242A232BD71F3F00D5E116 /* AddGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22242A222BD71F3F00D5E116 /* AddGroupView.swift */; };
 		2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229103D2BC1905B000FE888 /* SplitCircleApp.swift */; };
 		222910402BC1905B000FE888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229103F2BC1905B000FE888 /* ContentView.swift */; };
 		222910442BC1905C000FE888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222910432BC1905C000FE888 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		221A549A2BD0B8310049A907 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		22242A202BD5E86400D5E116 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
+		22242A222BD71F3F00D5E116 /* AddGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupView.swift; sourceTree = "<group>"; };
 		2229103A2BC1905B000FE888 /* SplitCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2229103D2BC1905B000FE888 /* SplitCircleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleApp.swift; sourceTree = "<group>"; };
 		2229103F2BC1905B000FE888 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				2229108D2BC4E266000FE888 /* GroupDetailView.swift */,
 				22242A202BD5E86400D5E116 /* GroupsView.swift */,
+				22242A222BD71F3F00D5E116 /* AddGroupView.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				222910402BC1905B000FE888 /* ContentView.swift in Sources */,
 				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
 				D1BAFDEF2BD0B83200524D3A /* SettingView.swift in Sources */,
+				22242A232BD71F3F00D5E116 /* AddGroupView.swift in Sources */,
 				222910762BC1995C000FE888 /* HomeView.swift in Sources */,
 				22E83ED32BD0AB8E00D49000 /* User.swift in Sources */,
 				D1BAFDF12BD3386B00524D3A /* MyDebtsView.swift in Sources */,

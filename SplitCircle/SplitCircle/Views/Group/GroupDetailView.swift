@@ -8,14 +8,35 @@
 import SwiftUI
 
 struct GroupDetailView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
     var group: MemberGroup
 
     var body: some View {
-        Text(group.name)
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        NavigationView {
+            VStack {
+                Text(group.name)
+                    .font(.title)
+                    .padding()
 
-#Preview {
-    GroupDetailView(group: simpleMemberGroups[0])
+                List(group.members, id: \.id) { member in
+                    Text(member.name)
+                }
+
+                Button("Delete Group") {
+                    deleteGroup()
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.red)
+                .cornerRadius(8)
+            }
+            .navigationBarTitle("Group Details", displayMode: .inline)
+        }
+    }
+
+    private func deleteGroup() {
+        modelContext.delete(group)
+        dismiss()
+    }
 }

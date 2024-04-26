@@ -65,7 +65,3 @@ private struct ImageIconView: View {
             .padding(EdgeInsets(top: 30, leading: 5, bottom: 25, trailing: 10))
     }
 }
-
-#Preview {
-    ActivityRow(activity: MockData.activities[0])
-}
