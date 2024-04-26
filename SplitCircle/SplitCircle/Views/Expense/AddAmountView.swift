@@ -194,7 +194,7 @@ struct AddAmountView: View {
                 }
                 .buttonStyle(FilledButton())
                 .padding()
-                }
+            }
         }
         .navigationTitle("Add New Expense")
     }
