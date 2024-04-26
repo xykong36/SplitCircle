@@ -23,17 +23,18 @@ struct ContentView: View {
     }
     
     var body: some View {
+
         ZStack(alignment: Alignment.bottom) {
             TabView {
                 HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+
+                AddExpenseView()
                     .tabItem {
-                        Label("Home", systemImage: "house.fill")
-                            .padding(.leading)
+                        Label("Add", systemImage: "plus.circle.fill")
                     }
-//                AddExpenseView()
-//                    .tabItem {
-//                        Label("Add", systemImage: "plus.circle.fill")
-//                    }
                 Spacer()
                 SettingView()
                     .tabItem {
