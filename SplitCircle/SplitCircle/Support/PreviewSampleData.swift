@@ -18,6 +18,9 @@ let previewContainer: ModelContainer = {
         if try modelContext.fetch(FetchDescriptor<Activity>()).isEmpty {
             MockData.activities.forEach { container.mainContext.insert($0) }
         }
+        if try modelContext.fetch(FetchDescriptor<MemberGroup>()).isEmpty {
+            MockData.simpleMemberGroups.forEach { container.mainContext.insert($0) }
+        }
         return container
     } catch {
         fatalError("Failed to create container")

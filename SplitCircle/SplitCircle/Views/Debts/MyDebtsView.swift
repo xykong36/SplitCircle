@@ -14,11 +14,11 @@ struct MyDebtsView: View {
         DebtTransaction(name: "Bob", amount: -33.00, isSettled: false),
         DebtTransaction(name: "Charlie", amount: -127.50, isSettled: false),
         DebtTransaction(name: "Diana", amount: 0.00, isSettled: true),
-        DebtTransaction(name: "Eason", amount: 0.00, isSettled: true)
+        DebtTransaction(name: "Eason", amount: 0.00, isSettled: true),
     ]
     @State private var showingSettled: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    
+
     var filteredTransactions: [DebtTransaction] {
         transactions.filter { $0.isSettled == showingSettled }
     }
@@ -58,7 +58,6 @@ struct MyDebtsView: View {
         }
         .navigationTitle("Debts")
         .navigationBarTitleDisplayMode(.inline)
-        
     }
 }
 
@@ -98,8 +97,6 @@ struct CustomToggleStyle: View {
         .frame(width: totalWidth, height: 50) // Set the height of the entire component
     }
 }
-
-
 
 // Row view for each debt transaction
 struct DebtTransactionRow: View {

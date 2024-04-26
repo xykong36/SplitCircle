@@ -23,22 +23,27 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView {
-            HomeView()
+
+        ZStack(alignment: Alignment.bottom) {
+            TabView {
+                HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
 
-            AddExpenseView()
-                .tabItem {
-                    Label("Add", systemImage: "plus.circle.fill")
-                }
-
-            SettingView()
-                .tabItem {
-                    Label("Setting", systemImage: "gearshape.fill")
-                }
-        }.padding(EdgeInsets())
+                AddExpenseView()
+                    .tabItem {
+                        Label("Add", systemImage: "plus.circle.fill")
+                    }
+                Spacer()
+                SettingView()
+                    .tabItem {
+                        Label("Setting", systemImage: "gearshape.fill")
+                            .padding(.horizontal)
+                    }
+            }
+            Text("Button")
+        }
     }
 }
 
