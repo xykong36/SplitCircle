@@ -65,6 +65,15 @@ struct ModalContentView: View {
         Button("Go Back") {
             dismiss()
         }
+struct GroupsTitleView: View {
+    var body: some View {
+        HStack {
+            Text("Groups").font(.title).bold()
+            Spacer()
+            NavigationLink(destination: AllGroupsView()) {
+                Text("View all").foregroundColor(.accentColor)
+            }
+        }.padding(.horizontal)
     }
 }
 
