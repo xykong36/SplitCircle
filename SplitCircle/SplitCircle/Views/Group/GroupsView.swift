@@ -15,11 +15,6 @@ struct GroupsView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Groups")
-                .font(.title)
-                .bold()
-                .padding(.leading, 15)
-                .padding(.top, 5)
             HStack {
                 Button(action: {
                     showingSheet = true
@@ -55,16 +50,6 @@ struct GroupsView: View {
     }
 }
 
-struct ModalContentView: View {
-    @Environment(\.dismiss) private var dismiss
-    var body: some View {
-        // Sheet中的内容
-        Text("This is a modal sheet")
-            .font(.largeTitle)
-            .padding()
-        Button("Go Back") {
-            dismiss()
-        }
 struct GroupsTitleView: View {
     var body: some View {
         HStack {
