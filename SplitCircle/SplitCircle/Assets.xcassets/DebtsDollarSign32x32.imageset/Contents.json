@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "DebtsDollarSign32x32@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Debts_Dollar_Sign.png",
+      "filename" : "DebtsDollarSign32x32@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "DebtsDollarSign32x32@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

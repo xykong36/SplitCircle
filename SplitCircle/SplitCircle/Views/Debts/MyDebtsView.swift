@@ -32,7 +32,7 @@ struct MyDebtsView: View {
         VStack {
             // Header with image and total amount owed
             VStack {
-                Image("Debts_Dollar_Sign")
+                Image("DebtsDollarSign32x32")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)

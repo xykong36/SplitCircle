@@ -35,14 +35,12 @@ struct ContentView: View {
                     .tabItem {
                         Label("Add", systemImage: "plus.circle.fill")
                     }
-                Spacer()
                 SettingView()
                     .tabItem {
                         Label("Setting", systemImage: "gearshape.fill")
                             .padding(.horizontal)
                     }
             }
-            Text("Button")
         }
     }
 }
