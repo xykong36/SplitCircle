@@ -37,7 +37,7 @@ struct ActivitiesView: View {
             }
         }
 
-        List(activities, id: \.title) { activity in
+        List(activities, id: \.id) { activity in
             NavigationLink {
                 ActivityDetailView()
             } label: {
