@@ -14,7 +14,7 @@ struct ActivitiesTitleView: View {
         HStack {
             Text("Activities").font(.title).bold()
             Spacer()
-            NavigationLink(destination: AllActivitiesView()) {
+            NavigationLink(destination: ActivitiesView()) {
                 Text("View all").foregroundColor(.accentColor)
             }
         }.padding(.horizontal)
@@ -31,22 +31,31 @@ struct ActivitiesView: View {
                 let newActivity = Activity(title: "Activity from Model context", date: Date(), groupName: "Group name", amount: 8885.10)
                 modelContext.insert(newActivity)
             }
-    
-            Button("Delete Activity") {
-                modelContext.delete(activities[0])
-            }
-        }
 
-        List(activities, id: \.id) { activity in
-            NavigationLink {
-                ActivityDetailView()
-            } label: {
-                ActivityRow(activity: activity)
-            }
-            .frame(height: 45)
-            .padding(.vertical, 3)
         }
+        
+        List {
+            ForEach(activities) { activity in
+                NavigationLink {
+                    ActivityDetailView()
+                } label: {
+                    ActivityRow(activity: activity)
+                }
+                // TODO: Replace hardcode UI settings
+                .frame(height: 45)
+                .padding(.vertical, 3)
+            }
+            .onDelete(perform: deleteActivities)
+        }
+        // extend the edges to the screen sides
         .listStyle(.plain)
+    }
+    
+    func deleteActivities(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let activity = activities[index]
+            modelContext.delete(activity)
+        }
     }
 }
 
