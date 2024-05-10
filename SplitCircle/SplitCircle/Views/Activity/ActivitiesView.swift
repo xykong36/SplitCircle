@@ -14,7 +14,7 @@ struct ActivitiesTitleView: View {
         HStack {
             Text("Activities").font(.title).bold()
             Spacer()
-            NavigationLink(destination: ActivitiesView()) {
+            NavigationLink(destination: ActivitiesView(prefixOnly: false)) {
                 Text("View all").foregroundColor(.accentColor)
             }
         }.padding(.horizontal)
@@ -25,17 +25,22 @@ struct ActivitiesTitleView: View {
 struct ActivitiesView: View {
     @Query private var activities: [Activity]
     @Environment(\.modelContext) private var modelContext
+    var prefixOnly: Bool = true
+    private let prefixCount = 5 // 定义前缀数量常量
+    
     var body: some View {
+        
+        let displayedActivities = prefixOnly ? Array(activities.prefix(prefixCount)) : activities
+
         HStack {
             Button("Add Activity") {
                 let newActivity = Activity(title: "Activity from Model context", date: Date(), groupName: "Group name", amount: 8885.10)
                 modelContext.insert(newActivity)
             }
-
         }
-        
+
         List {
-            ForEach(activities) { activity in
+            ForEach(displayedActivities) { activity in
                 NavigationLink {
                     ActivityDetailView()
                 } label: {
