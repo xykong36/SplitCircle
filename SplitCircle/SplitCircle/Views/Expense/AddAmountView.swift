@@ -126,7 +126,6 @@ struct SelectGroupView: View {
 
 struct CategorySection: View {
     @State private var selectedCategory: Int?
-
     // Define the layout for your grid
     let layout = [
         GridItem(.flexible()),
@@ -135,8 +134,7 @@ struct CategorySection: View {
         GridItem(.flexible())
     ]
     
-    let categoryText = ["Bills", "Shopping", "Lodging", "Housing", "Entertainment", "Dinning", "Grocery", "Transport", "Tickets", "Travel", "Others"]
-    let categoryImage = ["BillsSquare44x44", "ShoppingSquare44x44", "LodgingSquare44x44", "HousingSquare44x44", "EntertainmentSquare44x44", "DiningSquare44x44", "GrocerySquare44x44", "TransportSquare44x44", "TicketsSquare44x44", "TravelSquare44x44", "OthersSquare44x44"]
+    let categoryText = ["Bills", "Shopping", "Lodging", "Housing", "Entertainment", "Dining", "Grocery", "Transport", "Tickets", "Travel", "Others"]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -146,20 +144,19 @@ struct CategorySection: View {
                 .foregroundColor(.secondary)
                 .lineSpacing(3.2)
             LazyVGrid(columns: layout, spacing: 20) {
-                ForEach(0..<categoryImage.count, id: \.self) { index in
+                ForEach(0..<categoryText.count, id: \.self) { index in
                     Button(action: {
                         // Action when a category is tapped
                         selectedCategory = index
                     }) {
                         VStack {
-                            Image(categoryImage[index])
+                            Image(generateImageName(for: index, selected: selectedCategory == index))
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 50, height: 50) // Adjust the size as needed
                             Text(categoryText[index])
                                 .font(.caption)
                         }
-                        .background(selectedCategory == index ? Color.blue.opacity(0.2) : Color.clear)
                     }
                     .frame(width: 80, height: 75) // Adjust the frame as needed
                     .cornerRadius(10)
@@ -167,6 +164,13 @@ struct CategorySection: View {
             }
         }
         .padding(.horizontal)
+    }
+
+    // Helper function to generate image name based on category text
+    private func generateImageName(for index: Int, selected: Bool) -> String {
+        let baseName = categoryText[index]
+        let suffix = selected ? "Square44x44" : "Clear44x44"
+        return "\(baseName)\(suffix)"
     }
 }
 
