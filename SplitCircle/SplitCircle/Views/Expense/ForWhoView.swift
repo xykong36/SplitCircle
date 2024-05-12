@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ForWhoTitleSection: View {
     @Binding var billAmount: Double
@@ -81,6 +82,8 @@ struct ForWhoSection: View {
 }
 
 struct ForWhoView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     let sampleGroupMembers = ["Nadila Aulia (me)", "Amy", "Bob", "Charles", "David", "Eason", "Frank"]
     @State private var billAmount: Double = 100.00
     var body: some View {
@@ -92,7 +95,8 @@ struct ForWhoView: View {
                 }
                 
                 Button("Save") {
-                    // TODO: Implement the save action once SwiftData is embedded
+                    // TODO: save the expense
+                    
                 }
                 .buttonStyle(FilledButton())
                 .padding()
