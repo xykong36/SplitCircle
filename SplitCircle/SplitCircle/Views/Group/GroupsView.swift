@@ -90,7 +90,7 @@ private struct GroupItem: View {
                         .foregroundColor(.white)
                     Image(systemName: "person.fill")
                         .foregroundColor(.white)
-                    Text("2")
+                    Text(String(group.members.count))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
                 }
