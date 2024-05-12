@@ -96,7 +96,7 @@ struct CheckboxToggleStyle: ToggleStyle {
 }
 
 struct WhoPaidView: View {
-    @Binding var selectedCategory: ExpenseCategory
+    @Binding var selectedCategory: SelectedSectionName
     let sampleGroupMembers = ["Nadila Aulia (me)", "Amy", "Bob", "Charles", "David", "Eason", "Frank"]
     @State private var billAmount: Double = 100.00
     var body: some View {

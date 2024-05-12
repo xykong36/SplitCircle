@@ -7,30 +7,30 @@
 
 import SwiftUI
 
-enum ExpenseCategory {
+enum SelectedSectionName {
     case amount, whoPaid, forWho
 }
 
 struct AddExpenseView: View {
-    @State private var selectedCategory: ExpenseCategory = .amount
+    @State private var currentSectionName: SelectedSectionName = .amount
     var body: some View {
         NavigationView {
             VStack {
                 // This picker will function as your segmented control for switching views
-                Picker("Category", selection: $selectedCategory) {
-                    Text("Amount").tag(ExpenseCategory.amount)
-                    Text("Who paid?").tag(ExpenseCategory.whoPaid)
-                    Text("For who?").tag(ExpenseCategory.forWho)
+                Picker("Category", selection: $currentSectionName) {
+                    Text("Amount").tag(SelectedSectionName.amount)
+                    Text("Who paid?").tag(SelectedSectionName.whoPaid)
+                    Text("For who?").tag(SelectedSectionName.forWho)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
                 // The content below the picker changes based on the selected category
-                switch selectedCategory {
+                switch currentSectionName {
                 case .amount:
-                    AddAmountView(selectedCategory: $selectedCategory)
+                    AddAmountView(selectedCategory: $currentSectionName)
                 case .whoPaid:
-                    WhoPaidView(selectedCategory: $selectedCategory)
+                    WhoPaidView(selectedCategory: $currentSectionName)
                 case .forWho:
                     ForWhoView()
                 }
