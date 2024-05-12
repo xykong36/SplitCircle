@@ -96,6 +96,7 @@ struct CheckboxToggleStyle: ToggleStyle {
 }
 
 struct WhoPaidView: View {
+    @Binding var selectedCategory: ExpenseCategory
     let sampleGroupMembers = ["Nadila Aulia (me)", "Amy", "Bob", "Charles", "David", "Eason", "Frank"]
     @State private var billAmount: Double = 100.00
     var body: some View {
@@ -107,7 +108,9 @@ struct WhoPaidView: View {
                 }
                 
                 Button("Next") {
-                    // Handle the next button action
+                    withAnimation {
+                        selectedCategory = .forWho
+                    }
                 }
                 .buttonStyle(FilledButton())
                 .padding()
@@ -115,8 +118,4 @@ struct WhoPaidView: View {
         }
         .navigationTitle("Add New Expense")
     }
-}
-
-#Preview {
-    WhoPaidView()
 }

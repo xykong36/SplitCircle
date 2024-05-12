@@ -28,9 +28,9 @@ struct AddExpenseView: View {
                 // The content below the picker changes based on the selected category
                 switch selectedCategory {
                 case .amount:
-                    AddAmountView()
+                    AddAmountView(selectedCategory: $selectedCategory)
                 case .whoPaid:
-                    WhoPaidView()
+                    WhoPaidView(selectedCategory: $selectedCategory)
                 case .forWho:
                     ForWhoView()
                 }

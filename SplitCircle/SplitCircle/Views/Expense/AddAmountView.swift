@@ -175,13 +175,13 @@ struct CategorySection: View {
 }
 
 struct AddAmountView: View {
+    @Binding var selectedCategory: ExpenseCategory
     @State private var billAmount: String = ""
     @State private var expenseTitle: String = ""
-    @State private var navigateToWhoPaid = false
     @State private var paymentDate: Date = Date()
     @State private var selectedGroup: String? = nil
     let groups = ["Group1", "Group2", "Group3"]
-    
+
     var body: some View {
         VStack {
             ScrollView {
@@ -190,11 +190,12 @@ struct AddAmountView: View {
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
                     PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup, groups: groups)
                     CategorySection()
-                    
                 }
 
                 Button("Next") {
-                    // Handle the next button action
+                    withAnimation {
+                        selectedCategory = .whoPaid
+                    }
                 }
                 .buttonStyle(FilledButton())
                 .padding()
@@ -214,8 +215,4 @@ struct FilledButton: ButtonStyle {
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
     }
-}
-
-#Preview {
-    AddAmountView()
 }

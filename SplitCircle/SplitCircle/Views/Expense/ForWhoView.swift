@@ -91,8 +91,8 @@ struct ForWhoView: View {
                     ForWhoSection(sampleGroupMembers: sampleGroupMembers, billAmount: $billAmount)
                 }
                 
-                Button("Next") {
-                    // Handle the next button action
+                Button("Save") {
+                    // TODO: Implement the save action once SwiftData is embedded
                 }
                 .buttonStyle(FilledButton())
                 .padding()
