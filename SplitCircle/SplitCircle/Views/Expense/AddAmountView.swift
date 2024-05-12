@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BillAmountSection: View {
     @Binding var billAmount: String
@@ -56,8 +57,7 @@ struct ExpenseTitleSection: View {
 
 struct PaymentDateGroupSection: View {
     @Binding var paymentDate: Date
-    @Binding var selectedGroup: String?
-    let groups: [String] // This would be your list of group names
+    @Binding var selectedGroup: MemberGroup?
 
     var body: some View {
         HStack {
@@ -91,8 +91,9 @@ struct PaymentDateView: View {
     }
 }
 struct SelectGroupView: View {
-    @State private var selectedGroup: String?
-    let groups = ["Group 1", "Group 2", "Group 3"]
+    @State private var selectedGroup: MemberGroup?
+    @Query private var groups: [MemberGroup]
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -104,13 +105,13 @@ struct SelectGroupView: View {
             
             Menu {
                 ForEach(groups, id: \.self) { group in
-                    Button(group) {
+                    Button(group.name) {
                         selectedGroup = group
                     }
                 }
             } label: {
                 HStack {
-                    Text(selectedGroup ?? "Select group")
+                    Text(selectedGroup?.name ?? "Select group")
                     Image(systemName: "chevron.down")
                 }
                 .padding()
@@ -179,8 +180,7 @@ struct AddAmountView: View {
     @State private var billAmount: String = ""
     @State private var expenseTitle: String = ""
     @State private var paymentDate: Date = Date()
-    @State private var selectedGroup: String? = nil
-    let groups = ["Group1", "Group2", "Group3"]
+    @State private var selectedGroup: MemberGroup? = nil
 
     var body: some View {
         VStack {
@@ -188,7 +188,7 @@ struct AddAmountView: View {
                 VStack(spacing: 15) {
                     BillAmountSection(billAmount: $billAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
-                    PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup, groups: groups)
+                    PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup)
                     CategorySection()
                 }
 
