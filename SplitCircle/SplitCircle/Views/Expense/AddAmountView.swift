@@ -51,67 +51,55 @@ struct ExpenseTitleSection: View {
 }
 
 struct PaymentDateGroupSection: View {
+    @Query private var groups: [MemberGroup]
+    @Environment(\.modelContext) private var modelContext
     @Binding var paymentDate: Date
     @Binding var selectedGroup: MemberGroup?
+    @Binding var highlight: Bool
 
     var body: some View {
         HStack {
-            PaymentDateView()
-            SelectGroupView()
-        }
-    }
-}
-struct PaymentDateView: View {
-    @State private var selectedDate = Date() // Default to current date
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Payment Date")
-                .font(.custom("Poppins", size: 16))
-                .fontWeight(.regular)
-                .foregroundColor(.secondary)
+            VStack(alignment: .leading) {
+                Text("Payment Date")
+                    .font(.custom("Poppins", size: 16))
+                    .fontWeight(.regular)
+                    .foregroundColor(.secondary)
 
-            HStack {
-                Image(systemName: "calendar")
-                    .foregroundColor(.gray) // Adjust the color as needed
-                DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                    .labelsHidden() // Hide the default label provided by the DatePicker
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-struct SelectGroupView: View {
-    @State private var selectedGroup: MemberGroup?
-    @Query private var groups: [MemberGroup]
-    @Environment(\.modelContext) private var modelContext
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Group")
-                .font(.custom("Poppins", size: 16))
-                .fontWeight(.regular) // 'regular' is equivalent to weight 400
-                .foregroundColor(.secondary)
-            
-            Menu {
-                ForEach(groups, id: \.self) { group in
-                    Button(group.name) {
-                        selectedGroup = group
-                    }
-                }
-            } label: {
                 HStack {
-                    Text(selectedGroup?.name ?? "Select group")
-                    Image(systemName: "chevron.down")
+                    Image(systemName: "calendar")
+                        .foregroundColor(.gray) // Adjust the color as needed
+                    DatePicker("", selection: $paymentDate, displayedComponents: .date)
+                        .labelsHidden() // Hide the default label provided by the DatePicker
                 }
-                .padding()
-                .foregroundColor(.gray)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
             }
-            .padding(.horizontal, 1)
+            .padding(.horizontal)
+            
+            VStack(alignment: .leading) {
+                Text("Group")
+                    .font(.custom("Poppins", size: 16))
+                    .fontWeight(.regular) // 'regular' is equivalent to weight 400
+                    .foregroundColor(.secondary)
+                
+                Menu {
+                    ForEach(groups, id: \.self) { group in
+                        Button(group.name) {
+                            selectedGroup = group
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Text(selectedGroup?.name ?? "Select group")
+                        Image(systemName: "chevron.down")
+                    }
+                    .padding()
+                    .foregroundColor(.gray)
+                    .background(highlight && selectedGroup == nil ? Color.red.opacity(0.3) : Color(.systemGray6))
+                    .cornerRadius(10)
+                }
+                .padding(.horizontal, 1)
+            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
 
@@ -121,6 +109,7 @@ struct AddAmountView: View {
     @State private var expenseTitle: String = ""
     @State private var paymentDate: Date = Date()
     @State private var selectedGroup: MemberGroup? = nil
+    @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
@@ -129,18 +118,22 @@ struct AddAmountView: View {
                 VStack(spacing: 15) {
                     BillAmountSection(billAmount: $billAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
-                    PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup)
+                    PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup, highlight: $highlightGroupSection)
                     CategorySection()
                 }
 
                 Button("Next") {
-                    withAnimation {
-                        selectedCategory = .whoPaid
-                    }
                     print("press the save button")
-                    let newActivity = Activity(title: "TTTT", date: Date(), groupName: "Group name", amount: 1185.10)
-                    modelContext.insert(newActivity)
-                    print("should add a new activity")
+                    if selectedGroup == nil {
+                        highlightGroupSection = true
+                    } else {
+                        withAnimation {
+                            selectedCategory = .whoPaid
+                        }
+                        let newActivity = Activity(title: expenseTitle, date: paymentDate, groupName: selectedGroup!.name, amount: Double(billAmount) ?? 0.0)
+                        modelContext.insert(newActivity)
+                        print("should add a new activity")
+                    }
                 }
                 .buttonStyle(FilledButton())
                 .padding()
