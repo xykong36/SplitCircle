@@ -50,11 +50,11 @@ struct ExpenseTitleSection: View {
     }
 }
 
-struct PaymentDateGroupSection: View {
+struct expensePaymentDateGroupSection: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
-    @Binding var paymentDate: Date
-    @Binding var selectedGroup: MemberGroup?
+    @Binding var expensePaymentDate: Date
+    @Binding var expenseGroup: MemberGroup?
     @Binding var highlight: Bool
 
     var body: some View {
@@ -68,7 +68,7 @@ struct PaymentDateGroupSection: View {
                 HStack {
                     Image(systemName: "calendar")
                         .foregroundColor(.gray) // Adjust the color as needed
-                    DatePicker("", selection: $paymentDate, displayedComponents: .date)
+                    DatePicker("", selection: $expensePaymentDate, displayedComponents: .date)
                         .labelsHidden() // Hide the default label provided by the DatePicker
                 }
             }
@@ -83,17 +83,17 @@ struct PaymentDateGroupSection: View {
                 Menu {
                     ForEach(groups, id: \.self) { group in
                         Button(group.name) {
-                            selectedGroup = group
+                            expenseGroup = group
                         }
                     }
                 } label: {
                     HStack {
-                        Text(selectedGroup?.name ?? "Select group")
+                        Text(expenseGroup?.name ?? "Select group")
                         Image(systemName: "chevron.down")
                     }
                     .padding()
                     .foregroundColor(.gray)
-                    .background(highlight && selectedGroup == nil ? Color.red.opacity(0.3) : Color(.systemGray6))
+                    .background(highlight && expenseGroup == nil ? Color.red.opacity(0.3) : Color(.systemGray6))
                     .cornerRadius(10)
                 }
                 .padding(.horizontal, 1)
@@ -106,9 +106,9 @@ struct PaymentDateGroupSection: View {
 struct AmountView: View {
     @Binding var selectedSection: SelectedSectionName
     @Binding var expenseAmount: Double
-    @State private var expenseTitle: String = ""
-    @State private var paymentDate: Date = Date()
-    @State private var selectedGroup: MemberGroup? = nil
+    @Binding var expenseTitle: String
+    @Binding var expensePaymentDate: Date
+    @Binding var expenseGroup: MemberGroup?
     @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
 
@@ -118,19 +118,19 @@ struct AmountView: View {
                 VStack(spacing: 15) {
                     expenseAmountSection(expenseAmount: $expenseAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
-                    PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup, highlight: $highlightGroupSection)
+                    expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, highlight: $highlightGroupSection)
                     CategorySection()
                 }
 
                 Button("Next") {
 //                    print("press the save button")
-//                    if selectedGroup == nil {
+//                    if expenseGroup == nil {
 //                        highlightGroupSection = true
 //                    } else {
 //                        withAnimation {
 //                            selectedSection = .whoPaid
 //                        }
-//                        let newActivity = Activity(title: expenseTitle, date: paymentDate, groupName: selectedGroup!.name, amount: Double(expenseAmount) ?? 0.0)
+//                        let newActivity = Activity(title: expenseTitle, date: expensePaymentDate, groupName: expenseGroup!.name, amount: Double(expenseAmount) ?? 0.0)
 //                        modelContext.insert(newActivity)
 //                        print("should add a new activity")
 //                    }

@@ -14,6 +14,9 @@ enum SelectedSectionName {
 struct AddExpenseView: View {
     @State private var currentSectionName: SelectedSectionName = .amount
     @State private var expenseAmount: Double = 0.0
+    @State private var expenseTitle: String = ""
+    @State private var expensePaymentDate: Date = Date()
+    @State private var expenseGroup: MemberGroup? = nil
     
     // Add more state variables here and share those variables ? 
     var body: some View {
@@ -32,7 +35,7 @@ struct AddExpenseView: View {
                 // The content below the picker changes based on the selected category
                 switch currentSectionName {
                 case .amount:
-                    AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount)
+                    AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount, expenseTitle: $expenseTitle, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
                 case .whoPaid:
                     WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount)
                 case .forWho:
@@ -45,7 +48,6 @@ struct AddExpenseView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-
 }
 
 #Preview {
