@@ -23,8 +23,8 @@ struct WhoPaidTitleSection: View {
 }
 
 struct WhoPaidSection: View {
-    let sampleGroupMembers: [String]
     @Binding var expenseAmount: Double
+    @Binding var expenseGroup: MemberGroup
     @State private var selectedMembers: Set<String> = []
     @State private var amountPerPerson: Double = 0.0
 
@@ -34,8 +34,10 @@ struct WhoPaidSection: View {
                 .font(.custom("Poppins", size: 20))
                 .foregroundColor(.secondary)
                 .fontWeight(.regular)
+            
+            Text(expenseGroup.name)
 
-            ForEach(sampleGroupMembers, id: \.self) { member in
+            ForEach(expenseGroup.members.map { $0.name }, id: \.self) { member in
                 HStack {
                     Toggle(isOn: self.binding(for: member)) {
                         Text(member)
@@ -98,13 +100,16 @@ struct CheckboxToggleStyle: ToggleStyle {
 struct WhoPaidView: View {
     @Binding var selectedCategory: SelectedSectionName
     @Binding var expenseAmount: Double
-    let sampleGroupMembers = ["Nadila Aulia (me)", "Amy", "Bob", "Charles", "David", "Eason", "Frank"]
+    @Binding var expenseGroup: MemberGroup
+    var memberNames: [String] {
+        expenseGroup.members.map { $0.name }
+    }
     var body: some View {
         VStack {
             ScrollView {
                 VStack(spacing: 15) {
                     WhoPaidTitleSection(expenseAmount: $expenseAmount)
-                    WhoPaidSection(sampleGroupMembers: sampleGroupMembers, expenseAmount: $expenseAmount)
+                    WhoPaidSection(expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
                 }
                 Button("Next") {
                     print("expenseAmount now: \(expenseAmount)")

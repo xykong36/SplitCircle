@@ -37,7 +37,7 @@ struct AddExpenseView: View {
                 case .amount:
                     AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount, expenseTitle: $expenseTitle, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
                 case .whoPaid:
-                    WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount)
+                    WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
                 case .forWho:
                     ForWhoView(expenseAmount: $expenseAmount)
                 }
