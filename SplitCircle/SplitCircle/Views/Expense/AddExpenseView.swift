@@ -16,7 +16,7 @@ struct AddExpenseView: View {
     @State private var expenseAmount: Double = 0.0
     @State private var expenseTitle: String = ""
     @State private var expensePaymentDate: Date = Date()
-    @State private var expenseGroup: MemberGroup? = nil
+    @State private var expenseGroup: MemberGroup = MemberGroup(id: UUID().uuidString, name: "", members: [], type: nil)
     
     // Add more state variables here and share those variables ? 
     var body: some View {

@@ -54,7 +54,7 @@ struct expensePaymentDateGroupSection: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
     @Binding var expensePaymentDate: Date
-    @Binding var expenseGroup: MemberGroup?
+    @Binding var expenseGroup: MemberGroup
     @Binding var highlight: Bool
 
     var body: some View {
@@ -88,12 +88,12 @@ struct expensePaymentDateGroupSection: View {
                     }
                 } label: {
                     HStack {
-                        Text(expenseGroup?.name ?? "Select group")
+                        Text(expenseGroup.name.isEmpty ? "Select Group" : expenseGroup.name)
                         Image(systemName: "chevron.down")
                     }
                     .padding()
                     .foregroundColor(.gray)
-                    .background(highlight && expenseGroup == nil ? Color.red.opacity(0.3) : Color(.systemGray6))
+                    .background(highlight && expenseGroup.name == "" ? Color.red.opacity(0.3) : Color(.systemGray6))
                     .cornerRadius(10)
                 }
                 .padding(.horizontal, 1)
@@ -108,7 +108,7 @@ struct AmountView: View {
     @Binding var expenseAmount: Double
     @Binding var expenseTitle: String
     @Binding var expensePaymentDate: Date
-    @Binding var expenseGroup: MemberGroup?
+    @Binding var expenseGroup: MemberGroup
     @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
 
