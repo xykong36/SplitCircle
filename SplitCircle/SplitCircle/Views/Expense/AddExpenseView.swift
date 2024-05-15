@@ -13,6 +13,8 @@ enum SelectedSectionName {
 
 struct AddExpenseView: View {
     @State private var currentSectionName: SelectedSectionName = .amount
+    
+    // Add more state variables here and share those variables ? 
     var body: some View {
         NavigationView {
             VStack {
@@ -25,6 +27,7 @@ struct AddExpenseView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
+                // How do we switch the section ? 
                 // The content below the picker changes based on the selected category
                 switch currentSectionName {
                 case .amount:
