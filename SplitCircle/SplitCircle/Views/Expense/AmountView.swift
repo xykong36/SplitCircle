@@ -8,8 +8,8 @@
 import SwiftUI
 import SwiftData
 
-struct BillAmountSection: View {
-    @Binding var billAmount: String
+struct expenseAmountSection: View {
+    @Binding var expenseAmount: Double
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +18,7 @@ struct BillAmountSection: View {
                 .fontWeight(.regular) // 'regular' is equivalent to weight 400
                 .foregroundColor(.secondary)
             HStack {
-                TextField("Enter total bill amount", text: $billAmount)
+                TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter.init())
                     .keyboardType(.decimalPad)
             }
             .padding()
@@ -103,9 +103,9 @@ struct PaymentDateGroupSection: View {
     }
 }
 
-struct AddAmountView: View {
-    @Binding var selectedCategory: SelectedSectionName
-    @State private var billAmount: String = ""
+struct AmountView: View {
+    @Binding var selectedSection: SelectedSectionName
+    @Binding var expenseAmount: Double
     @State private var expenseTitle: String = ""
     @State private var paymentDate: Date = Date()
     @State private var selectedGroup: MemberGroup? = nil
@@ -116,23 +116,27 @@ struct AddAmountView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 15) {
-                    BillAmountSection(billAmount: $billAmount)
+                    expenseAmountSection(expenseAmount: $expenseAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
                     PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup, highlight: $highlightGroupSection)
                     CategorySection()
                 }
 
                 Button("Next") {
-                    print("press the save button")
-                    if selectedGroup == nil {
-                        highlightGroupSection = true
-                    } else {
-                        withAnimation {
-                            selectedCategory = .whoPaid
-                        }
-                        let newActivity = Activity(title: expenseTitle, date: paymentDate, groupName: selectedGroup!.name, amount: Double(billAmount) ?? 0.0)
-                        modelContext.insert(newActivity)
-                        print("should add a new activity")
+//                    print("press the save button")
+//                    if selectedGroup == nil {
+//                        highlightGroupSection = true
+//                    } else {
+//                        withAnimation {
+//                            selectedSection = .whoPaid
+//                        }
+//                        let newActivity = Activity(title: expenseTitle, date: paymentDate, groupName: selectedGroup!.name, amount: Double(expenseAmount) ?? 0.0)
+//                        modelContext.insert(newActivity)
+//                        print("should add a new activity")
+//                    }
+                    print("press the next button")
+                    withAnimation {
+                        selectedSection = .whoPaid
                     }
                 }
                 .buttonStyle(FilledButton())

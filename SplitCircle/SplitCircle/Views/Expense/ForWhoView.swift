@@ -9,12 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct ForWhoTitleSection: View {
-    @Binding var billAmount: Double
+    @Binding var expenseAmount: Double
 
     var body: some View {
         HStack {
             // Bill amount
-            Text(billAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+            Text(expenseAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 .font(.custom("Poppins", size: 25))
                 .fontWeight(.regular)
                 .lineSpacing(3.2)
@@ -25,7 +25,7 @@ struct ForWhoTitleSection: View {
 
 struct ForWhoSection: View {
     let sampleGroupMembers: [String]
-    @Binding var billAmount: Double
+    @Binding var expenseAmount: Double
     @State private var selectedMembers: Set<String> = []
     @State private var amountPerPerson: Double = 0.0
 
@@ -77,7 +77,7 @@ struct ForWhoSection: View {
 
     private func updateAmountPerPerson() {
         let count = Double(selectedMembers.count)
-        amountPerPerson = count > 0 ? billAmount / count : 0
+        amountPerPerson = count > 0 ? expenseAmount / count : 0
     }
 }
 
@@ -85,13 +85,14 @@ struct ForWhoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     let sampleGroupMembers = ["Nadila Aulia (me)", "Amy", "Bob", "Charles", "David", "Eason", "Frank"]
-    @State private var billAmount: Double = 100.00
+    @Binding var expenseAmount: Double
+    
     var body: some View {
         VStack {
             ScrollView {
                 VStack(spacing: 15) {
-                    ForWhoTitleSection(billAmount: $billAmount)
-                    ForWhoSection(sampleGroupMembers: sampleGroupMembers, billAmount: $billAmount)
+                    ForWhoTitleSection(expenseAmount: $expenseAmount)
+                    ForWhoSection(sampleGroupMembers: sampleGroupMembers, expenseAmount: $expenseAmount)
                 }
                 
                 Button("Save") {
@@ -104,8 +105,4 @@ struct ForWhoView: View {
         }
         .navigationTitle("Add New Expense")
     }
-}
-
-#Preview {
-    ForWhoView()
 }
