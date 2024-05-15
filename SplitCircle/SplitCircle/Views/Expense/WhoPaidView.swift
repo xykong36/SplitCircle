@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct WhoPaidTitleSection: View {
-    @Binding var billAmount: Double
+    @Binding var expenseAmount: Double
 
     var body: some View {
         HStack {
             // Bill amount
-            Text(billAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+            Text(expenseAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 .font(.custom("Poppins", size: 25))
                 .fontWeight(.regular)
                 .lineSpacing(3.2)
@@ -23,8 +23,8 @@ struct WhoPaidTitleSection: View {
 }
 
 struct WhoPaidSection: View {
-    let sampleGroupMembers: [String]
-    @Binding var billAmount: Double
+    @Binding var expenseAmount: Double
+    @Binding var expenseGroup: MemberGroup
     @State private var selectedMembers: Set<String> = []
     @State private var amountPerPerson: Double = 0.0
 
@@ -34,8 +34,10 @@ struct WhoPaidSection: View {
                 .font(.custom("Poppins", size: 20))
                 .foregroundColor(.secondary)
                 .fontWeight(.regular)
+            
+            Text(expenseGroup.name)
 
-            ForEach(sampleGroupMembers, id: \.self) { member in
+            ForEach(expenseGroup.members.map { $0.name }, id: \.self) { member in
                 HStack {
                     Toggle(isOn: self.binding(for: member)) {
                         Text(member)
@@ -76,7 +78,7 @@ struct WhoPaidSection: View {
 
     private func updateAmountPerPerson() {
         let count = Double(selectedMembers.count)
-        amountPerPerson = count > 0 ? billAmount / count : 0
+        amountPerPerson = count > 0 ? expenseAmount / count : 0
     }
 }
 
@@ -97,17 +99,20 @@ struct CheckboxToggleStyle: ToggleStyle {
 
 struct WhoPaidView: View {
     @Binding var selectedCategory: SelectedSectionName
-    let sampleGroupMembers = ["Nadila Aulia (me)", "Amy", "Bob", "Charles", "David", "Eason", "Frank"]
-    @State private var billAmount: Double = 100.00
+    @Binding var expenseAmount: Double
+    @Binding var expenseGroup: MemberGroup
+    var memberNames: [String] {
+        expenseGroup.members.map { $0.name }
+    }
     var body: some View {
         VStack {
             ScrollView {
                 VStack(spacing: 15) {
-                    WhoPaidTitleSection(billAmount: $billAmount)
-                    WhoPaidSection(sampleGroupMembers: sampleGroupMembers, billAmount: $billAmount)
+                    WhoPaidTitleSection(expenseAmount: $expenseAmount)
+                    WhoPaidSection(expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
                 }
-                
                 Button("Next") {
+                    print("expenseAmount now: \(expenseAmount)")
                     withAnimation {
                         selectedCategory = .forWho
                     }

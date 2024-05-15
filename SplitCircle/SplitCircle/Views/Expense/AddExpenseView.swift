@@ -13,6 +13,12 @@ enum SelectedSectionName {
 
 struct AddExpenseView: View {
     @State private var currentSectionName: SelectedSectionName = .amount
+    @State private var expenseAmount: Double = 0.0
+    @State private var expenseTitle: String = ""
+    @State private var expensePaymentDate: Date = Date()
+    @State private var expenseGroup: MemberGroup = MemberGroup(id: UUID().uuidString, name: "", members: [], type: nil)
+    
+    // Add more state variables here and share those variables ? 
     var body: some View {
         NavigationView {
             VStack {
@@ -25,14 +31,15 @@ struct AddExpenseView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
+                // How do we switch the section ? 
                 // The content below the picker changes based on the selected category
                 switch currentSectionName {
                 case .amount:
-                    AddAmountView(selectedCategory: $currentSectionName)
+                    AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount, expenseTitle: $expenseTitle, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
                 case .whoPaid:
-                    WhoPaidView(selectedCategory: $currentSectionName)
+                    WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
                 case .forWho:
-                    ForWhoView()
+                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount,  expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
                 }
 
                 Spacer() // Pushes everything to the top
@@ -41,7 +48,6 @@ struct AddExpenseView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-
 }
 
 #Preview {

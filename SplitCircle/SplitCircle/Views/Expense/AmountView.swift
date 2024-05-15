@@ -8,8 +8,8 @@
 import SwiftUI
 import SwiftData
 
-struct BillAmountSection: View {
-    @Binding var billAmount: String
+struct expenseAmountSection: View {
+    @Binding var expenseAmount: Double
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +18,7 @@ struct BillAmountSection: View {
                 .fontWeight(.regular) // 'regular' is equivalent to weight 400
                 .foregroundColor(.secondary)
             HStack {
-                TextField("Enter total bill amount", text: $billAmount)
+                TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter.init())
                     .keyboardType(.decimalPad)
             }
             .padding()
@@ -50,11 +50,11 @@ struct ExpenseTitleSection: View {
     }
 }
 
-struct PaymentDateGroupSection: View {
+struct expensePaymentDateGroupSection: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
-    @Binding var paymentDate: Date
-    @Binding var selectedGroup: MemberGroup?
+    @Binding var expensePaymentDate: Date
+    @Binding var expenseGroup: MemberGroup
     @Binding var highlight: Bool
 
     var body: some View {
@@ -68,7 +68,7 @@ struct PaymentDateGroupSection: View {
                 HStack {
                     Image(systemName: "calendar")
                         .foregroundColor(.gray) // Adjust the color as needed
-                    DatePicker("", selection: $paymentDate, displayedComponents: .date)
+                    DatePicker("", selection: $expensePaymentDate, displayedComponents: .date)
                         .labelsHidden() // Hide the default label provided by the DatePicker
                 }
             }
@@ -83,17 +83,17 @@ struct PaymentDateGroupSection: View {
                 Menu {
                     ForEach(groups, id: \.self) { group in
                         Button(group.name) {
-                            selectedGroup = group
+                            expenseGroup = group
                         }
                     }
                 } label: {
                     HStack {
-                        Text(selectedGroup?.name ?? "Select group")
+                        Text(expenseGroup.name.isEmpty ? "Select Group" : expenseGroup.name)
                         Image(systemName: "chevron.down")
                     }
                     .padding()
                     .foregroundColor(.gray)
-                    .background(highlight && selectedGroup == nil ? Color.red.opacity(0.3) : Color(.systemGray6))
+                    .background(highlight && expenseGroup.name == "" ? Color.red.opacity(0.3) : Color(.systemGray6))
                     .cornerRadius(10)
                 }
                 .padding(.horizontal, 1)
@@ -103,12 +103,12 @@ struct PaymentDateGroupSection: View {
     }
 }
 
-struct AddAmountView: View {
-    @Binding var selectedCategory: SelectedSectionName
-    @State private var billAmount: String = ""
-    @State private var expenseTitle: String = ""
-    @State private var paymentDate: Date = Date()
-    @State private var selectedGroup: MemberGroup? = nil
+struct AmountView: View {
+    @Binding var selectedSection: SelectedSectionName
+    @Binding var expenseAmount: Double
+    @Binding var expenseTitle: String
+    @Binding var expensePaymentDate: Date
+    @Binding var expenseGroup: MemberGroup
     @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
 
@@ -116,23 +116,27 @@ struct AddAmountView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 15) {
-                    BillAmountSection(billAmount: $billAmount)
+                    expenseAmountSection(expenseAmount: $expenseAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
-                    PaymentDateGroupSection(paymentDate: $paymentDate, selectedGroup: $selectedGroup, highlight: $highlightGroupSection)
+                    expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, highlight: $highlightGroupSection)
                     CategorySection()
                 }
 
                 Button("Next") {
-                    print("press the save button")
-                    if selectedGroup == nil {
-                        highlightGroupSection = true
-                    } else {
-                        withAnimation {
-                            selectedCategory = .whoPaid
-                        }
-                        let newActivity = Activity(title: expenseTitle, date: paymentDate, groupName: selectedGroup!.name, amount: Double(billAmount) ?? 0.0)
-                        modelContext.insert(newActivity)
-                        print("should add a new activity")
+//                    print("press the save button")
+//                    if expenseGroup == nil {
+//                        highlightGroupSection = true
+//                    } else {
+//                        withAnimation {
+//                            selectedSection = .whoPaid
+//                        }
+//                        let newActivity = Activity(title: expenseTitle, date: expensePaymentDate, groupName: expenseGroup!.name, amount: Double(expenseAmount) ?? 0.0)
+//                        modelContext.insert(newActivity)
+//                        print("should add a new activity")
+//                    }
+                    print("press the next button")
+                    withAnimation {
+                        selectedSection = .whoPaid
                     }
                 }
                 .buttonStyle(FilledButton())
