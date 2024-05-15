@@ -39,7 +39,7 @@ struct AddExpenseView: View {
                 case .whoPaid:
                     WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
                 case .forWho:
-                    ForWhoView(expenseAmount: $expenseAmount)
+                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount,  expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
                 }
 
                 Spacer() // Pushes everything to the top
