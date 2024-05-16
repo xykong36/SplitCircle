@@ -25,10 +25,7 @@ struct WhoPaidTitleSection: View {
 struct WhoPaidSection: View {
     @Binding var expenseAmount: Double
     @Binding var expenseGroup: MemberGroup
-    @State private var selectedMembers: Set<String> = []
-    @State private var selections: [Bool] = Array(repeating: false, count: 10)
-
-    @State private var amountPerPerson: Double = 0.0
+    @Binding var expensePayers: [User]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -36,30 +33,32 @@ struct WhoPaidSection: View {
                 .font(.custom("Poppins", size: 20))
                 .foregroundColor(.secondary)
                 .fontWeight(.regular)
-            
-            ForEach(0..<expenseGroup.members.count, id: \.self) { index in
-                Toggle(isOn: $selections[index]) {
-                    Text(expenseGroup.members[index].name)
+        
+            ForEach(expenseGroup.members, id: \.id) { member in
+                Toggle(isOn: Binding(
+                    get: { expensePayers.contains { $0.id == member.id } },
+                    set: { isSelected in
+                        if isSelected {
+                            expensePayers.append(member)
+                        } else {
+                            expensePayers.removeAll { $0.id == member.id }
+                        }
+                    }
+                )) {
+                    Text(member.name)
                 }
                 .toggleStyle(CheckboxToggleStyle())
                 .padding(.vertical, 2)
             }
-            
-            Text("Selected Options:")
-                .font(.headline)
-                .padding(.top)
-            
-            ForEach(selectedOptions, id: \.id) { option in
-                Text(option.name)
-            }
         }
         .padding(.horizontal)
-    }
-
-    // 计算属性：选中的选项
-    var selectedOptions: [User] {
-        expenseGroup.members.enumerated().compactMap { index, member in
-            selections[index] ? member : nil
+        
+        Text("expenseGroup Name: ")
+        Text(expenseGroup.name)
+        Text("Payers: ")
+        
+        ForEach(expensePayers, id: \.id) { pp in
+            Text(pp.name)
         }
     }
 }
@@ -88,23 +87,16 @@ struct WhoPaidView: View {
     @Binding var expenseAmount: Double
     @Binding var expenseGroup: MemberGroup
     @Binding var expensePayers: [User]
-    @Binding var expensePayees: [User]
     
-    
-    var memberNames: [String] {
-        expenseGroup.members.map { $0.name }
-    }
     var body: some View {
         VStack {
             WhoPaidTitleSection(expenseAmount: $expenseAmount)
             ScrollView {
                 VStack(spacing: 15) {
                     
-                    WhoPaidSection(expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
+                    WhoPaidSection(expenseAmount: $expenseAmount, expenseGroup: $expenseGroup, expensePayers: $expensePayers)
                 }
-                
                 Button("Next") {
-                    print("expenseAmount now: \(expenseAmount)")
                     withAnimation {
                         selectedCategory = .forWho
                     }

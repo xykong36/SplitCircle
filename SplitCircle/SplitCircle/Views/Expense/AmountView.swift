@@ -55,6 +55,8 @@ struct expensePaymentDateGroupSection: View {
     @Environment(\.modelContext) private var modelContext
     @Binding var expensePaymentDate: Date
     @Binding var expenseGroup: MemberGroup
+    @Binding var expensePayers: [User]
+    @Binding var expensePayees: [User]
     @Binding var highlight: Bool
 
     var body: some View {
@@ -86,6 +88,10 @@ struct expensePaymentDateGroupSection: View {
                             expenseGroup = group
                         }
                     }
+                    .onChange(of: expenseGroup) {
+                        resetExpensePayers()
+                        resetExpensePayees()
+                    }
                 } label: {
                     HStack {
                         Text(expenseGroup.name.isEmpty ? "Select Group" : expenseGroup.name)
@@ -101,6 +107,15 @@ struct expensePaymentDateGroupSection: View {
             .padding(.horizontal)
         }
     }
+    
+    private func resetExpensePayers() {
+        print("reset the expensePayers...")
+        expensePayers.removeAll()
+    }
+    private func resetExpensePayees() {
+        print("reset the expensePayees...")
+        expensePayees.removeAll()
+    }
 }
 
 struct AmountView: View {
@@ -109,6 +124,8 @@ struct AmountView: View {
     @Binding var expenseTitle: String
     @Binding var expensePaymentDate: Date
     @Binding var expenseGroup: MemberGroup
+    @Binding var expensePayers: [User]
+    @Binding var expensePayees: [User]
     @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
 
@@ -118,7 +135,7 @@ struct AmountView: View {
                 VStack(spacing: 15) {
                     expenseAmountSection(expenseAmount: $expenseAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
-                    expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, highlight: $highlightGroupSection)
+                    expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup,expensePayers: $expensePayers, expensePayees: $expensePayees, highlight: $highlightGroupSection)
                     CategorySection()
                 }
 

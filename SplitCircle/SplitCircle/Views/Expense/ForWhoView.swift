@@ -18,7 +18,16 @@ struct ForWhoView: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
-        Text("View Refactor Needed")
+        Text("expenseGroup Name: ")
+        Text(expenseGroup.name)
+        Text("Payers: ")
+        ForEach(expensePayers, id: \.id) { pp in
+            Text(pp.name)
+        }
+        Text("Payees: ")
+        ForEach(expensePayees, id: \.id) { pp in
+            Text(pp.name)
+        }
         Button("Save") {
             let newActivity = Activity(title: expenseTitle, date: expensePaymentDate, groupName: expenseGroup.name, amount: expenseAmount)
             modelContext.insert(newActivity)
@@ -26,5 +35,9 @@ struct ForWhoView: View {
         }
         .buttonStyle(FilledButton())
         .padding()
+    }
+    
+    private func resetExpensePayers() {
+        expensePayers.removeAll()
     }
 }
