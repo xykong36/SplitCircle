@@ -17,17 +17,18 @@ struct ForWhoView: View {
     @Binding var expensePayees: [User]
     @Environment(\.modelContext) private var modelContext
 
+    // TODO: Figure out transaction details and save in modelContext
     var body: some View {
-        Text("expenseGroup Name: ")
-        Text(expenseGroup.name)
-        Text("Payers: ")
-        ForEach(expensePayers, id: \.id) { pp in
-            Text(pp.name)
-        }
-        Text("Payees: ")
-        ForEach(expensePayees, id: \.id) { pp in
-            Text(pp.name)
-        }
+//        Text("expenseGroup Name: ")
+//        Text(expenseGroup.name)
+//        Text("Payers: ")
+//        ForEach(expensePayers, id: \.id) { pp in
+//            Text(pp.name)
+//        }
+//        Text("Payees: ")
+//        ForEach(expensePayees, id: \.id) { pp in
+//            Text(pp.name)
+//        }
 
         VStack {
             AmountTitleSection(expenseAmount: $expenseAmount)

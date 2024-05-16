@@ -13,6 +13,7 @@ struct WhoPaidView: View {
     @Binding var expenseGroup: MemberGroup
     @Binding var expensePayers: [User]
 
+    // TODO: Add payer amount
     var body: some View {
         VStack {
             AmountTitleSection(expenseAmount: $expenseAmount)
