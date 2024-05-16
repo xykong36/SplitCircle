@@ -18,7 +18,7 @@ final class Transaction {
     var transactionDate: Date
     var isSettled: Bool
     var settledDate: Date?
-    
+
     init(id: UUID, name: String, payer: User, payee: User, amount: Double, transactionDate: Date, isSettled: Bool, settledDate: Date? = nil) {
         self.id = id
         self.name = name

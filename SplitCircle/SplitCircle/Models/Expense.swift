@@ -4,7 +4,6 @@
 //
 //  Created by XIANGYU KONG on 4/6/24.
 
-
 import Foundation
 import SwiftData
 
@@ -19,7 +18,7 @@ final class Expense {
     var transactions: [Transaction]
     var category: String
     var notes: String?
-    
+
     init(id: UUID, title: String, expenseAmount: Double, expenseDate: Date, payers: [User], payees: [User], transactions: [Transaction], category: String, notes: String? = nil) {
         self.id = id
         self.title = title
@@ -31,4 +30,4 @@ final class Expense {
         self.category = category
         self.notes = notes
     }
- }
+}

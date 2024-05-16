@@ -1,16 +1,16 @@
 //
-//  AddAmountView.swift
+//  AmountView.swift
 //  SplitCircle
 //
 //  Created by Steven Hu on 4/22/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct expenseAmountSection: View {
     @Binding var expenseAmount: Double
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("Bill Amount")
@@ -18,7 +18,7 @@ struct expenseAmountSection: View {
                 .fontWeight(.regular) // 'regular' is equivalent to weight 400
                 .foregroundColor(.secondary)
             HStack {
-                TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter.init())
+                TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter())
                     .keyboardType(.decimalPad)
             }
             .padding()
@@ -31,7 +31,7 @@ struct expenseAmountSection: View {
 
 struct ExpenseTitleSection: View {
     @Binding var expenseTitle: String
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("Expense Title")
@@ -75,13 +75,13 @@ struct expensePaymentDateGroupSection: View {
                 }
             }
             .padding(.horizontal)
-            
+
             VStack(alignment: .leading) {
                 Text("Group")
                     .font(.custom("Poppins", size: 16))
                     .fontWeight(.regular) // 'regular' is equivalent to weight 400
                     .foregroundColor(.secondary)
-                
+
                 Menu {
                     ForEach(groups, id: \.self) { group in
                         Button(group.name) {
@@ -107,11 +107,12 @@ struct expensePaymentDateGroupSection: View {
             .padding(.horizontal)
         }
     }
-    
+
     private func resetExpensePayers() {
         print("reset the expensePayers...")
         expensePayers.removeAll()
     }
+
     private func resetExpensePayees() {
         print("reset the expensePayees...")
         expensePayees.removeAll()
@@ -135,7 +136,7 @@ struct AmountView: View {
                 VStack(spacing: 15) {
                     expenseAmountSection(expenseAmount: $expenseAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
-                    expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup,expensePayers: $expensePayers, expensePayees: $expensePayees, highlight: $highlightGroupSection)
+                    expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, highlight: $highlightGroupSection)
                     CategorySection()
                 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showingDebtsSheet = false
-    
+
     var body: some View {
         NavigationStack {
             // Balance Card
@@ -22,7 +22,6 @@ struct HomeView: View {
             .sheet(isPresented: $showingDebtsSheet) {
                 MyDebtsView()
             }
-
 
             // Group Section
             GroupsTitleView()

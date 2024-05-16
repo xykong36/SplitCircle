@@ -27,9 +27,8 @@ struct ActivitiesView: View {
     @Environment(\.modelContext) private var modelContext
     var prefixOnly: Bool = true
     private let prefixCount = 5 // 定义前缀数量常量
-    
+
     var body: some View {
-        
         let displayedActivities = prefixOnly ? Array(activities.prefix(prefixCount)) : activities
 
         HStack {
@@ -55,7 +54,7 @@ struct ActivitiesView: View {
         // extend the edges to the screen sides
         .listStyle(.plain)
     }
-    
+
     func deleteActivities(_ indexSet: IndexSet) {
         for index in indexSet {
             let activity = activities[index]

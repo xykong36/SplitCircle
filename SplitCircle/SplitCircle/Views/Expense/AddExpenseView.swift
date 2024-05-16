@@ -15,25 +15,25 @@ struct AddExpenseView: View {
     @State private var currentSectionName: SelectedSectionName = .amount
     @State private var expenseAmount: Double = 0.0
     @State private var expenseTitle: String = ""
-    @State private var expensePaymentDate: Date = Date()
-    @State private var expenseGroup: MemberGroup = MemberGroup(id: UUID().uuidString, name: "", members: [], type: nil)
+    @State private var expensePaymentDate: Date = .init()
+    @State private var expenseGroup: MemberGroup = .init(id: UUID().uuidString, name: "", members: [], type: nil)
     @State private var expensePayers: [User] = []
     @State private var expensePayees: [User] = []
-    
-    // Add more state variables here and share those variables ? 
+
+    // Add more state variables here and share those variables ?
     var body: some View {
         NavigationView {
             VStack {
                 // This picker will function as your segmented control for switching views
                 Picker("Category", selection: $currentSectionName) {
                     Text("Amount").tag(SelectedSectionName.amount)
-                    Text("Who paid?").tag(SelectedSectionName.whoPaid)
-                    Text("For who?").tag(SelectedSectionName.forWho)
+                    Text("Who Paid?").tag(SelectedSectionName.whoPaid)
+                    Text("For Who?").tag(SelectedSectionName.forWho)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                
-                // How do we switch the section ? 
+
+                // How do we switch the section ?
                 // The content below the picker changes based on the selected category
                 switch currentSectionName {
                 case .amount:
@@ -41,7 +41,7 @@ struct AddExpenseView: View {
                 case .whoPaid:
                     WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup, expensePayers: $expensePayers)
                 case .forWho:
-                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount,  expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees)
+                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees)
                 }
 
                 Spacer() // Pushes everything to the top

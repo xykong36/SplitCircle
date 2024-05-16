@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingView: View {
     var body: some View {
         VStack {
-
             Text("Nadila Aulia") // Replace with your dynamic name
                 .font(.title2)
                 .fontWeight(.medium)
