@@ -17,6 +17,8 @@ struct AddExpenseView: View {
     @State private var expenseTitle: String = ""
     @State private var expensePaymentDate: Date = Date()
     @State private var expenseGroup: MemberGroup = MemberGroup(id: UUID().uuidString, name: "", members: [], type: nil)
+    @State private var expensePayers: [User] = []
+    @State private var expensePayees: [User] = []
     
     // Add more state variables here and share those variables ? 
     var body: some View {
@@ -37,9 +39,9 @@ struct AddExpenseView: View {
                 case .amount:
                     AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount, expenseTitle: $expenseTitle, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
                 case .whoPaid:
-                    WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
+                    WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees)
                 case .forWho:
-                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount,  expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup)
+                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount,  expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees)
                 }
 
                 Spacer() // Pushes everything to the top

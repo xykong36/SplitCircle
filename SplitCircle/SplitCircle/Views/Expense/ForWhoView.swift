@@ -13,6 +13,8 @@ struct ForWhoView: View {
     @Binding var expenseAmount: Double
     @Binding var expensePaymentDate: Date
     @Binding var expenseGroup: MemberGroup
+    @Binding var expensePayers: [User]
+    @Binding var expensePayees: [User]
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {

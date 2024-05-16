@@ -26,6 +26,8 @@ struct WhoPaidSection: View {
     @Binding var expenseAmount: Double
     @Binding var expenseGroup: MemberGroup
     @State private var selectedMembers: Set<String> = []
+    @State private var selections: [Bool] = Array(repeating: false, count: 10)
+
     @State private var amountPerPerson: Double = 0.0
 
     var body: some View {
@@ -35,63 +37,47 @@ struct WhoPaidSection: View {
                 .foregroundColor(.secondary)
                 .fontWeight(.regular)
             
-            Text(expenseGroup.name)
-
-            ForEach(expenseGroup.members.map { $0.name }, id: \.self) { member in
-                HStack {
-                    Toggle(isOn: self.binding(for: member)) {
-                        Text(member)
-                            .font(.system(size: 16))
-                    }
-                    .toggleStyle(CheckboxToggleStyle())
-
-                    Spacer()
-
-                    if selectedMembers.contains(member) {
-                        let currencyCode = Locale.current.currency?.identifier ?? "USD"
-                        Text(amountPerPerson, format: .currency(code: currencyCode))
-                            .frame(minWidth: 80, alignment: .trailing)
-                    }
+            ForEach(0..<expenseGroup.members.count, id: \.self) { index in
+                Toggle(isOn: $selections[index]) {
+                    Text(expenseGroup.members[index].name)
                 }
-                .padding(.vertical, 8)
+                .toggleStyle(CheckboxToggleStyle())
+                .padding(.vertical, 2)
+            }
+            
+            Text("Selected Options:")
+                .font(.headline)
+                .padding(.top)
+            
+            ForEach(selectedOptions, id: \.id) { option in
+                Text(option.name)
             }
         }
         .padding(.horizontal)
-        .onChange(of: selectedMembers) {
-            updateAmountPerPerson()
+    }
+
+    // 计算属性：选中的选项
+    var selectedOptions: [User] {
+        expenseGroup.members.enumerated().compactMap { index, member in
+            selections[index] ? member : nil
         }
-    }
-
-    private func binding(for member: String) -> Binding<Bool> {
-        Binding(
-            get: { self.selectedMembers.contains(member) },
-            set: { isSelected in
-                if isSelected {
-                    self.selectedMembers.insert(member)
-                } else {
-                    self.selectedMembers.remove(member)
-                }
-                updateAmountPerPerson()
-            }
-        )
-    }
-
-    private func updateAmountPerPerson() {
-        let count = Double(selectedMembers.count)
-        amountPerPerson = count > 0 ? expenseAmount / count : 0
     }
 }
 
 
 // Custom ToggleStyle to mimic a checkbox
 struct CheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        return HStack {
-            Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                .resizable()
-                .frame(width: 24, height: 24)
-                .foregroundColor(configuration.isOn ? .blue : .gray)
-                .onTapGesture { configuration.isOn.toggle() }
+    func makeBody(configuration: Self.Configuration) -> some View {
+        HStack {
+            Button(action: {
+                configuration.isOn.toggle()
+            }) {
+                Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                    .foregroundColor(configuration.isOn ? .blue : .gray)
+                    .font(.system(size: 20))
+            }
+            .buttonStyle(PlainButtonStyle())
+            
             configuration.label
         }
     }
@@ -101,16 +87,22 @@ struct WhoPaidView: View {
     @Binding var selectedCategory: SelectedSectionName
     @Binding var expenseAmount: Double
     @Binding var expenseGroup: MemberGroup
+    @Binding var expensePayers: [User]
+    @Binding var expensePayees: [User]
+    
+    
     var memberNames: [String] {
         expenseGroup.members.map { $0.name }
     }
     var body: some View {
         VStack {
+            WhoPaidTitleSection(expenseAmount: $expenseAmount)
             ScrollView {
                 VStack(spacing: 15) {
-                    WhoPaidTitleSection(expenseAmount: $expenseAmount)
+                    
                     WhoPaidSection(expenseAmount: $expenseAmount, expenseGroup: $expenseGroup)
                 }
+                
                 Button("Next") {
                     print("expenseAmount now: \(expenseAmount)")
                     withAnimation {
