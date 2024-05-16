@@ -13,23 +13,22 @@ struct ContentView: View {
     init() {
         // Customize the appearance of the tab bar
         let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
+        tabBarAppearance.backgroundColor = UIColor(red: 242 / 255, green: 242 / 255, blue: 247 / 255, alpha: 1)
         tabBarAppearance.stackedLayoutAppearance.selected.iconColor = customUIBlue
         tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: customUIBlue]
-        
+
         // Set both the standard appearance and the scroll edge appearance
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
     }
-    
-    var body: some View {
 
+    var body: some View {
         ZStack(alignment: Alignment.bottom) {
             TabView {
                 HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house.fill")
-                }
+                    .tabItem {
+                        Label("Home", systemImage: "house.fill")
+                    }
 
                 AddExpenseView()
                     .tabItem {

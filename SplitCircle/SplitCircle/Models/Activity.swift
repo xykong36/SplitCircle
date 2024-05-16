@@ -17,7 +17,7 @@ final class Activity {
     var amount: Double
 
     init(title: String, date: Date, groupName: String, amount: Double) {
-        self.id = UUID()
+        id = UUID()
         self.title = title
         self.date = date
         self.groupName = groupName

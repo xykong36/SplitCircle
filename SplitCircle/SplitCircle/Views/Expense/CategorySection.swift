@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategorySection: View {
     @State private var selectedCategory: ExpenseCategory?
-    
+
     static let layout = Array(repeating: GridItem(.flexible()), count: 4)
 
     var body: some View {
@@ -46,14 +46,12 @@ struct CategoryButton: View {
                 Text(category.rawValue)
                     .font(.subheadline)
                     .fontWeight(selected == category ? .bold : .regular)
-                    
             }
         }
         .frame(width: 80, height: 75)
         .cornerRadius(10)
     }
 }
-
 
 enum ExpenseCategory: String, CaseIterable {
     case bills = "Bills"
@@ -68,7 +66,7 @@ enum ExpenseCategory: String, CaseIterable {
     // Helper function to generate image name based on whether the category is selected
     func imageName(selected: Bool) -> String {
         let suffix = selected ? "Square44x44" : "Clear44x44"
-        return "\(self.rawValue)\(suffix)"
+        return "\(rawValue)\(suffix)"
     }
 }
 
