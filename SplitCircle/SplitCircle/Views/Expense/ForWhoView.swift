@@ -17,6 +17,11 @@ struct ForWhoView: View {
     @Binding var expensePayees: [User]
     @Environment(\.modelContext) private var modelContext
 
+    var payeeSplitAmount: Double {
+        guard !expensePayees.isEmpty else { return 0 }
+        return expenseAmount / Double(expensePayees.count)
+    }
+    
     // TODO: Figure out transaction details and save in modelContext
     var body: some View {
 //        Text("expenseGroup Name: ")
@@ -29,7 +34,6 @@ struct ForWhoView: View {
 //        ForEach(expensePayees, id: \.id) { pp in
 //            Text(pp.name)
 //        }
-
         VStack {
             AmountTitleSection(expenseAmount: $expenseAmount)
             ScrollView {
@@ -38,11 +42,18 @@ struct ForWhoView: View {
                         .font(.custom("Poppins", size: 20))
                         .foregroundColor(.secondary)
                         .fontWeight(.regular)
-                    MembersToggleSection(members: $expenseGroup.members, selectedMembers: $expensePayees)
+                        .padding(.leading, 20)
+                    MembersToggleSection(members: $expenseGroup.members, selectedMembers: $expensePayees, splitAmount: payeeSplitAmount)
                 }
                 Button("Save") {
                     let newActivity = Activity(title: expenseTitle, date: expensePaymentDate, groupName: expenseGroup.name, amount: expenseAmount)
                     modelContext.insert(newActivity)
+                    
+                    
+//                    let newTransaction = createTransactions(expenseAmount: <#T##Double#>, expenseTitle: <#T##String#>, expensePayees: <#T##[User]#>, expensePayers: <#T##[User]#>)
+//
+//                    let newExpense = Expense(title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, payers: expensePayers, payees:  expensePayers, transactions: [], category: "ab")
+//                    let newTransaction = Transaction()
                     print("add a new expense to model context")
                 }
                 .buttonStyle(FilledButton())
@@ -51,6 +62,9 @@ struct ForWhoView: View {
         }
         .navigationTitle("Add New Expense")
     }
+//    
+    
+
 
     private func resetExpensePayers() {
         expensePayers.removeAll()

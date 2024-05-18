@@ -15,12 +15,12 @@ final class Expense {
     var expenseDate: Date
     var payers: [User]
     var payees: [User]
-    var transactions: [Transaction]
+    var transactions: [ExpenseTransaction] = []
     var category: String
     var notes: String?
 
-    init(id: UUID, title: String, expenseAmount: Double, expenseDate: Date, payers: [User], payees: [User], transactions: [Transaction], category: String, notes: String? = nil) {
-        self.id = id
+    init(title: String, expenseAmount: Double, expenseDate: Date, payers: [User], payees: [User], transactions: [ExpenseTransaction], category: String, notes: String? = nil) {
+        self.id = UUID()
         self.title = title
         self.expenseAmount = expenseAmount
         self.expenseDate = expenseDate
