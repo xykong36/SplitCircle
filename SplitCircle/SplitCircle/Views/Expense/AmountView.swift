@@ -141,18 +141,6 @@ struct AmountView: View {
                 }
 
                 Button("Next") {
-//                    print("press the save button")
-//                    if expenseGroup == nil {
-//                        highlightGroupSection = true
-//                    } else {
-//                        withAnimation {
-//                            selectedSection = .whoPaid
-//                        }
-//                        let newActivity = Activity(title: expenseTitle, date: expensePaymentDate, groupName: expenseGroup!.name, amount: Double(expenseAmount) ?? 0.0)
-//                        modelContext.insert(newActivity)
-//                        print("should add a new activity")
-//                    }
-                    print("press the next button")
                     withAnimation {
                         selectedSection = .whoPaid
                     }

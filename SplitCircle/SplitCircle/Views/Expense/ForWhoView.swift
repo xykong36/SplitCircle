@@ -15,24 +15,20 @@ struct ForWhoView: View {
     @Binding var expenseGroup: MemberGroup
     @Binding var expensePayers: [User]
     @Binding var expensePayees: [User]
+    @Binding var expenseId: UUID
     @Environment(\.modelContext) private var modelContext
+    @Query private var allExpenses: [Expense]
 
     var payeeSplitAmount: Double {
         guard !expensePayees.isEmpty else { return 0 }
         return expenseAmount / Double(expensePayees.count)
     }
     
-    // TODO: Figure out transaction details and save in modelContext
     var body: some View {
-//        Text("expenseGroup Name: ")
-//        Text(expenseGroup.name)
-//        Text("Payers: ")
-//        ForEach(expensePayers, id: \.id) { pp in
-//            Text(pp.name)
-//        }
-//        Text("Payees: ")
-//        ForEach(expensePayees, id: \.id) { pp in
-//            Text(pp.name)
+//        Text("Expenses: ")
+//        ForEach(allExpenses, id: \.id) { pp in
+//            Text(pp.title)
+//            Text(String(pp.expenseAmount))
 //        }
         VStack {
             AmountTitleSection(expenseAmount: $expenseAmount)
@@ -46,15 +42,10 @@ struct ForWhoView: View {
                     MembersToggleSection(members: $expenseGroup.members, selectedMembers: $expensePayees, splitAmount: payeeSplitAmount)
                 }
                 Button("Save") {
-                    let newActivity = Activity(title: expenseTitle, date: expensePaymentDate, groupName: expenseGroup.name, amount: expenseAmount)
-                    modelContext.insert(newActivity)
-                    
-                    
-//                    let newTransaction = createTransactions(expenseAmount: <#T##Double#>, expenseTitle: <#T##String#>, expensePayees: <#T##[User]#>, expensePayers: <#T##[User]#>)
-//
-//                    let newExpense = Expense(title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, payers: expensePayers, payees:  expensePayers, transactions: [], category: "ab")
-//                    let newTransaction = Transaction()
-                    print("add a new expense to model context")
+                    let newTransactions = createTransactions()
+                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: "ab")
+                    modelContext.insert(newExpense)
+                    print("insert a newExpense successfully")
                 }
                 .buttonStyle(FilledButton())
                 .padding()
@@ -62,9 +53,51 @@ struct ForWhoView: View {
         }
         .navigationTitle("Add New Expense")
     }
-//    
     
+    func createTransactions() -> [ExpenseTransaction] {
+        var transactions: [ExpenseTransaction] = []
 
+        // Calculate the share for each payee
+        let payeeShare = expenseAmount / Double(expensePayees.count)
+
+        // Dictionary to track each payee's remaining amount to pay
+        var payeeAmounts = [String: Double]()
+        for payee in expensePayees {
+            payeeAmounts[String(payee.id)] = payeeShare
+        }
+
+        // Calculate each payer's actual amount paid for others
+        for payer in expensePayers {
+            let payerAmount = expenseAmount / Double(expensePayers.count)
+            let payerShare = payerAmount - payeeShare // The amount the payer paid for others
+            var remainingPayerShare = payerShare
+
+            for payee in expensePayees {
+                // Check if payer and payee are different
+                if payer.id != payee.id {
+                    // Calculate the amount payee needs to pay to this payer
+                    let payeeIdString = String(payee.id)
+                    let amount = min(remainingPayerShare, payeeAmounts[payeeIdString]!)
+                    if amount > 0 {
+                        let transaction = ExpenseTransaction(
+                            expenseTitle: expenseTitle,
+                            payer: payer,
+                            payee: payee,
+                            amount: amount,
+                            transactionDate: Date(),
+                            isSettled: false,
+                            expenseId: expenseId
+                        )
+                        transactions.append(transaction)
+                        payeeAmounts[payeeIdString]! -= amount
+                        remainingPayerShare -= amount
+                    }
+                }
+            }
+        }
+
+        return transactions
+    }
 
     private func resetExpensePayers() {
         expensePayers.removeAll()
