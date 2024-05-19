@@ -9,24 +9,26 @@ import Foundation
 import SwiftData
 
 @Model
-final class Transaction {
+final class ExpenseTransaction {
     @Attribute(.unique) var id: UUID
-    var name: String
-    var payer: User
-    var payee: User
+    var expenseTitle: String
+    @Relationship var payer: User
+    @Relationship var payee: User
     var amount: Double
     var transactionDate: Date
     var isSettled: Bool
     var settledDate: Date?
+    var expenseId: UUID
 
-    init(id: UUID, name: String, payer: User, payee: User, amount: Double, transactionDate: Date, isSettled: Bool, settledDate: Date? = nil) {
-        self.id = id
-        self.name = name
+    init(expenseTitle: String, payer: User, payee: User, amount: Double, transactionDate: Date, isSettled: Bool, settledDate: Date? = nil, expenseId: UUID) {
+        self.id = UUID()
+        self.expenseTitle = expenseTitle
         self.payer = payer
         self.payee = payee
         self.amount = amount
         self.transactionDate = transactionDate
         self.isSettled = isSettled
         self.settledDate = settledDate
+        self.expenseId = expenseId
     }
 }

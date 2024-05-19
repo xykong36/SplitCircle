@@ -13,19 +13,15 @@ final class Expense {
     var title: String
     var expenseAmount: Double
     var expenseDate: Date
-    var payers: [User]
-    var payees: [User]
-    var transactions: [Transaction]
+    @Relationship(deleteRule: .cascade) var transactions: [ExpenseTransaction] = []
     var category: String
     var notes: String?
 
-    init(id: UUID, title: String, expenseAmount: Double, expenseDate: Date, payers: [User], payees: [User], transactions: [Transaction], category: String, notes: String? = nil) {
+    init(id: UUID, title: String, expenseAmount: Double, expenseDate: Date, transactions: [ExpenseTransaction], category: String, notes: String? = nil) {
         self.id = id
         self.title = title
         self.expenseAmount = expenseAmount
         self.expenseDate = expenseDate
-        self.payers = payers
-        self.payees = payees
         self.transactions = transactions
         self.category = category
         self.notes = notes

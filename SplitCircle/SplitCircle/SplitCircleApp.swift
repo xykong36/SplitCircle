@@ -14,6 +14,6 @@ struct SplitCircleApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Activity.self, MemberGroup.self, User.self])
+        .modelContainer(for: [Activity.self, MemberGroup.self, User.self, ExpenseTransaction.self, Expense.self])
     }
 }

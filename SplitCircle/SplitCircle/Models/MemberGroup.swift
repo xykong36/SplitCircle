@@ -12,7 +12,7 @@ import SwiftData
 final class MemberGroup {
     var id: String
     var name: String
-    var members: [User]
+    @Relationship var members: [User]
     var type: String?
 
     init(id: String, name: String, members: [User], type: String? = nil) {
