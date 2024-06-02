@@ -13,7 +13,7 @@ final class Expense {
     var title: String
     var expenseAmount: Double
     var expenseDate: Date
-    @Relationship(deleteRule: .cascade) var transactions: [ExpenseTransaction] = []
+    var transactions: [ExpenseTransaction] = []
     var category: String
     var notes: String?
 
