@@ -1,14 +1,14 @@
 //
-//  ActivityRow.swift
+//  ExpenseRow.swift
 //  SplitCircle
 //
-//  Created by XIANGYU KONG on 4/6/24.
+//  Created by XIANGYU KONG on 6/2/24.
 //
 
 import SwiftUI
 
-struct ActivityRow: View {
-    var activity: Activity
+struct ExpenseRow: View {
+    var expense: Expense
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
@@ -29,20 +29,20 @@ struct ActivityRow: View {
                 HStack(spacing: 3) {
                     ImageIconView(imageName: "BillsRound40x40")
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(activity.title)
+                        Text(expense.title)
                             .font(.headline)
                             .padding(.vertical, 3)
                         HStack(spacing: 8) {
-                            Text(dateFormatter.string(from: activity.date))
+                            Text(dateFormatter.string(from: expense.expenseDate))
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
-                            Text(activity.groupName)
+                            Text("Group Placeholder")
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                         }
                     }
                     Spacer()
-                    if let amountString = currencyFormatter.string(from: NSNumber(value: activity.amount)) {
+                    if let amountString = currencyFormatter.string(from: NSNumber(value: expense.expenseAmount)) {
                         Text(amountString)
                             .kerning(0.2)
                             .frame(minWidth: 20, maxWidth: 100, alignment: .trailing)
