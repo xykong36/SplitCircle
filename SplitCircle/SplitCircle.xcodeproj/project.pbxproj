@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		221A549B2BD0B8310049A907 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A549A2BD0B8310049A907 /* PreviewSampleData.swift */; };
 		22242A212BD5E86400D5E116 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22242A202BD5E86400D5E116 /* GroupsView.swift */; };
 		22242A232BD71F3F00D5E116 /* AddGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22242A222BD71F3F00D5E116 /* AddGroupView.swift */; };
 		22242A2B2BF14F8600D5E116 /* CategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22242A2A2BF14F8600D5E116 /* CategorySection.swift */; };
@@ -24,11 +23,9 @@
 		2229105F2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229105E2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift */; };
 		2229106D2BC1910A000FE888 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229106C2BC1910A000FE888 /* Expense.swift */; };
 		222910762BC1995C000FE888 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910752BC1995C000FE888 /* HomeView.swift */; };
-		222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910772BC1CADF000FE888 /* ActivityRow.swift */; };
-		2229108A2BC38BCD000FE888 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222910892BC38BCD000FE888 /* MockData.swift */; };
 		2229108E2BC4E266000FE888 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229108D2BC4E266000FE888 /* GroupDetailView.swift */; };
-		22E83ECB2BD0AA2D00D49000 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */; };
-		22E83ECD2BD0AAE200D49000 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECC2BD0AAE200D49000 /* Activity.swift */; };
+		22881F702C0D4CE800444A63 /* ExpenseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881F6F2C0D4CE800444A63 /* ExpenseRow.swift */; };
+		22881F722C0D4D6000444A63 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881F712C0D4D6000444A63 /* ExpensesView.swift */; };
 		22E83ECF2BD0AB0800D49000 /* DebtsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECE2BD0AB0800D49000 /* DebtsCardView.swift */; };
 		22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */; };
 		22E83ED32BD0AB8E00D49000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED22BD0AB8E00D49000 /* User.swift */; };
@@ -59,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		221A549A2BD0B8310049A907 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		22242A202BD5E86400D5E116 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		22242A222BD71F3F00D5E116 /* AddGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupView.swift; sourceTree = "<group>"; };
 		22242A2A2BF14F8600D5E116 /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
@@ -81,11 +77,9 @@
 		2229105E2BC1905C000FE888 /* SplitCircleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2229106C2BC1910A000FE888 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		222910752BC1995C000FE888 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		222910772BC1CADF000FE888 /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
-		222910892BC38BCD000FE888 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		2229108D2BC4E266000FE888 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
-		22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
-		22E83ECC2BD0AAE200D49000 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		22881F6F2C0D4CE800444A63 /* ExpenseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRow.swift; sourceTree = "<group>"; };
+		22881F712C0D4D6000444A63 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 		22E83ECE2BD0AB0800D49000 /* DebtsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsCardView.swift; sourceTree = "<group>"; };
 		22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGroup.swift; sourceTree = "<group>"; };
 		22E83ED22BD0AB8E00D49000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -123,14 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		221A549C2BD0B91E0049A907 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				221A549A2BD0B8310049A907 /* PreviewSampleData.swift */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
 		222910312BC1905B000FE888 = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +143,6 @@
 				2229103D2BC1905B000FE888 /* SplitCircleApp.swift */,
 				222910742BC1994C000FE888 /* Views */,
 				2229106B2BC190F9000FE888 /* Models */,
-				221A549C2BD0B91E0049A907 /* Support */,
 				222910432BC1905C000FE888 /* Assets.xcassets */,
 				222910482BC1905C000FE888 /* SplitCircle.entitlements */,
 				222910492BC1905C000FE888 /* Info.plist */,
@@ -196,8 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				2229106C2BC1910A000FE888 /* Expense.swift */,
-				222910892BC38BCD000FE888 /* MockData.swift */,
-				22E83ECC2BD0AAE200D49000 /* Activity.swift */,
 				22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */,
 				22E83ED22BD0AB8E00D49000 /* User.swift */,
 				22242A2C2BF4F14100D5E116 /* ExpenseTransaction.swift */,
@@ -211,7 +194,6 @@
 				D1BAFDF92BD33E0300524D3A /* Setting */,
 				D1BAFDF82BD33DF900524D3A /* Home */,
 				D1BAFDF72BD33DD800524D3A /* Expense */,
-				D1BAFDF42BD33BB300524D3A /* Activity */,
 				D1BAFDF32BD33B8C00524D3A /* Group */,
 				D1BAFDF22BD33B2100524D3A /* Debts */,
 				2229103F2BC1905B000FE888 /* ContentView.swift */,
@@ -239,18 +221,11 @@
 			path = Group;
 			sourceTree = "<group>";
 		};
-		D1BAFDF42BD33BB300524D3A /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				222910772BC1CADF000FE888 /* ActivityRow.swift */,
-				22E83ECA2BD0AA2D00D49000 /* ActivitiesView.swift */,
-			);
-			path = Activity;
-			sourceTree = "<group>";
-		};
 		D1BAFDF72BD33DD800524D3A /* Expense */ = {
 			isa = PBXGroup;
 			children = (
+				22881F6F2C0D4CE800444A63 /* ExpenseRow.swift */,
+				22881F712C0D4D6000444A63 /* ExpensesView.swift */,
 				D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */,
 				D1E98A342BD7422F002C1606 /* AmountView.swift */,
 				D1E98A372BD74255002C1606 /* WhoPaidView.swift */,
@@ -409,32 +384,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				2229106D2BC1910A000FE888 /* Expense.swift in Sources */,
-				2229108A2BC38BCD000FE888 /* MockData.swift in Sources */,
 				2229108E2BC4E266000FE888 /* GroupDetailView.swift in Sources */,
 				D1E98A352BD7422F002C1606 /* AmountView.swift in Sources */,
 				222910402BC1905B000FE888 /* ContentView.swift in Sources */,
 				2229103E2BC1905B000FE888 /* SplitCircleApp.swift in Sources */,
 				D1BAFDEF2BD0B83200524D3A /* SettingView.swift in Sources */,
+				22881F702C0D4CE800444A63 /* ExpenseRow.swift in Sources */,
 				22242A232BD71F3F00D5E116 /* AddGroupView.swift in Sources */,
 				222910762BC1995C000FE888 /* HomeView.swift in Sources */,
 				22E83ED32BD0AB8E00D49000 /* User.swift in Sources */,
 				D1BAFDF12BD3386B00524D3A /* MyDebtsView.swift in Sources */,
-				222910782BC1CADF000FE888 /* ActivityRow.swift in Sources */,
 				22242A2F2BF646B100D5E116 /* AmountTitleSection.swift in Sources */,
 				D1F35AB62BD72F6D00E75E74 /* AllGroupsView.swift in Sources */,
 				22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */,
-				221A549B2BD0B8310049A907 /* PreviewSampleData.swift in Sources */,
 				22242A212BD5E86400D5E116 /* GroupsView.swift in Sources */,
 				22242A2B2BF14F8600D5E116 /* CategorySection.swift in Sources */,
 				22242A2D2BF4F14100D5E116 /* ExpenseTransaction.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* DebtsCardView.swift in Sources */,
+				22881F722C0D4D6000444A63 /* ExpensesView.swift in Sources */,
 				D1E98A382BD74255002C1606 /* WhoPaidView.swift in Sources */,
 				22242A312BF647BC00D5E116 /* MembersToggleSection.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* DebtsCardView.swift in Sources */,
 				D1BAFDED2BD0B6B800524D3A /* AddExpenseView.swift in Sources */,
 				D1E98A3A2BD74274002C1606 /* ForWhoView.swift in Sources */,
-				22E83ECD2BD0AAE200D49000 /* Activity.swift in Sources */,
-				22E83ECB2BD0AA2D00D49000 /* ActivitiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

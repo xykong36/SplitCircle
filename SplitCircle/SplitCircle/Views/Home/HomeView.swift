@@ -27,28 +27,9 @@ struct HomeView: View {
             GroupsTitleView()
             GroupsView()
 
-            // Activities Section
-            ActivitiesTitleView()
-            ActivitiesView()
+            // Expenses Section
+            ExpensesTitleView()
+            ExpensesView()
         }
     }
-}
-
-// Define a destination view for the navigation link
-struct ActivityDetailView: View {
-    var body: some View {
-        Text("Expense name")
-    }
-}
-
-// Define a destination view for the navigation link
-struct AllActivitiesView: View {
-    var body: some View {
-        Text("All Activities")
-    }
-}
-
-#Preview("Try HomeView") {
-    HomeView()
-        .modelContainer(previewContainer)
 }
