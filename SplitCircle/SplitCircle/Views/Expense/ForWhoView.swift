@@ -16,8 +16,11 @@ struct ForWhoView: View {
     @Binding var expensePayers: [User]
     @Binding var expensePayees: [User]
     @Binding var expenseId: UUID
+    @State private var savedNewExpense = false
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.presentationMode) var presentationMode
     @Query private var allExpenses: [Expense]
+    let alertTitle: String = "Successfully add a new expense."
 
     var payeeSplitAmount: Double {
         guard !expensePayees.isEmpty else { return 0 }
@@ -45,6 +48,7 @@ struct ForWhoView: View {
                     let newTransactions = createTransactions()
                     let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: "ab")
                     modelContext.insert(newExpense)
+                    savedNewExpense = true
                     print("insert a newExpense successfully")
                 }
                 .buttonStyle(FilledButton())
@@ -52,6 +56,14 @@ struct ForWhoView: View {
             }
         }
         .navigationTitle("Add New Expense")
+        .alert(
+            alertTitle,
+            isPresented: $savedNewExpense
+        ) {
+            Button("OK") {
+                // Handle the acknowledgement.
+            }
+        }
     }
     
     func createTransactions() -> [ExpenseTransaction] {

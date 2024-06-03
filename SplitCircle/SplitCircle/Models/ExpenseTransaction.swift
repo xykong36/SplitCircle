@@ -12,8 +12,8 @@ import SwiftData
 final class ExpenseTransaction {
     @Attribute(.unique) var id: UUID
     var expenseTitle: String
-    @Relationship var payer: User
-    @Relationship var payee: User
+    var payer: User
+    var payee: User
     var amount: Double
     var transactionDate: Date
     var isSettled: Bool
