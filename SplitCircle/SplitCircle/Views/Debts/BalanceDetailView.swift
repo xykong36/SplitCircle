@@ -8,10 +8,12 @@
 import SwiftUI
 import SwiftData
 
-struct MyDebtsView: View {
-    
-    @Query private var allTransactions: [ExpenseTransaction]
+struct BalanceDetailView: View {
+    let allTransactions: [ExpenseTransaction]
+    let balances: [String: Double]
+    let totalAmount: Double
     @State private var showingSettled: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
 
     var filteredTransactions: [ExpenseTransaction] {
@@ -20,8 +22,6 @@ struct MyDebtsView: View {
 
     var body: some View {
         // TODO: replace the userName variable
-        let balances = calculateNetTransactions(allTransactions: allTransactions, userName: "XY")
-        let totalAmount = balances.values.reduce(0, +)
         VStack {
             // Header with image and total amount owed
             VStack {
@@ -58,25 +58,7 @@ struct MyDebtsView: View {
     }
 }
 
-func calculateNetTransactions(allTransactions: [ExpenseTransaction], userName: String) -> [String: Double] {
-    var netBalances = [String: Double]()
 
-    // Transactions where user is the payer
-    let payerTransactions = allTransactions.filter { $0.payer.name == userName }
-    for transaction in payerTransactions {
-        let payeeName = transaction.payee.name
-        netBalances[payeeName, default: 0] += transaction.amount
-    }
-
-    // Transactions where user is the payee
-    let payeeTransactions = allTransactions.filter { $0.payee.name == userName }
-    for transaction in payeeTransactions {
-        let payerName = transaction.payer.name
-        netBalances[payerName, default: 0] -= transaction.amount
-    }
-
-    return netBalances
-}
 
 struct CustomToggleStyle: View {
     @Binding var isSettled: Bool
@@ -135,8 +117,4 @@ struct DebtTransactionRow: View {
         .background(Color.white)
         .cornerRadius(10)
     }
-}
-
-#Preview {
-    MyDebtsView()
 }
