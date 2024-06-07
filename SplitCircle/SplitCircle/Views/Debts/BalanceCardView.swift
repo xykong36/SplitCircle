@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct DebtsCardView: View {
+struct BalanceCardView: View {
+    let allTransactions: [ExpenseTransaction]
+    let totalAmount: Double
     let customBlue = Color(red: 35 / 255, green: 96 / 255, blue: 250 / 255)
 
     var body: some View {
@@ -20,20 +22,24 @@ struct DebtsCardView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     // Content
-                    Text("Hi, Nadila Aulia,")
+                    Text("Hi, Xiangyu,")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
 
-                    Text("you have unpaid bill")
+                    Text(
+                        totalAmount > 0 ? "You can collect" :
+                        totalAmount < 0 ? "You owe" :
+                        "No balance due"
+                    )
                         .font(.headline)
                         .fontWeight(.regular)
                         .foregroundColor(.white)
 
                     HStack {
-                        Text("$156.98")
+                        Text("\(abs(totalAmount), specifier: "%.2f")")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .bold()
                             .foregroundColor(.white)
                         Spacer()
                     }
@@ -52,6 +58,3 @@ struct DebtsCardView: View {
     }
 }
 
-#Preview {
-    DebtsCardView()
-}

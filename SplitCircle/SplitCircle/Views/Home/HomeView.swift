@@ -9,20 +9,13 @@ import SwiftData
 import SwiftUI
 
 struct HomeView: View {
-    @State private var showingDebtsSheet = false
-
+    
     var body: some View {
         NavigationStack {
-            // Balance Card
-            Button(action: {
-                showingDebtsSheet = true
-            }) {
-                DebtsCardView().padding()
-            }
-            .sheet(isPresented: $showingDebtsSheet) {
-                MyDebtsView()
-            }
-
+            
+            // Balance Section
+            BalanceView()
+            
             // Group Section
             GroupsTitleView()
             GroupsView()

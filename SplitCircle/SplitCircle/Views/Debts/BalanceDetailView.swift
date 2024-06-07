@@ -6,29 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct MyDebtsView: View {
-    // Sample transactions data
-    @State private var transactions: [DebtTransaction] = [
-        DebtTransaction(name: "Alice", amount: 17.67, isSettled: false),
-        DebtTransaction(name: "Bob", amount: -33.00, isSettled: false),
-        DebtTransaction(name: "Charlie", amount: -127.50, isSettled: false),
-        DebtTransaction(name: "Diana", amount: 0.00, isSettled: true),
-        DebtTransaction(name: "Eason", amount: 0.00, isSettled: true),
-    ]
+struct BalanceDetailView: View {
+    let allTransactions: [ExpenseTransaction]
+    let balances: [String: Double]
+    let totalAmount: Double
     @State private var showingSettled: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
 
-    var filteredTransactions: [DebtTransaction] {
-        transactions.filter { $0.isSettled == showingSettled }
-    }
-
-    var totalOwed: Double {
-        // Compute the total amount owed
-        transactions.filter { !$0.isSettled }.reduce(0) { $0 + $1.amount }
+    var filteredTransactions: [ExpenseTransaction] {
+        allTransactions.filter { $0.isSettled == showingSettled }
     }
 
     var body: some View {
+        // TODO: replace the userName variable
         VStack {
             // Header with image and total amount owed
             VStack {
@@ -36,30 +29,36 @@ struct MyDebtsView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)
-                Text("You owed:")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-                Text("$\(totalOwed, specifier: "%.2f")")
+                Text(
+                    totalAmount > 0 ? "You can collect" :
+                    totalAmount < 0 ? "You owe" :
+                    "No balance due"
+                )
+                .font(.headline)
+                .foregroundColor(.secondary)
+                Text("\(abs(totalAmount), specifier: "%.2f")")
                     .font(.largeTitle)
                     .bold()
+                    .foregroundColor(totalAmount < 0 ? .red : .green)
             }
             .padding()
 
-            // Toggle for Unsettled and Settled
             CustomToggleStyle(isSettled: $showingSettled)
                 .padding(.horizontal)
-
-            // Transactions List
+            
             List {
-                ForEach(filteredTransactions) { transaction in
-                    DebtTransactionRow(transaction: transaction)
+                ForEach(balances.sorted(by: <), id: \.key) { balance in
+                    DebtTransactionRow(name: balance.key, amount: balance.value)
                 }
             }
+            .navigationBarTitle("Net Balances")
         }
         .navigationTitle("Debts")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+
 
 struct CustomToggleStyle: View {
     @Binding var isSettled: Bool
@@ -100,38 +99,22 @@ struct CustomToggleStyle: View {
 
 // Row view for each debt transaction
 struct DebtTransactionRow: View {
-    let transaction: DebtTransaction
+    let name: String
+    let amount: Double
 
     var body: some View {
         HStack {
-            Text(transaction.name)
+            Text(name)
                 .font(.headline)
                 .padding(.vertical, 15)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            Text(transaction.amountText)
+            Text(String(format: "%.2f", amount))
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.vertical, 2) // Add more padding to make the row thicker
-                .foregroundColor(transaction.amount > 0 ? .green : (transaction.amount == 0 ? .black : .red))
+                .foregroundColor(amount > 0 ? .green : (amount == 0 ? .black : .red))
         }
         .background(Color.white)
         .cornerRadius(10)
     }
-}
-
-// A mock model to represent a debt transaction
-struct DebtTransaction: Identifiable {
-    let id = UUID()
-    var name: String
-    var amount: Double
-    var isSettled: Bool
-
-    var amountText: String {
-        let sign = amount > 0 ? "+" : ""
-        return "\(sign)\(amount) USD"
-    }
-}
-
-#Preview {
-    MyDebtsView()
 }
