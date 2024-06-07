@@ -6,26 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MyDebtsView: View {
-    // Sample transactions data
-    @State private var transactions: [DebtTransaction] = [
-        DebtTransaction(name: "Alice", amount: 17.67, isSettled: false),
-        DebtTransaction(name: "Bob", amount: -33.00, isSettled: false),
-        DebtTransaction(name: "Charlie", amount: -127.50, isSettled: false),
-        DebtTransaction(name: "Diana", amount: 0.00, isSettled: true),
-        DebtTransaction(name: "Eason", amount: 0.00, isSettled: true),
-    ]
+    
+    @Query private var allTransactions: [ExpenseTransaction]
     @State private var showingSettled: Bool = false
     @Environment(\.presentationMode) var presentationMode
 
-    var filteredTransactions: [DebtTransaction] {
-        transactions.filter { $0.isSettled == showingSettled }
+    var filteredTransactions: [ExpenseTransaction] {
+        allTransactions.filter { $0.isSettled == showingSettled }
     }
 
     var totalOwed: Double {
         // Compute the total amount owed
-        transactions.filter { !$0.isSettled }.reduce(0) { $0 + $1.amount }
+        allTransactions.filter { !$0.isSettled }.reduce(0) { $0 + $1.amount }
     }
 
     var body: some View {
@@ -51,7 +46,7 @@ struct MyDebtsView: View {
 
             // Transactions List
             List {
-                ForEach(filteredTransactions) { transaction in
+                ForEach(allTransactions) { transaction in
                     DebtTransactionRow(transaction: transaction)
                 }
             }
@@ -100,15 +95,15 @@ struct CustomToggleStyle: View {
 
 // Row view for each debt transaction
 struct DebtTransactionRow: View {
-    let transaction: DebtTransaction
+    let transaction: ExpenseTransaction
 
     var body: some View {
         HStack {
-            Text(transaction.name)
+            Text(transaction.expenseTitle)
                 .font(.headline)
                 .padding(.vertical, 15)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            Text(transaction.amountText)
+            Text(String(transaction.amount))
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.vertical, 2) // Add more padding to make the row thicker
@@ -116,19 +111,6 @@ struct DebtTransactionRow: View {
         }
         .background(Color.white)
         .cornerRadius(10)
-    }
-}
-
-// A mock model to represent a debt transaction
-struct DebtTransaction: Identifiable {
-    let id = UUID()
-    var name: String
-    var amount: Double
-    var isSettled: Bool
-
-    var amountText: String {
-        let sign = amount > 0 ? "+" : ""
-        return "\(sign)\(amount) USD"
     }
 }
 
