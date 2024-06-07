@@ -153,14 +153,4 @@ struct AmountView: View {
     }
 }
 
-// A custom filled button style
-struct FilledButton: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-    }
-}
+

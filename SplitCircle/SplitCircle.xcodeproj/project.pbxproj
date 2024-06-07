@@ -26,6 +26,7 @@
 		2229108E2BC4E266000FE888 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229108D2BC4E266000FE888 /* GroupDetailView.swift */; };
 		22881F702C0D4CE800444A63 /* ExpenseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881F6F2C0D4CE800444A63 /* ExpenseRow.swift */; };
 		22881F722C0D4D6000444A63 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881F712C0D4D6000444A63 /* ExpensesView.swift */; };
+		22881F772C13446000444A63 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881F762C13446000444A63 /* FilledButton.swift */; };
 		22E83ECF2BD0AB0800D49000 /* DebtsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECE2BD0AB0800D49000 /* DebtsCardView.swift */; };
 		22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */; };
 		22E83ED32BD0AB8E00D49000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ED22BD0AB8E00D49000 /* User.swift */; };
@@ -80,6 +81,7 @@
 		2229108D2BC4E266000FE888 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		22881F6F2C0D4CE800444A63 /* ExpenseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRow.swift; sourceTree = "<group>"; };
 		22881F712C0D4D6000444A63 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
+		22881F762C13446000444A63 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		22E83ECE2BD0AB0800D49000 /* DebtsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsCardView.swift; sourceTree = "<group>"; };
 		22E83ED02BD0AB5D00D49000 /* MemberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGroup.swift; sourceTree = "<group>"; };
 		22E83ED22BD0AB8E00D49000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		222910742BC1994C000FE888 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22881F752C13444E00444A63 /* Style */,
 				D1BAFDF92BD33E0300524D3A /* Setting */,
 				D1BAFDF82BD33DF900524D3A /* Home */,
 				D1BAFDF72BD33DD800524D3A /* Expense */,
@@ -199,6 +202,14 @@
 				2229103F2BC1905B000FE888 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		22881F752C13444E00444A63 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				22881F762C13446000444A63 /* FilledButton.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		D1BAFDF22BD33B2100524D3A /* Debts */ = {
@@ -398,6 +409,7 @@
 				D1F35AB62BD72F6D00E75E74 /* AllGroupsView.swift in Sources */,
 				22E83ED12BD0AB5D00D49000 /* MemberGroup.swift in Sources */,
 				22242A212BD5E86400D5E116 /* GroupsView.swift in Sources */,
+				22881F772C13446000444A63 /* FilledButton.swift in Sources */,
 				22242A2B2BF14F8600D5E116 /* CategorySection.swift in Sources */,
 				22242A2D2BF4F14100D5E116 /* ExpenseTransaction.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* DebtsCardView.swift in Sources */,
