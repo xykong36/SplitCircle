@@ -11,13 +11,13 @@ import SwiftUI
 struct GroupsView: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
-    @State private var showingSheet = false
+    @State private var showAddGroupView = false
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Button(action: {
-                    showingSheet = true
+                    showAddGroupView = true
                 }) {
                     Image(systemName: "plus")
                         .foregroundColor(.blue)
@@ -30,7 +30,7 @@ struct GroupsView: View {
                                 .frame(width: 40, height: 120)
                         )
                 }.padding(.horizontal, 8)
-                    .sheet(isPresented: $showingSheet) {
+                    .sheet(isPresented: $showAddGroupView) {
                         AddGroupView()
                     }
                 ScrollView(.horizontal, showsIndicators: false) {

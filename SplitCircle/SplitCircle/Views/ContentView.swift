@@ -9,18 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    let customUIBlue = UIColor(red: 35 / 255, green: 96 / 255, blue: 250 / 255, alpha: 1)
-    init() {
-        // Customize the appearance of the tab bar
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.backgroundColor = UIColor(red: 242 / 255, green: 242 / 255, blue: 247 / 255, alpha: 1)
-        tabBarAppearance.stackedLayoutAppearance.selected.iconColor = customUIBlue
-        tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: customUIBlue]
-
-        // Set both the standard appearance and the scroll edge appearance
-        UITabBar.appearance().standardAppearance = tabBarAppearance
-        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-    }
+    @State private var showAddExpense = false
 
     var body: some View {
         ZStack(alignment: Alignment.bottom) {
@@ -29,16 +18,32 @@ struct ContentView: View {
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
-
-                AddExpenseView()
-                    .tabItem {
-                        Label("Add", systemImage: "plus.circle.fill")
-                    }
                 SettingView()
                     .tabItem {
                         Label("Setting", systemImage: "gearshape.fill")
                             .padding(.horizontal)
                     }
+            }
+            
+            Button(action: {
+                showAddExpense.toggle()
+            }) {
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                    .shadow(radius: 10)
+                    .overlay(
+                        Circle()
+                            .stroke(Color.white, lineWidth: 3)
+                    )
+            }
+            .offset(y: -10)
+            .fullScreenCover(isPresented: $showAddExpense) {
+                AddExpenseView(isPresented: $showAddExpense)
             }
         }
     }
