@@ -18,12 +18,10 @@ struct MyDebtsView: View {
         allTransactions.filter { $0.isSettled == showingSettled }
     }
 
-    var totalOwed: Double {
-        // Compute the total amount owed
-        allTransactions.filter { !$0.isSettled }.reduce(0) { $0 + $1.amount }
-    }
-
     var body: some View {
+        // TODO: replace the userName variable
+        let balances = calculateNetTransactions(allTransactions: allTransactions, userName: "XY")
+        let totalAmount = balances.values.reduce(0, +)
         VStack {
             // Header with image and total amount owed
             VStack {
@@ -31,29 +29,53 @@ struct MyDebtsView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)
-                Text("You owed:")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-                Text("$\(totalOwed, specifier: "%.2f")")
+                Text(
+                    totalAmount > 0 ? "You can collect" :
+                    totalAmount < 0 ? "You owe" :
+                    "No balance due"
+                )
+                .font(.headline)
+                .foregroundColor(.secondary)
+                Text("\(abs(totalAmount), specifier: "%.2f")")
                     .font(.largeTitle)
                     .bold()
+                    .foregroundColor(totalAmount < 0 ? .red : .green)
             }
             .padding()
 
-            // Toggle for Unsettled and Settled
             CustomToggleStyle(isSettled: $showingSettled)
                 .padding(.horizontal)
-
-            // Transactions List
+            
             List {
-                ForEach(allTransactions) { transaction in
-                    DebtTransactionRow(transaction: transaction)
+                ForEach(balances.sorted(by: <), id: \.key) { balance in
+                    DebtTransactionRow(name: balance.key, amount: balance.value)
                 }
             }
+            .navigationBarTitle("Net Balances")
         }
         .navigationTitle("Debts")
         .navigationBarTitleDisplayMode(.inline)
     }
+}
+
+func calculateNetTransactions(allTransactions: [ExpenseTransaction], userName: String) -> [String: Double] {
+    var netBalances = [String: Double]()
+
+    // Transactions where user is the payer
+    let payerTransactions = allTransactions.filter { $0.payer.name == userName }
+    for transaction in payerTransactions {
+        let payeeName = transaction.payee.name
+        netBalances[payeeName, default: 0] += transaction.amount
+    }
+
+    // Transactions where user is the payee
+    let payeeTransactions = allTransactions.filter { $0.payee.name == userName }
+    for transaction in payeeTransactions {
+        let payerName = transaction.payer.name
+        netBalances[payerName, default: 0] -= transaction.amount
+    }
+
+    return netBalances
 }
 
 struct CustomToggleStyle: View {
@@ -95,19 +117,20 @@ struct CustomToggleStyle: View {
 
 // Row view for each debt transaction
 struct DebtTransactionRow: View {
-    let transaction: ExpenseTransaction
+    let name: String
+    let amount: Double
 
     var body: some View {
         HStack {
-            Text(transaction.expenseTitle)
+            Text(name)
                 .font(.headline)
                 .padding(.vertical, 15)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            Text(String(transaction.amount))
+            Text(String(format: "%.2f", amount))
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.vertical, 2) // Add more padding to make the row thicker
-                .foregroundColor(transaction.amount > 0 ? .green : (transaction.amount == 0 ? .black : .red))
+                .foregroundColor(amount > 0 ? .green : (amount == 0 ? .black : .red))
         }
         .background(Color.white)
         .cornerRadius(10)
