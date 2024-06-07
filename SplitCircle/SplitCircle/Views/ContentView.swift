@@ -9,6 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showAddExpense = false // State to control the presentation of the modal
     let customUIBlue = UIColor(red: 35 / 255, green: 96 / 255, blue: 250 / 255, alpha: 1)
     init() {
         // Customize the appearance of the tab bar
@@ -24,21 +25,32 @@ struct ContentView: View {
 
     var body: some View {
         ZStack(alignment: Alignment.bottom) {
+            
             TabView {
                 HomeView()
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
 
-                AddExpenseView()
-                    .tabItem {
-                        Label("Add", systemImage: "plus.circle.fill")
-                    }
+//                AddExpenseView()
+//                    .tabItem {
+//                        Label("Add", systemImage: "plus.circle.fill")
+//                    }
+                
                 SettingView()
                     .tabItem {
                         Label("Setting", systemImage: "gearshape.fill")
                             .padding(.horizontal)
                     }
+            }
+            
+            Button(action: {
+                showAddExpense.toggle() // Toggle the state to show the modal
+            }) {
+                Label("", systemImage: "plus.circle.fill")
+            }
+            .fullScreenCover(isPresented: $showAddExpense) { // Present the AddExpenseView as a modal
+                AddExpenseView(isPresented: $showAddExpense)
             }
         }
     }

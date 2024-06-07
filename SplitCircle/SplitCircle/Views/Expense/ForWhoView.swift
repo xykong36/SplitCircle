@@ -16,9 +16,11 @@ struct ForWhoView: View {
     @Binding var expensePayers: [User]
     @Binding var expensePayees: [User]
     @Binding var expenseId: UUID
+    @Binding var isPresented: Bool
     @State private var savedNewExpense = false
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     @Query private var allExpenses: [Expense]
     let alertTitle: String = "Successfully add a new expense."
 
@@ -49,7 +51,6 @@ struct ForWhoView: View {
                     let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: "ab")
                     modelContext.insert(newExpense)
                     savedNewExpense = true
-                    print("insert a newExpense successfully")
                 }
                 .buttonStyle(FilledButton())
                 .padding()
@@ -61,7 +62,7 @@ struct ForWhoView: View {
             isPresented: $savedNewExpense
         ) {
             Button("OK") {
-                // Handle the acknowledgement.
+                isPresented = false
             }
         }
     }

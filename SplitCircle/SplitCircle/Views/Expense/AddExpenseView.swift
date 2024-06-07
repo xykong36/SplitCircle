@@ -20,6 +20,8 @@ struct AddExpenseView: View {
     @State private var expensePayers: [User] = []
     @State private var expensePayees: [User] = []
     @State private var expenseId: UUID = UUID()
+    @Binding var isPresented: Bool
+
 
     // Add more state variables here and share those variables ?
     var body: some View {
@@ -42,7 +44,7 @@ struct AddExpenseView: View {
                 case .whoPaid:
                     WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup, expensePayers: $expensePayers)
                 case .forWho:
-                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, expenseId: $expenseId)
+                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, expenseId: $expenseId, isPresented: $isPresented)
                 }
 
                 Spacer() // Pushes everything to the top
@@ -51,8 +53,4 @@ struct AddExpenseView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-}
-
-#Preview {
-    AddExpenseView()
 }

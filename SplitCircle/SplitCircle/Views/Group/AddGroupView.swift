@@ -45,10 +45,6 @@ struct AddGroupView: View {
             }
             .navigationBarTitle("Create New Group", displayMode: .inline)
         }
-
-        Button("Go Back") {
-            dismiss()
-        }
     }
 
     private func saveGroupDetails() {
