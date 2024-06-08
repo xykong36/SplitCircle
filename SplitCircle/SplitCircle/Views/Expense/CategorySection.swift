@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategorySection: View {
-    @State private var selectedCategory: ExpenseCategory?
+    @Binding var expenseCategory: ExpenseCategory?
 
     static let layout = Array(repeating: GridItem(.flexible()), count: 4)
 
@@ -22,7 +22,7 @@ struct CategorySection: View {
 
             LazyVGrid(columns: CategorySection.layout, spacing: 5) {
                 ForEach(ExpenseCategory.allCases, id: \.self) { category in
-                    CategoryButton(category: category, selected: $selectedCategory)
+                    CategoryButton(category: category, selected: $expenseCategory)
                 }
             }
         }
@@ -68,8 +68,4 @@ enum ExpenseCategory: String, CaseIterable {
         let suffix = selected ? "Square44x44" : "Clear44x44"
         return "\(rawValue)\(suffix)"
     }
-}
-
-#Preview {
-    CategorySection()
 }
