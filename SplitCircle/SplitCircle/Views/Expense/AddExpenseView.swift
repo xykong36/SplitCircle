@@ -20,6 +20,7 @@ struct AddExpenseView: View {
     @State private var expensePayers: [User] = []
     @State private var expensePayees: [User] = []
     @State private var expenseId: UUID = UUID()
+    @State private var expenseCategory: ExpenseCategory?
     @Binding var isPresented: Bool
 
 
@@ -40,11 +41,11 @@ struct AddExpenseView: View {
                 // The content below the picker changes based on the selected category
                 switch currentSectionName {
                 case .amount:
-                    AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount, expenseTitle: $expenseTitle, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees)
+                    AmountView(selectedSection: $currentSectionName, expenseAmount: $expenseAmount, expenseTitle: $expenseTitle, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, expenseCategory: $expenseCategory)
                 case .whoPaid:
                     WhoPaidView(selectedCategory: $currentSectionName, expenseAmount: $expenseAmount, expenseGroup: $expenseGroup, expensePayers: $expensePayers)
                 case .forWho:
-                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, expenseId: $expenseId, isPresented: $isPresented)
+                    ForWhoView(expenseTitle: $expenseTitle, expenseAmount: $expenseAmount, expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, expenseId: $expenseId, isPresented: $isPresented, expenseCategory: $expenseCategory)
                 }
 
                 Spacer() // Pushes everything to the top

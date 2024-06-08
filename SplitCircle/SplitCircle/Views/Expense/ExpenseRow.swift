@@ -27,7 +27,7 @@ struct ExpenseRow: View {
             .fill(Color.white)
             .overlay(
                 HStack(spacing: 3) {
-                    ImageIconView(imageName: "BillsRound40x40")
+                    CategoryIconView(categoryIcon: expense.category)
                     VStack(alignment: .leading, spacing: 4) {
                         Text(expense.title)
                             .font(.headline)
@@ -54,11 +54,15 @@ struct ExpenseRow: View {
     }
 }
 
-private struct ImageIconView: View {
-    let imageName: String
+struct CategoryIconView: View {
+    let categoryIcon: String
 
+    var iconImageName: String {
+        categoryIcon + "Round40x40"  // Compute the complete image name here
+    }
+    
     var body: some View {
-        Image(imageName)
+        Image(iconImageName)
             .resizable()
             .scaledToFit()
             .frame(width: 35, height: 35)

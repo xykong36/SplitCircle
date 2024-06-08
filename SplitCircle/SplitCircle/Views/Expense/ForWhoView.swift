@@ -17,6 +17,7 @@ struct ForWhoView: View {
     @Binding var expensePayees: [User]
     @Binding var expenseId: UUID
     @Binding var isPresented: Bool
+    @Binding var expenseCategory: ExpenseCategory?
     @State private var savedNewExpense = false
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) var presentationMode
@@ -48,7 +49,7 @@ struct ForWhoView: View {
                 }
                 Button("Save") {
                     let newTransactions = createTransactions()
-                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: "ab")
+                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: expenseCategory?.rawValue ?? "Other")
                     modelContext.insert(newExpense)
                     savedNewExpense = true
                 }

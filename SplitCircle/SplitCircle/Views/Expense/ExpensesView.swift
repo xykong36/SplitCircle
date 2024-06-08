@@ -34,7 +34,7 @@ struct ExpensesView: View {
         List {
             ForEach(displayedActivities) { expense in
                 NavigationLink {
-                    ExpenseDetailView()
+                    ExpenseDetailView(expense: expense)
                 } label: {
                     ExpenseRow(expense: expense)
                 }
@@ -56,12 +56,6 @@ struct ExpensesView: View {
     }
 }
 
-// Define a destination view for the navigation link
-struct ExpenseDetailView: View {
-    var body: some View {
-        Text("Expense name")
-    }
-}
 
 // Define a destination view for the navigation link
 struct AllExpensesView: View {

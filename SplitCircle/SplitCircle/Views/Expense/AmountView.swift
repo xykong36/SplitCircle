@@ -127,6 +127,7 @@ struct AmountView: View {
     @Binding var expenseGroup: MemberGroup
     @Binding var expensePayers: [User]
     @Binding var expensePayees: [User]
+    @Binding var expenseCategory: ExpenseCategory?
     @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
 
@@ -137,7 +138,7 @@ struct AmountView: View {
                     expenseAmountSection(expenseAmount: $expenseAmount)
                     ExpenseTitleSection(expenseTitle: $expenseTitle)
                     expensePaymentDateGroupSection(expensePaymentDate: $expensePaymentDate, expenseGroup: $expenseGroup, expensePayers: $expensePayers, expensePayees: $expensePayees, highlight: $highlightGroupSection)
-                    CategorySection()
+                    CategorySection(expenseCategory: $expenseCategory)
                 }
 
                 Button("Next") {
