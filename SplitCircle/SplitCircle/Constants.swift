@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias User = SplitCircleSchemaV1.User
-typealias Expense = SplitCircleSchemaV1.Expense
-typealias MemberGroup = SplitCircleSchemaV1.MemberGroup
-typealias ExpenseTransaction = SplitCircleSchemaV1.ExpenseTransaction
+typealias User = SplitCircleSchemaV2.User
+typealias Expense = SplitCircleSchemaV2.Expense
+typealias MemberGroup = SplitCircleSchemaV2.MemberGroup
+typealias ExpenseTransaction = SplitCircleSchemaV2.ExpenseTransaction

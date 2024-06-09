@@ -30,6 +30,7 @@
 		22B2B25A2C15F461009A438C /* SplitCircleSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B2592C15F461009A438C /* SplitCircleSchemaV1.swift */; };
 		22B2B25C2C15F715009A438C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B25B2C15F715009A438C /* Constants.swift */; };
 		22B2B25E2C15F816009A438C /* SplitCircleSchemaV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B25D2C15F816009A438C /* SplitCircleSchemaV2.swift */; };
+		22B2B2602C15FBFD009A438C /* SplitCircleMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B25F2C15FBFD009A438C /* SplitCircleMigrationPlan.swift */; };
 		22E83ECF2BD0AB0800D49000 /* BalanceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECE2BD0AB0800D49000 /* BalanceCardView.swift */; };
 		D1BAFDED2BD0B6B800524D3A /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */; };
 		D1BAFDEF2BD0B83200524D3A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEE2BD0B83200524D3A /* SettingView.swift */; };
@@ -86,6 +87,7 @@
 		22B2B2592C15F461009A438C /* SplitCircleSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleSchemaV1.swift; sourceTree = "<group>"; };
 		22B2B25B2C15F715009A438C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22B2B25D2C15F816009A438C /* SplitCircleSchemaV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleSchemaV2.swift; sourceTree = "<group>"; };
+		22B2B25F2C15FBFD009A438C /* SplitCircleMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleMigrationPlan.swift; sourceTree = "<group>"; };
 		22E83ECE2BD0AB0800D49000 /* BalanceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCardView.swift; sourceTree = "<group>"; };
 		D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		D1BAFDEE2BD0B83200524D3A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				22B2B2592C15F461009A438C /* SplitCircleSchemaV1.swift */,
 				22B2B25D2C15F816009A438C /* SplitCircleSchemaV2.swift */,
+				22B2B25F2C15FBFD009A438C /* SplitCircleMigrationPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				22242A2B2BF14F8600D5E116 /* CategorySection.swift in Sources */,
 				226A04FC2C14975400EFFA57 /* ExpenseDetailView.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* BalanceCardView.swift in Sources */,
+				22B2B2602C15FBFD009A438C /* SplitCircleMigrationPlan.swift in Sources */,
 				22881F722C0D4D6000444A63 /* ExpensesView.swift in Sources */,
 				22B2B25A2C15F461009A438C /* SplitCircleSchemaV1.swift in Sources */,
 				D1E98A382BD74255002C1606 /* WhoPaidView.swift in Sources */,
@@ -586,7 +590,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SplitCircle/SplitCircle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SplitCircle/Preview Content\"";
 				DEVELOPMENT_TEAM = M8XH5S3MW8;
 				ENABLE_PREVIEWS = YES;
@@ -601,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -617,7 +621,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SplitCircle/SplitCircle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SplitCircle/Preview Content\"";
 				DEVELOPMENT_TEAM = M8XH5S3MW8;
 				ENABLE_PREVIEWS = YES;
@@ -632,7 +636,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.splitcircle.app.SplitCircle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
