@@ -20,6 +20,7 @@ struct expenseAmountSection: View {
             HStack {
                 TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter())
                     .keyboardType(.decimalPad)
+                Text("USD")
             }
             .padding()
             .background(Color(.systemGray6))

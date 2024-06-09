@@ -45,6 +45,7 @@ struct CategoryButton: View {
                     .frame(width: 50, height: 50)
                 Text(category.rawValue)
                     .font(.subheadline)
+                    .foregroundColor(.black)
                     .fontWeight(selected == category ? .bold : .regular)
             }
         }

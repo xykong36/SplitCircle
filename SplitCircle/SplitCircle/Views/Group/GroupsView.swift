@@ -29,7 +29,9 @@ struct GroupsView: View {
                                 .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                                 .frame(width: 40, height: 120)
                         )
-                }.padding(.horizontal, 8)
+                }
+                    .padding(.leading, 15)
+                    .padding(.trailing, 4)
                     .sheet(isPresented: $showAddGroupView) {
                         AddGroupView()
                     }

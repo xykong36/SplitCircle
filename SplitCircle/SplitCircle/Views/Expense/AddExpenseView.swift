@@ -26,6 +26,9 @@ struct AddExpenseView: View {
 
     // Add more state variables here and share those variables ?
     var body: some View {
+        Button("Go back") {
+            isPresented = false
+        }
         NavigationView {
             VStack {
                 // This picker will function as your segmented control for switching views
