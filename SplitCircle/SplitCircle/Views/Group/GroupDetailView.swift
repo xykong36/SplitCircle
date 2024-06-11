@@ -18,6 +18,8 @@ struct GroupDetailView: View {
                 Text(group.name)
                     .font(.title)
                     .padding()
+                
+                Text(String(group.isCurrentUser))
 
                 List(group.members, id: \.id) { member in
                     Text(member.name)
