@@ -68,8 +68,14 @@ private struct GroupItem: View {
     var group: MemberGroup
 
     var body: some View {
+        let backgroundImage = [
+            "BackgroundGreen120x104", "BackgroundBlue120x104", "BackgroundCyan120x104",
+            "BackgroundOrange120x104", "BackgroundPurple120x104", "BackgroundRed120x104",
+            "BackgroundYellow120x104"
+        ].randomElement() ?? "BackgroundGreen120x104"
+        
         ZStack {
-            Image("Green_Group")
+            Image(backgroundImage)
                 .resizable() // Ensure the image can be resized
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 150, height: 120)
