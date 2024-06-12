@@ -13,11 +13,15 @@ struct SplitCircleApp: App {
 
     let customModelContainer: ModelContainer
     
+    let databasePath = URL.documentsDirectory.appending(path: "database.store")
+    
+    
     init() {
+        let configuration = ModelConfiguration(url: databasePath)
         do {
             customModelContainer = try ModelContainer(
                 for: MemberGroup.self, User.self, ExpenseTransaction.self, Expense.self,
-                migrationPlan: SplitCircleMigrationPlan.self
+                configurations: configuration
             )
         } catch {
             fatalError("Failed to initialize model container.")

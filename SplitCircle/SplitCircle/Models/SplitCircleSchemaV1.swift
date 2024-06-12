@@ -24,15 +24,17 @@ enum SplitCircleSchemaV1: VersionedSchema {
         var expenseDate: Date
         var transactions: [ExpenseTransaction] = []
         var category: String
+        var expenseGroup: MemberGroup
         var notes: String?
 
-        init(id: UUID, title: String, expenseAmount: Double, expenseDate: Date, transactions: [ExpenseTransaction], category: String, notes: String? = nil) {
+        init(id: UUID, title: String, expenseAmount: Double, expenseDate: Date, transactions: [ExpenseTransaction], category: String, expenseGroup: MemberGroup, notes: String? = nil) {
             self.id = id
             self.title = title
             self.expenseAmount = expenseAmount
             self.expenseDate = expenseDate
             self.transactions = transactions
             self.category = category
+            self.expenseGroup = expenseGroup
             self.notes = notes
         }
     }
@@ -41,12 +43,14 @@ enum SplitCircleSchemaV1: VersionedSchema {
     final class MemberGroup {
         var id: String
         var name: String
+        var createdDate: Date
         @Relationship var members: [User]
         var type: String?
 
-        init(id: String, name: String, isCurrentUser: Bool = false, members: [User], type: String? = nil) {
+        init(id: String, name: String, createdDate: Date, members: [User], type: String? = nil) {
             self.id = id
             self.name = name
+            self.createdDate = createdDate
             self.members = members
             self.type = type
         }
@@ -56,11 +60,13 @@ enum SplitCircleSchemaV1: VersionedSchema {
     final class User {
         var id: String
         var name: String
+        var isCurrentUser: Bool
         var loginDate: Date?
 
-        init(id: String, name: String, loginDate: Date? = nil) {
+        init(id: String, name: String, isCurrentUser: Bool = false, loginDate: Date? = nil) {
             self.id = id
             self.name = name
+            self.isCurrentUser = isCurrentUser
             self.loginDate = loginDate
         }
     }

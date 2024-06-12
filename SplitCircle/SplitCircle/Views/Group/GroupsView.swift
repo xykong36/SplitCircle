@@ -87,24 +87,33 @@ private struct GroupItem: View {
                     .multilineTextAlignment(.leading)
                     .bold()
                     .foregroundColor(.white)
-                    .padding([.bottom, .trailing], 20.0)
-                    .frame(alignment: .topLeading)
-                    .frame(width: 100.0, height: 70.0)
+                    .padding(.leading, 15)
+                    .frame(width: 140.0, height: 70.0, alignment: .topLeading)
 
                 HStack(alignment: .center) {
-                    Text("Mar 28")
+                    Text(dateFormatter.string(from: group.createdDate))
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
+                        .padding([.leading], 15)
+                    Spacer()
                     Image(systemName: "person.fill")
                         .foregroundColor(.white)
                     Text(String(group.members.count))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
+                        .padding(.trailing, 10)
                 }
             }
         }
+        
     }
+}
+
+private var dateFormatter: DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM.d"
+    return formatter
 }
 
 #Preview {

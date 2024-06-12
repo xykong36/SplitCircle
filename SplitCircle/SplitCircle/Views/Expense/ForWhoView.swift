@@ -31,11 +31,6 @@ struct ForWhoView: View {
     }
     
     var body: some View {
-//        Text("Expenses: ")
-//        ForEach(allExpenses, id: \.id) { pp in
-//            Text(pp.title)
-//            Text(String(pp.expenseAmount))
-//        }
         VStack {
             AmountTitleSection(expenseAmount: $expenseAmount)
             ScrollView {
@@ -49,7 +44,7 @@ struct ForWhoView: View {
                 }
                 Button("Save") {
                     let newTransactions = createTransactions()
-                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: expenseCategory?.rawValue ?? "Other")
+                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: expenseCategory?.rawValue ?? "Other", expenseGroup: expenseGroup)
                     modelContext.insert(newExpense)
                     savedNewExpense = true
                 }
