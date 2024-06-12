@@ -70,9 +70,9 @@ struct ForWhoView: View {
         let payeeShare = expenseAmount / Double(expensePayees.count)
 
         // Dictionary to track each payee's remaining amount to pay
-        var payeeAmounts = [String: Double]()
+        var payeeAmounts = [UUID: Double]()
         for payee in expensePayees {
-            payeeAmounts[String(payee.id)] = payeeShare
+            payeeAmounts[payee.id] = payeeShare
         }
 
         // Calculate each payer's actual amount paid for others
@@ -85,8 +85,7 @@ struct ForWhoView: View {
                 // Check if payer and payee are different
                 if payer.id != payee.id {
                     // Calculate the amount payee needs to pay to this payer
-                    let payeeIdString = String(payee.id)
-                    let amount = min(remainingPayerShare, payeeAmounts[payeeIdString]!)
+                    let amount = min(remainingPayerShare, payeeAmounts[payee.id]!)
                     if amount > 0 {
                         let transaction = ExpenseTransaction(
                             expenseTitle: expenseTitle,
@@ -98,7 +97,7 @@ struct ForWhoView: View {
                             expenseId: expenseId
                         )
                         transactions.append(transaction)
-                        payeeAmounts[payeeIdString]! -= amount
+                        payeeAmounts[payee.id]! -= amount
                         remainingPayerShare -= amount
                     }
                 }

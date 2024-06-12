@@ -13,7 +13,7 @@ struct SplitCircleApp: App {
 
     let customModelContainer: ModelContainer
     
-    let databasePath = URL.documentsDirectory.appending(path: "database.store")
+    let databasePath = URL.documentsDirectory.appending(path: "databasev2.store")
     
     
     init() {

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BalanceCardView: View {
+    @Query private var users: [User]
+    @Environment(\.modelContext) private var modelContext
+    @State private var currentUser: User?
     let allTransactions: [ExpenseTransaction]
     let totalAmount: Double
     let customBlue = Color(red: 35 / 255, green: 96 / 255, blue: 250 / 255)
-
+    
     var body: some View {
         ZStack {
             // Background
@@ -22,10 +26,20 @@ struct BalanceCardView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     // Content
-                    Text("Hi, Xiangyu,")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                    if let user = currentUser {
+                        Text("Hi \(user.name)")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    } else {
+                        Text("No current user found")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .onAppear {
+                                createNewCurrentUser()
+                            }
+                    }
 
                     Text(
                         totalAmount > 0 ? "You can collect" :
@@ -53,8 +67,26 @@ struct BalanceCardView: View {
                     .frame(width: 150) // Adjust the width as needed
             }
         }
+        .onAppear{
+            findCurrentUser()
+        }
         .frame(width: 361, height: 160)
         .padding()
+        
+    }
+    
+    private func findCurrentUser() {
+        currentUser = users.first { $0.isCurrentUser == true }
+    }
+
+    private func createNewCurrentUser() {
+        let newCurrentUser = User(name: "userName", isCurrentUser: true)
+        modelContext.insert(newCurrentUser)
+
+        // Simulate a delay to allow context to update
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            findCurrentUser()
+        }
     }
 }
 

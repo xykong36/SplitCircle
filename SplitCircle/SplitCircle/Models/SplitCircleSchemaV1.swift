@@ -41,14 +41,14 @@ enum SplitCircleSchemaV1: VersionedSchema {
     
     @Model
     final class MemberGroup {
-        var id: String
+        @Attribute(.unique) var id: UUID
         var name: String
         var createdDate: Date
         @Relationship var members: [User]
         var type: String?
 
-        init(id: String, name: String, createdDate: Date, members: [User], type: String? = nil) {
-            self.id = id
+        init(name: String, createdDate: Date, members: [User], type: String? = nil) {
+            self.id = UUID()
             self.name = name
             self.createdDate = createdDate
             self.members = members
@@ -58,13 +58,13 @@ enum SplitCircleSchemaV1: VersionedSchema {
     
     @Model
     final class User {
-        var id: String
+        @Attribute(.unique) var id: UUID
         var name: String
         var isCurrentUser: Bool
         var loginDate: Date?
 
-        init(id: String, name: String, isCurrentUser: Bool = false, loginDate: Date? = nil) {
-            self.id = id
+        init(name: String, isCurrentUser: Bool = false, loginDate: Date? = nil) {
+            self.id = UUID()
             self.name = name
             self.isCurrentUser = isCurrentUser
             self.loginDate = loginDate
