@@ -199,7 +199,7 @@
 				D1BAFDF82BD33DF900524D3A /* Home */,
 				D1BAFDF72BD33DD800524D3A /* Expense */,
 				D1BAFDF32BD33B8C00524D3A /* Group */,
-				D1BAFDF22BD33B2100524D3A /* Debts */,
+				D1BAFDF22BD33B2100524D3A /* Balance */,
 				2229103F2BC1905B000FE888 /* ContentView.swift */,
 			);
 			path = Views;
@@ -213,14 +213,14 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		D1BAFDF22BD33B2100524D3A /* Debts */ = {
+		D1BAFDF22BD33B2100524D3A /* Balance */ = {
 			isa = PBXGroup;
 			children = (
 				22E83ECE2BD0AB0800D49000 /* BalanceCardView.swift */,
 				D1BAFDF02BD3386B00524D3A /* BalanceDetailView.swift */,
 				226A04F92C13CF8600EFFA57 /* BalanceVeiw.swift */,
 			);
-			path = Debts;
+			path = Balance;
 			sourceTree = "<group>";
 		};
 		D1BAFDF32BD33B8C00524D3A /* Group */ = {

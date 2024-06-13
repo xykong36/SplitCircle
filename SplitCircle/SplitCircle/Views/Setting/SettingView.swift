@@ -9,15 +9,18 @@ import SwiftUI
 import SwiftData
 
 struct SettingView: View {
-    @State private var name: String = "Nadila Aulia"
+    
     @State private var showingEditName = false
+    @State private var currentUserName: String = ""
     @Query private var users: [User]
+    
     
     var body: some View {
         // Find the user where isCurrentUser is true
         var currentUser: User? {
             users.first { $0.isCurrentUser == true }
         }
+        
         NavigationView {
             VStack {
                 HStack {
@@ -34,6 +37,7 @@ struct SettingView: View {
                     }
                     Spacer()
                     Button(action: {
+                        currentUserName = currentUser?.name ?? "userName"
                         showingEditName = true
                     }) {
                         Image(systemName: "pencil")
@@ -57,15 +61,16 @@ struct SettingView: View {
             .sheet(isPresented: $showingEditName) {
                 NavigationStack {
                     Form {
-                        TextField("Name", text: $name)
+                        TextField("Name", text: $currentUserName)
                             .padding()
                             .navigationTitle("Edit Name")
                             .navigationBarItems(leading: Button("Cancel") {
                                 showingEditName = false
                             }, trailing: Button("Save") {
-                                
+                                currentUser!.name = currentUserName
                                 showingEditName = false
                             })
+                        
                     }
                 }
             }
