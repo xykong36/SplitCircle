@@ -24,7 +24,7 @@ struct ExpenseRow: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
-            .fill(Color.white)
+            .foregroundColor(Color.white)
             .overlay(
                 HStack(spacing: 3) {
                     CategoryIconView(categoryIcon: expense.category)
@@ -32,11 +32,12 @@ struct ExpenseRow: View {
                         Text(expense.title)
                             .font(.headline)
                             .padding(.vertical, 3)
-                        HStack(spacing: 8) {
+                        HStack(spacing: 4) {
                             Text(dateFormatter.string(from: expense.expenseDate))
                                 .font(.subheadline)
+                                .frame(minWidth: 10, maxWidth: 100, alignment: .leading)
                                 .foregroundColor(.gray)
-                            Text("Group Placeholder")
+                            Text(expense.expenseGroup.name)
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                         }
@@ -45,7 +46,7 @@ struct ExpenseRow: View {
                     if let amountString = currencyFormatter.string(from: NSNumber(value: expense.expenseAmount)) {
                         Text(amountString)
                             .kerning(0.2)
-                            .frame(minWidth: 20, maxWidth: 100, alignment: .trailing)
+                            .frame(minWidth: 18, maxWidth: 100, alignment: .trailing)
                             .fontWeight(.bold)
                             .font(.body)
                     }

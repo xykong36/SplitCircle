@@ -10,11 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showAddExpense = false
-
+    @Query private var users: [User]
+    @State private var currentUserName: String = ""
+    
     var body: some View {
+        var currentUser: User? {
+            users.first { $0.isCurrentUser == true }
+        }
         ZStack(alignment: Alignment.bottom) {
             TabView {
-                HomeView()
+                HomeView(currentUserName: $currentUserName)
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
@@ -44,6 +49,8 @@ struct ContentView: View {
             .fullScreenCover(isPresented: $showAddExpense) {
                 AddExpenseView(isPresented: $showAddExpense)
             }
+        }.onAppear {
+            currentUserName = currentUser?.name ?? "userName"
         }
     }
 }
