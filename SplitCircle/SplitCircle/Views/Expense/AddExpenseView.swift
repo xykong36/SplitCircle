@@ -23,12 +23,7 @@ struct AddExpenseView: View {
     @State private var expenseCategory: ExpenseCategory?
     @Binding var isPresented: Bool
 
-
-    // Add more state variables here and share those variables ?
     var body: some View {
-        Button("Go back") {
-            isPresented = false
-        }
         NavigationView {
             VStack {
                 // This picker will function as your segmented control for switching views
@@ -54,6 +49,14 @@ struct AddExpenseView: View {
                 Spacer() // Pushes everything to the top
             }
             .navigationTitle("Add New Expense")
+            .navigationBarItems(leading: Button(action: {
+                isPresented = false
+            }) {
+                Image("Cross_Symbol")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 36, height: 36)
+            })
             .navigationBarTitleDisplayMode(.inline)
         }
     }
