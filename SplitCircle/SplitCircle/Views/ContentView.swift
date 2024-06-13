@@ -35,7 +35,6 @@ struct ContentView: View {
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .clipShape(Circle())
-                    .shadow(radius: 10)
                     .overlay(
                         Circle()
                             .stroke(Color.white, lineWidth: 3)

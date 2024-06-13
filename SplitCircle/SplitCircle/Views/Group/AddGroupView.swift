@@ -49,8 +49,8 @@ struct AddGroupView: View {
 
     private func saveGroupDetails() {
         addParticipant()
-        let members = participants.map { User(id: UUID().uuidString, name: $0) }
-        let newMemberGroup = MemberGroup(id: UUID().uuidString, name: groupName, members: members, type: "Type A")
+        let members = participants.map { User(name: $0) }
+        let newMemberGroup = MemberGroup(name: groupName, createdDate: Date.now, members: members, type: "Type A")
         modelContext.insert(newMemberGroup)
         dismiss()
     }
