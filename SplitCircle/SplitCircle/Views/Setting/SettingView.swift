@@ -14,7 +14,6 @@ struct SettingView: View {
     @State private var currentUserName: String = ""
     @Query private var users: [User]
     
-    
     var body: some View {
         // Find the user where isCurrentUser is true
         var currentUser: User? {
@@ -37,7 +36,7 @@ struct SettingView: View {
                     }
                     Spacer()
                     Button(action: {
-                        currentUserName = currentUser?.name ?? "userName"
+                        
                         showingEditName = true
                     }) {
                         Image(systemName: "pencil")
@@ -49,14 +48,14 @@ struct SettingView: View {
                 .padding(.horizontal)
                 
                 List {
-                    ProfileRow(iconName: "bell.fill", rowTitle: "Notifications Setting")
-                    ProfileRow(iconName: "bubble.left.and.bubble.right.fill", rowTitle: "Feedback")
+                    SettingRow(iconName: "bell.fill", rowTitle: "Notifications Setting")
+                    SettingRow(iconName: "bubble.left.and.bubble.right.fill", rowTitle: "Feedback")
                 }
                 .listStyle(InsetGroupedListStyle())
                 
                 Spacer()
             }
-            .navigationTitle("Profile")
+            .navigationTitle("Setting")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingEditName) {
                 NavigationStack {
@@ -75,10 +74,11 @@ struct SettingView: View {
                 }
             }
         }
+        
     }
 }
 
-struct ProfileRow: View {
+struct SettingRow: View {
     var iconName: String
     var rowTitle: String
 

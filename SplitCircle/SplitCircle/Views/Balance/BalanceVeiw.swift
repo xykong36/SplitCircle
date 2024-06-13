@@ -11,8 +11,10 @@ import SwiftData
 struct BalanceView: View {
     @State private var showingDebtsSheet = false
     @Query private var allTransactions: [ExpenseTransaction]
+    @Binding var currentUserName: String
+    
     var body: some View {
-        let balances = calculateNetBalances(allTransactions: allTransactions, userName: "XY")
+        let balances = calculateNetBalances(allTransactions: allTransactions, userName: currentUserName)
         let totalAmount = balances.values.reduce(0, +)
         // Balance Card
         Button(action: {

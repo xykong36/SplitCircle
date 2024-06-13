@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @Query private var users: [User]
     @Environment(\.modelContext) private var modelContext
+    @Binding var currentUserName: String
 
     // Function to check if there exists a user with isCurrentUser == true
     func isCurrentUserExists() -> Bool {
@@ -20,7 +21,7 @@ struct HomeView: View {
         NavigationStack {
 
             // Balance Section
-            BalanceView()
+            BalanceView(currentUserName: $currentUserName)
             
             // Group Section
             GroupsTitleView()
