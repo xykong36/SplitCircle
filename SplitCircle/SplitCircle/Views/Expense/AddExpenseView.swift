@@ -24,15 +24,6 @@ struct AddExpenseView: View {
     @Binding var isPresented: Bool
 
     var body: some View {
-//        Button(action: {
-//            isPresented = false
-//        }) {
-//            Image("Cross_Symbol")
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 36, height: 36)
-//        }
-//        .padding()
         NavigationView {
             VStack {
                 // This picker will function as your segmented control for switching views

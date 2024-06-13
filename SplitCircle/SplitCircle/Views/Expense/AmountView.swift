@@ -131,6 +131,14 @@ struct AmountView: View {
     @Binding var expenseCategory: ExpenseCategory?
     @State private var highlightGroupSection: Bool = false
     @Environment(\.modelContext) private var modelContext
+    
+    // Computed property to check if all required fields are filled
+    private var isNextButtonEnabled: Bool {
+        expenseAmount > 0 &&
+        !expenseTitle.isEmpty &&
+        !expenseGroup.name.isEmpty &&
+        expenseCategory != nil
+    }
 
     var body: some View {
         VStack {
@@ -147,12 +155,24 @@ struct AmountView: View {
                         selectedSection = .whoPaid
                     }
                 }
-                .buttonStyle(FilledButton())
+                .disabled(!isNextButtonEnabled)
+                .buttonStyle(FilledButtonWithDisable(isEnabled: isNextButtonEnabled))
                 .padding()
             }
         }
         .navigationTitle("Add New Expense")
+        .onChange(of: expenseGroup) { _ in  // This could be used to reset other parts of the form if needed
+            resetExpenseParticipants()
+        }
+        .onChange(of: expenseCategory) { _ in
+            // Additional actions when category changes
+        }
     }
+    private func resetExpenseParticipants() {
+        expensePayers.removeAll()
+        expensePayees.removeAll()
+    }
+
 }
 
 
