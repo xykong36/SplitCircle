@@ -11,6 +11,7 @@ import SwiftUI
 struct GroupsView: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.colorScheme) var colorScheme
     @State private var showAddGroupView = false
 
     var body: some View {
@@ -19,15 +20,13 @@ struct GroupsView: View {
                 Button(action: {
                     showAddGroupView = true
                 }) {
-                    Image(systemName: "plus")
-                        .foregroundColor(.blue)
-                        .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
-                        .background(Color.white.opacity(0.5))
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                        .frame(width: 40, height: 120)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                                .frame(width: 40, height: 120)
+                            Text("+")
+                                .font(.system(size: 30))
+                                .foregroundColor(colorScheme == .dark ? .white : .blue)
                         )
                 }
                     .padding(.leading, 15)
