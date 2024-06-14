@@ -15,7 +15,6 @@ struct SettingView: View {
     @Query private var users: [User]
     
     var body: some View {
-        // Find the user where isCurrentUser is true
         var currentUser: User? {
             users.first { $0.isCurrentUser == true }
         }
@@ -48,7 +47,6 @@ struct SettingView: View {
                 .padding(.horizontal)
                 
                 List {
-                    SettingRow(iconName: "bell.fill", rowTitle: "Notifications Setting")
                     SettingRow(iconName: "bubble.left.and.bubble.right.fill", rowTitle: "Feedback")
                 }
                 .listStyle(InsetGroupedListStyle())

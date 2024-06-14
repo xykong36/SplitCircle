@@ -44,7 +44,7 @@ struct ForWhoView: View {
                 }
                 Button("Save") {
                     let newTransactions = createTransactions()
-                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: expenseCategory?.rawValue ?? "Other", expenseGroup: expenseGroup)
+                    let newExpense = Expense(id: expenseId,title: expenseTitle, expenseAmount: expenseAmount, expenseDate: expensePaymentDate, transactions: newTransactions, category: expenseCategory?.rawValue ?? "Others", expenseGroup: expenseGroup)
                     modelContext.insert(newExpense)
                     savedNewExpense = true
                 }
