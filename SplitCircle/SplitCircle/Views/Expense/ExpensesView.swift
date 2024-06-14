@@ -26,7 +26,8 @@ struct ExpensesView: View {
     @Query(sort: \Expense.expenseDate, order: .reverse) private var expenses: [Expense]
     @Environment(\.modelContext) private var modelContext
     var prefixOnly: Bool = true
-    private let prefixCount = 5 // 定义前缀数量常量
+    // limit the number of expenses show in the home page
+    private let prefixCount = 5
 
     var body: some View {
         let displayedActivities = prefixOnly ? Array(expenses.prefix(prefixCount)) : expenses

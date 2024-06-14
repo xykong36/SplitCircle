@@ -29,7 +29,6 @@
 		22881F772C13446000444A63 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881F762C13446000444A63 /* FilledButton.swift */; };
 		22B2B25A2C15F461009A438C /* SplitCircleSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B2592C15F461009A438C /* SplitCircleSchemaV1.swift */; };
 		22B2B25C2C15F715009A438C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B25B2C15F715009A438C /* Constants.swift */; };
-		22B2B2602C15FBFD009A438C /* SplitCircleMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2B25F2C15FBFD009A438C /* SplitCircleMigrationPlan.swift */; };
 		22E83ECF2BD0AB0800D49000 /* BalanceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E83ECE2BD0AB0800D49000 /* BalanceCardView.swift */; };
 		D1A4A9382C1A725900B2CAF0 /* FilledButtonWithDisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A4A9372C1A725900B2CAF0 /* FilledButtonWithDisable.swift */; };
 		D1BAFDED2BD0B6B800524D3A /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */; };
@@ -86,7 +85,6 @@
 		22881F762C13446000444A63 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		22B2B2592C15F461009A438C /* SplitCircleSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleSchemaV1.swift; sourceTree = "<group>"; };
 		22B2B25B2C15F715009A438C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		22B2B25F2C15FBFD009A438C /* SplitCircleMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleMigrationPlan.swift; sourceTree = "<group>"; };
 		22E83ECE2BD0AB0800D49000 /* BalanceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCardView.swift; sourceTree = "<group>"; };
 		D1A4A9372C1A725900B2CAF0 /* FilledButtonWithDisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButtonWithDisable.swift; sourceTree = "<group>"; };
 		D1BAFDEC2BD0B6B800524D3A /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				22B2B2592C15F461009A438C /* SplitCircleSchemaV1.swift */,
-				22B2B25F2C15FBFD009A438C /* SplitCircleMigrationPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,7 +416,6 @@
 				22242A2B2BF14F8600D5E116 /* CategorySection.swift in Sources */,
 				226A04FC2C14975400EFFA57 /* ExpenseDetailView.swift in Sources */,
 				22E83ECF2BD0AB0800D49000 /* BalanceCardView.swift in Sources */,
-				22B2B2602C15FBFD009A438C /* SplitCircleMigrationPlan.swift in Sources */,
 				22881F722C0D4D6000444A63 /* ExpensesView.swift in Sources */,
 				22B2B25A2C15F461009A438C /* SplitCircleSchemaV1.swift in Sources */,
 				D1E98A382BD74255002C1606 /* WhoPaidView.swift in Sources */,

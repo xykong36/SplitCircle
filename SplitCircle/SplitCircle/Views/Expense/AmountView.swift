@@ -15,7 +15,7 @@ struct expenseAmountSection: View {
         VStack(alignment: .leading) {
             Text("Bill Amount")
                 .font(.custom("Poppins", size: 16))
-                .fontWeight(.regular) // 'regular' is equivalent to weight 400
+                .fontWeight(.regular)
                 .foregroundColor(.secondary)
             HStack {
                 TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter())
@@ -70,9 +70,9 @@ struct expensePaymentDateGroupSection: View {
 
                 HStack {
                     Image(systemName: "calendar")
-                        .foregroundColor(.gray) // Adjust the color as needed
+                        .foregroundColor(.gray)
                     DatePicker("", selection: $expensePaymentDate, displayedComponents: .date)
-                        .labelsHidden() // Hide the default label provided by the DatePicker
+                        .labelsHidden()
                 }
             }
             .padding(.horizontal)
@@ -80,7 +80,7 @@ struct expensePaymentDateGroupSection: View {
             VStack(alignment: .leading) {
                 Text("Group")
                     .font(.custom("Poppins", size: 16))
-                    .fontWeight(.regular) // 'regular' is equivalent to weight 400
+                    .fontWeight(.regular)
                     .foregroundColor(.secondary)
 
                 Menu {
