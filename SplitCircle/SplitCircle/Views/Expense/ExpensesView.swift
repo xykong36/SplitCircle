@@ -12,7 +12,7 @@ import SwiftUI
 struct ExpensesTitleView: View {
     var body: some View {
         HStack {
-            Text("Activities").font(.title).bold()
+            Text("Expenses").font(.title).bold()
             Spacer()
             NavigationLink(destination: ExpensesView(prefixOnly: false)) {
                 Text("View all").foregroundColor(.accentColor)
@@ -30,23 +30,24 @@ struct ExpensesView: View {
     private let prefixCount = 5
 
     var body: some View {
-        let displayedActivities = prefixOnly ? Array(expenses.prefix(prefixCount)) : expenses
-
-        List {
-            ForEach(displayedActivities) { expense in
-                NavigationLink {
-                    ExpenseDetailView(expense: expense)
-                } label: {
-                    ExpenseRow(expense: expense)
+        let displayedExpenses = prefixOnly ? Array(expenses.prefix(prefixCount)) : expenses
+        NavigationStack {
+            List {
+                ForEach(displayedExpenses) { expense in
+                    NavigationLink {
+                        ExpenseDetailView(expense: expense)
+                    } label: {
+                        ExpenseRow(expense: expense)
+                    }
+                    // TODO: Replace hardcode UI settings
+                    .frame(height: 45)
+                    .padding(.vertical, 3)
                 }
-                // TODO: Replace hardcode UI settings
-                .frame(height: 45)
-                .padding(.vertical, 3)
+                .onDelete(perform: deleteExpenses)
             }
-            .onDelete(perform: deleteExpenses)
+            // extend the edges to the screen sides
+            .listStyle(.plain)
         }
-        // extend the edges to the screen sides
-        .listStyle(.plain)
     }
 
     func deleteExpenses(_ indexSet: IndexSet) {
