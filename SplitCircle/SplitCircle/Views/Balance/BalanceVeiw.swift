@@ -49,3 +49,23 @@ func calculateNetBalances(transactions: [ExpenseTransaction], userName: String) 
 
     return netBalances
 }
+
+func getUserTransactionsMap(transactions: [ExpenseTransaction], userName: String) -> [String: [ExpenseTransaction]] {
+    var userNameTransactionsMap = [String: [ExpenseTransaction]]()
+
+    // Transactions where user is the payer
+    let payerTransactions = transactions.filter { $0.payer.name == userName }
+    for transaction in payerTransactions {
+        let payeeName = transaction.payee.name
+        userNameTransactionsMap[payeeName, default: []].append(transaction)
+    }
+
+    // Transactions where user is the payee
+    let payeeTransactions = transactions.filter { $0.payee.name == userName }
+    for transaction in payeeTransactions {
+        let payerName = transaction.payer.name
+        userNameTransactionsMap[payerName, default: []].append(transaction)
+    }
+
+    return userNameTransactionsMap
+}
