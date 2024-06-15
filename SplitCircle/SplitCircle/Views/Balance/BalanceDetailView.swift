@@ -12,7 +12,7 @@ struct BalanceDetailView: View {
     let allTransactions: [ExpenseTransaction]
     let balances: [String: Double]
     let totalAmount: Double
-    @State private var showingSettled: Bool = false    
+    @State private var showingSettled: Bool = false
     @Environment(\.presentationMode) var presentationMode
 
     var filteredTransactions: [ExpenseTransaction] {
@@ -66,7 +66,7 @@ struct CustomToggleStyle: View {
         ZStack {
             // Background
             RoundedRectangle(cornerRadius: 30)
-                .fill(Color.gray.opacity(0.2))
+                .fill(Color.gray.opacity(0.6))
                 .frame(width: totalWidth, height: 50)
 
             // Highlighted background that moves
