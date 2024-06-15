@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AllGroupsView: View {
+    @Query private var groups: [MemberGroup]
+    
     var body: some View {
-        Text("All Groups View")
+        NavigationStack {
+            List(groups, id: \.id) { group in
+                NavigationLink {
+                    GroupDetailView(group: group)
+                } label: {
+                    Text(group.name)
+                }
+            }
+        }
+        .navigationBarTitle("All Groups", displayMode: .inline)
     }
 }
 
