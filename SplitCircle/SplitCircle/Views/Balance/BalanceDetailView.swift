@@ -7,19 +7,22 @@
 
 import SwiftUI
 import SwiftData
+import os.log
 
 struct BalanceDetailView: View {
     let allTransactions: [ExpenseTransaction]
-    let balances: [String: Double]
     let totalAmount: Double
+    let currentUserName: String
     @State private var showingSettled: Bool = false
     @Environment(\.presentationMode) var presentationMode
 
     var filteredTransactions: [ExpenseTransaction] {
         allTransactions.filter { $0.isSettled == showingSettled }
     }
-
+    
     var body: some View {
+        let balances = calculateNetBalances(transactions: filteredTransactions, userName: currentUserName)
+        let userTransactionsMap = getUserTransactionsMap(transactions: filteredTransactions, userName: currentUserName)
         VStack {
             // Header with image and total amount owed
             VStack {
@@ -46,7 +49,7 @@ struct BalanceDetailView: View {
             
             List {
                 ForEach(balances.sorted(by: <), id: \.key) { balance in
-                    DebtTransactionRow(name: balance.key, amount: balance.value)
+                    DebtTransactionRow(name: balance.key, amount: balance.value, userTransactionsMap: userTransactionsMap, showingSettled: showingSettled)
                 }
             }
             .navigationBarTitle("Net Balances")
@@ -97,8 +100,11 @@ struct CustomToggleStyle: View {
 
 // Row view for each debt transaction
 struct DebtTransactionRow: View {
+    @State private var showingEditModal = false
     let name: String
     let amount: Double
+    let userTransactionsMap: [String: [ExpenseTransaction]]
+    let showingSettled: Bool
 
     var body: some View {
         HStack {
@@ -113,5 +119,28 @@ struct DebtTransactionRow: View {
                 .foregroundColor(amount > 0 ? .green : (amount == 0 ? .black : .red))
         }
         .cornerRadius(10)
+        .swipeActions(edge: .trailing) {
+            if !showingSettled {
+                Button(action: {
+                    settleTransactions(transactions: userTransactionsMap[name])
+                }) {
+                    Text("Settle Up")
+                }
+                .tint(.blue)
+            }
+        }
+    }
+}
+
+
+private func settleTransactions(transactions: [ExpenseTransaction]?) {
+    // Check if transactions is nil or empty
+    guard let transactions = transactions else {
+        os_log("No transactions to settle.", log: OSLog.default, type: .info)
+        return
+    }
+
+    transactions.indices.forEach { index in
+        transactions[index].isSettled = true
     }
 }

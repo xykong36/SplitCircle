@@ -35,7 +35,6 @@ struct SettingView: View {
                     }
                     Spacer()
                     Button(action: {
-                        
                         showingEditName = true
                     }) {
                         Image(systemName: "pencil")

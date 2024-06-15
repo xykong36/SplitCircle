@@ -110,12 +110,10 @@ struct expensePaymentDateGroupSection: View {
     }
 
     private func resetExpensePayers() {
-        print("reset the expensePayers...")
         expensePayers.removeAll()
     }
 
     private func resetExpensePayees() {
-        print("reset the expensePayees...")
         expensePayees.removeAll()
     }
 }
