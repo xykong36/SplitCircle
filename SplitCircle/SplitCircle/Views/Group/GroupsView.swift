@@ -11,7 +11,6 @@ import SwiftUI
 struct GroupsView: View {
     @Query private var groups: [MemberGroup]
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.colorScheme) var colorScheme
     @State private var showAddGroupView = false
 
     var body: some View {
@@ -26,7 +25,7 @@ struct GroupsView: View {
                         .overlay(
                             Text("+")
                                 .font(.system(size: 30))
-                                .foregroundColor(colorScheme == .dark ? .white : .blue)
+                                .foregroundColor(.blue)
                         )
                 }
                     .padding(.leading, 15)

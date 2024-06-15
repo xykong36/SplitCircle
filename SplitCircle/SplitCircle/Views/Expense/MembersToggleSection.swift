@@ -29,12 +29,11 @@ struct MembersToggleSection: View {
                     Spacer()
                     if selectedMembers.contains(where: { $0.id == member.id }) {
                         Text(String(format: "%.2f", splitAmount))
-                            .foregroundColor(.black)
-                            .padding(.trailing, 15)  // 增加右侧内边距
+                            .padding(.trailing, 15)
                     }
                 }
-                .padding(.vertical, 2)  // 增加上下内边距
-                .cornerRadius(8)  // 可选：增加圆角以美化UI
+                .padding(.vertical, 2)
+                .cornerRadius(8)
             }
             .toggleStyle(CheckboxToggleStyle())
             .padding(.leading, 20)
