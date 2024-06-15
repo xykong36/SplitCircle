@@ -18,7 +18,6 @@ struct ExpenseDetailView: View {
             }
         }
         .navigationBarTitle("Expense Details", displayMode: .inline)
-//        .background(Color.pink.opacity(0.1).edgesIgnoringSafeArea(.all))
     }
     
     private var headerSection: some View {
@@ -27,7 +26,6 @@ struct ExpenseDetailView: View {
                 CategoryIconView(categoryIcon: expense.category)
                 VStack(alignment: .leading) {
                     Text(expense.title)
-                        .font(.title)
                         .fontWeight(.bold)
                     Text(dateFormatter.string(from: expense.expenseDate))
                         .font(.subheadline)
@@ -35,19 +33,18 @@ struct ExpenseDetailView: View {
                 }
                 Spacer()
                 Text("\(expense.expenseAmount, specifier: "%.2f") USD")
-                    .font(.title2)
+                    .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(.orange)
             }
             .padding()
-            .background(Color.white)
             .cornerRadius(10)
             .padding(.horizontal)
         }
     }
     
     private var transactionDetails: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 5) {
             ForEach(expense.transactions, id: \.id) { transaction in
                 transactionRow(for: transaction)
             }
@@ -64,14 +61,8 @@ struct ExpenseDetailView: View {
                     .font(.subheadline)
                     .foregroundColor(.green)
             }
-            Spacer()
-            if transaction.amount < 0 {
-                Text("You owe")
-                    .foregroundColor(.red)
-            }
         }
         .padding()
-        .background(Color.white)
         .cornerRadius(10)
         .padding(.horizontal)
     }

@@ -13,15 +13,18 @@ struct GroupDetailView: View {
     var group: MemberGroup
 
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack {
                 Text(group.name)
                     .font(.title)
                     .padding()
 
-                List(group.members, id: \.id) { member in
-                    Text(member.name)
+                VStack(alignment: .leading, spacing: 5) {
+                    ForEach(group.members, id: \.id) { member in
+                        Text(member.name)
+                    }
                 }
+                .padding()
 
                 Button("Delete Group") {
                     deleteGroup()
