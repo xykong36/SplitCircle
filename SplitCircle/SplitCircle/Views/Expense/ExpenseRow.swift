@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpenseRow: View {
+    @Environment(\.colorScheme) var colorScheme
     var expense: Expense
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -24,7 +25,7 @@ struct ExpenseRow: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
-            .foregroundColor(Color.white)
+            .foregroundColor(colorScheme == .dark ? .black : .white)
             .overlay(
                 HStack(spacing: 3) {
                     CategoryIconView(categoryIcon: expense.category)
@@ -32,6 +33,7 @@ struct ExpenseRow: View {
                         Text(expense.title)
                             .font(.headline)
                             .padding(.vertical, 3)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                         HStack(spacing: 4) {
                             Text(dateFormatter.string(from: expense.expenseDate))
                                 .font(.subheadline)

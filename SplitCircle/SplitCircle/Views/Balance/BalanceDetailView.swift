@@ -12,8 +12,7 @@ struct BalanceDetailView: View {
     let allTransactions: [ExpenseTransaction]
     let balances: [String: Double]
     let totalAmount: Double
-    @State private var showingSettled: Bool = false
-    
+    @State private var showingSettled: Bool = false    
     @Environment(\.presentationMode) var presentationMode
 
     var filteredTransactions: [ExpenseTransaction] {
@@ -21,7 +20,6 @@ struct BalanceDetailView: View {
     }
 
     var body: some View {
-        // TODO: replace the userName variable
         VStack {
             // Header with image and total amount owed
             VStack {
@@ -114,7 +112,6 @@ struct DebtTransactionRow: View {
                 .padding(.vertical, 2) // Add more padding to make the row thicker
                 .foregroundColor(amount > 0 ? .green : (amount == 0 ? .black : .red))
         }
-        .background(Color.white)
         .cornerRadius(10)
     }
 }
