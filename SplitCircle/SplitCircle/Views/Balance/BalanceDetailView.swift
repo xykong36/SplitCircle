@@ -10,16 +10,17 @@ import SwiftData
 
 struct BalanceDetailView: View {
     let allTransactions: [ExpenseTransaction]
-    let balances: [String: Double]
     let totalAmount: Double
+    let currentUserName: String
     @State private var showingSettled: Bool = false
     @Environment(\.presentationMode) var presentationMode
 
     var filteredTransactions: [ExpenseTransaction] {
         allTransactions.filter { $0.isSettled == showingSettled }
     }
-
+    
     var body: some View {
+        let balances = calculateNetBalances(transactions: filteredTransactions, userName: currentUserName)
         VStack {
             // Header with image and total amount owed
             VStack {

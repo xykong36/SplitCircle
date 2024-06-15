@@ -12,7 +12,7 @@ struct BalanceCardView: View {
     @Query private var users: [User]
     @Environment(\.modelContext) private var modelContext
     @State private var currentUser: User?
-    let allTransactions: [ExpenseTransaction]
+    let unsettledTransactions: [ExpenseTransaction]
     let totalAmount: Double
     let customBlue = Color(red: 35 / 255, green: 96 / 255, blue: 250 / 255)
     

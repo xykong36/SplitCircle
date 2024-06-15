@@ -12,34 +12,36 @@ struct BalanceView: View {
     @State private var showingDebtsSheet = false
     @Query private var allTransactions: [ExpenseTransaction]
     @Binding var currentUserName: String
-    
+    var unsettledTransactions: [ExpenseTransaction] {
+        allTransactions.filter { $0.isSettled == false }
+    }
     var body: some View {
-        let balances = calculateNetBalances(allTransactions: allTransactions, userName: currentUserName)
-        let totalAmount = balances.values.reduce(0, +)
+        let unsettledBalances = calculateNetBalances(transactions: unsettledTransactions, userName: currentUserName)
+        let totalAmount = unsettledBalances.values.reduce(0, +)
         // Balance Card
         Button(action: {
             showingDebtsSheet = true
         }) {
-            BalanceCardView(allTransactions: allTransactions, totalAmount: totalAmount).padding()
+            BalanceCardView(unsettledTransactions: unsettledTransactions, totalAmount: totalAmount).padding()
         }
         .sheet(isPresented: $showingDebtsSheet) {
-            BalanceDetailView(allTransactions: allTransactions, balances: balances, totalAmount: totalAmount)
+            BalanceDetailView(allTransactions: allTransactions, totalAmount: totalAmount, currentUserName: currentUserName)
         }
     }
 }
 
-func calculateNetBalances(allTransactions: [ExpenseTransaction], userName: String) -> [String: Double] {
+func calculateNetBalances(transactions: [ExpenseTransaction], userName: String) -> [String: Double] {
     var netBalances = [String: Double]()
 
     // Transactions where user is the payer
-    let payerTransactions = allTransactions.filter { $0.payer.name == userName }
+    let payerTransactions = transactions.filter { $0.payer.name == userName }
     for transaction in payerTransactions {
         let payeeName = transaction.payee.name
         netBalances[payeeName, default: 0] += transaction.amount
     }
 
     // Transactions where user is the payee
-    let payeeTransactions = allTransactions.filter { $0.payee.name == userName }
+    let payeeTransactions = transactions.filter { $0.payee.name == userName }
     for transaction in payeeTransactions {
         let payerName = transaction.payer.name
         netBalances[payerName, default: 0] -= transaction.amount
