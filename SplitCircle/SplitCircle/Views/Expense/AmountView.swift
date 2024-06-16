@@ -10,6 +10,21 @@ import SwiftUI
 
 struct expenseAmountSection: View {
     @Binding var expenseAmount: Double
+    @State private var amountInput: String = ""
+
+    // Initialize the formatter
+    private let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        return formatter
+    }()
+
+    init(expenseAmount: Binding<Double>) {
+        _expenseAmount = expenseAmount
+        _amountInput = State(initialValue: numberFormatter.string(from: NSNumber(value: expenseAmount.wrappedValue)) ?? "")
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,8 +33,17 @@ struct expenseAmountSection: View {
                 .fontWeight(.regular)
                 .foregroundColor(.secondary)
             HStack {
-                TextField("Enter total bill amount", value: $expenseAmount, formatter: NumberFormatter())
+                TextField("Enter total bill amount", text: $amountInput)
                     .keyboardType(.decimalPad)
+                    .onReceive(amountInput.publisher.collect()) {
+                        let filtered = String($0.prefix(while: { $0.isNumber || $0 == "." }))
+                        if filtered != amountInput {
+                            amountInput = filtered
+                        }
+                        if let value = numberFormatter.number(from: filtered)?.doubleValue {
+                            expenseAmount = value
+                        }
+                    }
                 Text("USD")
             }
             .padding()
